@@ -1,36 +1,22 @@
 import java.util.*;
 
 /**
- * Created by joseph on 17/05/17.
+ * Created by Joseph on 17/05/2017.
  */
-public class Driver {
-    static Map <List, Integer> connections2 = new HashMap<List, Integer>();
+public class HeldKarp {
+    static Map<List, Integer> connections2 = new HashMap<List, Integer>();
     static Map <List, String> connectionRoutes = new HashMap<List, String>();
     static Map<String, Integer> connections = new HashMap<String, Integer>();
 
+    static List<String> cities = new ArrayList<String>();
+
     public static void main(String args[]) {
-        /* Connections will be a map of different city connections and their distances.
-         * The key will be a concatenation of the alphabetical first city, a dash, and the alphabetical last city.
-         * The value will be the distance between the two cities. */
-        connections.put("Dul-Mpl", 155);
-        connections.put("Dul-Rch", 227);
-        connections.put("Dul-SC", 146);
-        connections.put("Mpl-Rch", 83);
-        connections.put("Mpl-SC", 68);
-        connections.put("Rch-SC", 152);
-
-        /*
-         * List should end with k
-         */
-
-        List<String> cities = new ArrayList<String>(Arrays.asList("Dul", "Rch", "Mpl", "SC"));
-        //String startCity = "Dul";
-        //String endCity = "SC";
-        //String[] visit = {"Rch", "Mpl"};
 
         //int minimumDistance = connections.get(startCity + "-" + endCity);
 
         for (int cityNumber = 1; cityNumber < cities.size(); cityNumber++) {
+            System.out.println(cities);
+            System.out.println(cityNumber);
             setConnection(Arrays.asList(cities.get(cityNumber)), connections.get(cities.get(0) + "-" + cities.get(cityNumber)), cities.get(0) + "-" + cities.get(cityNumber));
         }
 
@@ -142,3 +128,4 @@ public class Driver {
         }
     }
 }
+
