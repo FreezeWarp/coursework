@@ -4,20 +4,29 @@ import java.util.*;
  * Created by Joseph on 17/05/2017.
  */
 public class HeldKarp {
-    static Map<List, Integer> connections2 = new HashMap<List, Integer>();
-    static Map <List, String> connectionRoutes = new HashMap<List, String>();
-    static Map<String, Integer> connections = new HashMap<String, Integer>();
+    Map<List, Integer> directConnections = new HashMap<List, Integer>();
+    Map<List, String> connectionRoutes = new HashMap<List, String>();
 
-    static List<String> cities = new ArrayList<String>();
+    Map<String, Integer> directDistances;
+    List<String> cities;
 
-    public static void main(String args[]) {
+    public HeldKarp(List<String> cities, Map<String, Integer> directDistances) {
+        this.directDistances = directDistances;
+        this.cities = cities;
 
-        //int minimumDistance = connections.get(startCity + "-" + endCity);
+        //int minimumDistance = directDistances.get(startCity + "-" + endCity);
 
+        /*
+         * Set initial directDistances between the origin city (which will be the first city index) and all other cities.
+         */
         for (int cityNumber = 1; cityNumber < cities.size(); cityNumber++) {
-            System.out.println(cities);
-            System.out.println(cityNumber);
-            setConnection(Arrays.asList(cities.get(cityNumber)), connections.get(cities.get(0) + "-" + cities.get(cityNumber)), cities.get(0) + "-" + cities.get(cityNumber));
+            String cityKey = cities.get(0) + "-" + cities.get(cityNumber);
+
+            setConnection(
+                    Arrays.asList(cities.get(cityNumber)), // The list of cities -- in this case, only one.
+                    directDistances.get(cityKey), // The distance to get between the cities.
+                    cityKey // The route taken.
+            );
         }
 
         System.out.println();
@@ -27,33 +36,36 @@ public class HeldKarp {
             System.out.println("s = " + visitCount);
 
             // Find every combination of size visitCount
-            Combinations.combinations(cities.subList(1, cities.size()), visitCount).forEach((citySet)->{
+            Permute.combinations(cities.subList(1, cities.size()), visitCount).forEach((citySet)->{
                 //System.out.println("City Set: " + citySet);
 
                 // Find the minimum subset for the citySet
                 for (int k = 0; k < citySet.size(); k++) {
-                    int minimum = 0xFFFFFFF;
+                    int minimum = Integer.MAX_VALUE;
                     String route = "";
 
                     for (int m = 0; m < citySet.size(); m++) {
                         if (k == m) continue;
 
-                        List testList = new ArrayList<Object>(citySet);
-                        testList.remove(citySet.get(k));
-                        testList.remove(citySet.get(m));
-                        testList.add(citySet.get(m));
+                        List cityList = new ArrayList<Object>(citySet);
 
-                        //System.out.println("Test List: " + testList);
+                        cityList.remove(citySet.get(k)); // Subtract k from the cityList
 
-                        int test = getDistance2(testList) + getDistance((String) citySet.get(k), (String) citySet.get(m));
+                        // Shift m from the cityList to the end, to signify that it is our destination point
+                        cityList.remove(citySet.get(m));
+                        cityList.add(citySet.get(m));
 
-                        if (test < minimum) {
-                            minimum = test;
-                            route = getRoute(testList) + "-" + citySet.get(k);
+                        int minimumCheck = getDistanceFromSet(cityList) + getDirectDistance((String) citySet.get(k), (String) citySet.get(m));
+
+                        if (minimumCheck < minimum) {
+                            minimum = minimumCheck;
+                            route = getRouteFromSet(cityList) + "-" + citySet.get(k);
                         }
                     }
 
                     List citySetNew = new ArrayList<Object>(citySet);
+
+                    // Shift K to the end, to make it our destination.
                     citySetNew.remove(citySet.get(k));
                     citySetNew.add(citySet.get(k));
                     setConnection(citySetNew, minimum, route);
@@ -64,13 +76,15 @@ public class HeldKarp {
         }
 
         System.out.println("Opt:");
-        int minimum = 0xFFFFFFF;
+        int minimum = Integer.MAX_VALUE;
         for (int i = 1; i < cities.size(); i++) {
             List testList = new ArrayList<Object>(cities.subList(1, cities.size()));
+
+            // Shift i to the end of the list, signifying that it is the destination.
             testList.remove(cities.get(i));
             testList.add(cities.get(i));
 
-            int test = getDistance2(testList) + getDistance(cities.get(0), cities.get(i));
+            int test = getDistanceFromSet(testList) + getDirectDistance(cities.get(0), cities.get(i));
             System.out.println("C({" + testList + "}, " + testList.get(testList.size() - 1) + ") to 0 = " + test);
 
             if (test < minimum) minimum = test;
@@ -80,20 +94,20 @@ public class HeldKarp {
     }
 
 
-    public static void setConnection(List set, int value, String route) {
+    public void setConnection(List set, int value, String route) {
         List setNew = new ArrayList<String>(set);
         Collections.sort(setNew.subList(0, setNew.size() - 1));
-        connections2.put(setNew, value);
+        directConnections.put(setNew, value);
         connectionRoutes.put(setNew, route);
 
         System.out.println("C({" + setNew + "} , " + set.get(set.size() - 1) + ") = " + value + "; route = " + route);
     }
 
 
-    public static int getDistance2(List set) {
+    public int getDistanceFromSet(List set) {
         List setNew = new ArrayList<String>(set);
         Collections.sort(setNew.subList(0, setNew.size() - 1));
-        Integer value = connections2.get(setNew);
+        Integer value = directConnections.get(setNew);
 
         if (value == null) {
             throw new IndexOutOfBoundsException("No distance found for: " + set);
@@ -103,7 +117,7 @@ public class HeldKarp {
     }
 
 
-    public static String getRoute(List set) {
+    public String getRouteFromSet(List set) {
         List setNew = new ArrayList<String>(set);
         Collections.sort(setNew.subList(0, setNew.size() - 1));
         String value = connectionRoutes.get(setNew);
@@ -116,12 +130,12 @@ public class HeldKarp {
     }
 
 
-    public static int getDistance(String place1, String place2) {
-        if (connections.containsKey(place1 + "-" + place2)) {
-            return connections.get(place1 + "-" + place2);
+    public int getDirectDistance(String place1, String place2) {
+        if (directDistances.containsKey(place1 + "-" + place2)) {
+            return directDistances.get(place1 + "-" + place2);
         }
-        else if (connections.containsKey(place2 + "-" + place1)) {
-            return connections.get(place2 + "-" + place1);
+        else if (directDistances.containsKey(place2 + "-" + place1)) {
+            return directDistances.get(place2 + "-" + place1);
         }
         else {
             throw new IndexOutOfBoundsException("No distance found for: " + place2 + ", " + place1);
