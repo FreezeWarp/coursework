@@ -2,22 +2,30 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 /**
- * Created by joseph on 23/05/17.
+ * A circle represented by {@link Figure}'s parameters.
+ * When draw is invoked, a circle (or oval) will be drawn matching the given parameters.
+ *
+ * @author Joseph T. Parsons
+ * @version 23/05/17
  */
 public class Circle extends Figure {
-    int startX;
-    int startY;
-    int width;
-    int height;
-
+    /**
+     * Creates a circle (or oval) with the given parameters.
+     *
+     * @param startX {@link Figure#startX}
+     * @param startY {@link Figure#startY}
+     * @param width {@link Figure#width}
+     * @param height {@link Figure#height}
+     * @param color {@link Figure#color}
+     */
     public Circle(int startX, int startY, int width, int height, Color color) {
-        this.color = color;
-        this.startX = startX;
-        this.startY = startY;
-        this.width = width;
-        this.height = height;
+        super(startX, startY, width, height, color);
     }
 
+    /**
+     * Draws a circle of the given start position, dimensions, and color to the graphics buffer.
+     * @param graphics the graphics object to draw to
+     */
     public void draw(Graphics graphics) {
         super.draw(graphics);
 
@@ -27,7 +35,10 @@ public class Circle extends Figure {
         graphics2d.fill(circle);
     }
 
+    /**
+     * @return A string representation, including starting position, width, height, and color.
+     */
     public String toString() {
-        return "[Circle: starting at (" + startX + ", " + startY + "), width " + width + ", height " + height + "]";
+        return "[Circle: starting at (" + startX + ", " + startY + "), width " + width + ", height " + height + ", fill color: " + this.color + "]";
     }
 }
