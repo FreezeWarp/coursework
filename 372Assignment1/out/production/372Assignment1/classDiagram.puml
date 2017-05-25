@@ -1,10 +1,55 @@
 @startuml
 
-class Dummy {
- -field1
- #field2
- ~method1()
- +method2()
+skinparam classAttributeIconSize 0
+
+abstract class Position {
+    degree: int
+    minute: int
+    +Position(degree : int, minute : int)
+    +getDegree() : int
+    +setDegree(int)
+    +getMinute() : int
+    +setMinute(int)
+    +toString() : String
 }
+
+class Latitude {
+    -northOrSouth: String
+    +Latitude(int degree, int minute, String northOrSouth)
+    +setNorthOrSouth(String)
+    +getNorthOrSouth() : String
+    +setDegree(int)
+    +toString() : String
+}
+
+class Longitude {
+    -eastOrWest: String
+    +Longitude(int degree, int minute, String eastOrWest)
+    +setEastOrWest(String)
+    +getEastOrWest() : String
+    +setDegree(int)
+    +toString() : String
+}
+
+interface WeatherRecord {
+    +setMaxTemperature(double)
+    +setMinTemperature(double)
+}
+
+class WeatherInformation {
+    maxTemperature : double
+    minTemperature : double
+    latitude : Latitude
+    longitude : Longitude
+    +WeatherInformation(Latitude, Longitude, minTemperature : double, maxTemperature : double)
+}
+
+Position <|-- Latitude
+Position <|-- Longitude
+
+WeatherRecord <|-- WeatherInformation
+
+Latitude "1" *-- "1" WeatherInformation : "identifies using"
+Longitude "1" *-- "1" WeatherInformation : "identifies using"
 
 @enduml

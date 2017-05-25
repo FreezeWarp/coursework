@@ -19,7 +19,7 @@ public class Latitude extends Position {
      * A string constant (either "N" or "S") indicating whether the Longitude applies to the eastern or western hemisphere.
      * (Why, yes, this should be an enum, or even combined into the sign of the degree. But I'm following directions.)
      */
-    String northOrSouth;
+    private String northOrSouth;
 
 
 

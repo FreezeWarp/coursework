@@ -1,5 +1,5 @@
 /**
- * Created by joseph on 12/05/17.
+ * Tracks the maximum and minimum recorded temperature in a location identified by a longitude and latitude.
  */
 public class WeatherInformation implements WeatherRecord {
     /* Variables should be more descriptive -- not immediately clear this refers to the min/max recorded temperature.

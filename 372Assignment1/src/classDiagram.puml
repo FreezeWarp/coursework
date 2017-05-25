@@ -14,7 +14,8 @@ abstract class Position {
 }
 
 class Latitude {
-    northOrSouth: String
+    -northOrSouth: String
+    +Latitude(int degree, int minute, String northOrSouth)
     +setNorthOrSouth(String)
     +getNorthOrSouth() : String
     +setDegree(int)
@@ -22,7 +23,8 @@ class Latitude {
 }
 
 class Longitude {
-    eastOrWest: String
+    -eastOrWest: String
+    +Longitude(int degree, int minute, String eastOrWest)
     +setEastOrWest(String)
     +getEastOrWest() : String
     +setDegree(int)
