@@ -1,0 +1,22 @@
+C({[Bem]} , Bem) = 336; route = Aus-Bem
+C({[Dul]} , Dul) = 263; route = Aus-Dul
+C({[Win]} , Win) = 82; route = Aus-Win
+
+s = 2
+C({[Dul, Bem]} , Bem) = 412; route = Aus-Dul-Bem
+C({[Bem, Dul]} , Dul) = 485; route = Aus-Bem-Dul
+C({[Win, Bem]} , Bem) = 440; route = Aus-Win-Bem
+C({[Bem, Win]} , Win) = 694; route = Aus-Bem-Win
+C({[Win, Dul]} , Dul) = 360; route = Aus-Win-Dul
+C({[Dul, Win]} , Win) = 541; route = Aus-Dul-Win
+
+s = 3
+C({[Dul, Win, Bem]} , Bem) = 509; route = Aus-Win-Dul-Bem
+C({[Bem, Win, Dul]} , Dul) = 589; route = Aus-Win-Bem-Dul
+C({[Bem, Dul, Win]} , Win) = 763; route = Aus-Bem-Dul-Win
+
+Opt:
+C({[Dul, Win, Bem]}, Bem) to 0 = 845; route = Aus-Win-Dul-Bem-Aus
+C({[Bem, Win, Dul]}, Dul) to 0 = 852; route = Aus-Win-Bem-Dul-Aus
+C({[Bem, Dul, Win]}, Win) to 0 = 845; route = Aus-Bem-Dul-Win-Aus
+Opt = 845; route = Aus-Win-Dul-Bem-Aus

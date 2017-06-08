@@ -1,0 +1,45 @@
+C({[Ely]} , Ely) = 339; route = AL-Ely
+C({[GR]} , GR) = 301; route = AL-GR
+C({[TRF]} , TRF) = 396; route = AL-TRF
+C({[Wrt]} , Wrt) = 116; route = AL-Wrt
+
+s = 2
+C({[GR, Ely]} , Ely) = 407; route = AL-GR-Ely
+C({[Ely, GR]} , GR) = 445; route = AL-Ely-GR
+C({[TRF, Ely]} , Ely) = 662; route = AL-TRF-Ely
+C({[Ely, TRF]} , TRF) = 605; route = AL-Ely-TRF
+C({[Wrt, Ely]} , Ely) = 535; route = AL-Wrt-Ely
+C({[Ely, Wrt]} , Wrt) = 758; route = AL-Ely-Wrt
+C({[TRF, GR]} , GR) = 557; route = AL-TRF-GR
+C({[GR, TRF]} , TRF) = 462; route = AL-GR-TRF
+C({[Wrt, GR]} , GR) = 447; route = AL-Wrt-GR
+C({[GR, Wrt]} , Wrt) = 632; route = AL-GR-Wrt
+C({[Wrt, TRF]} , TRF) = 466; route = AL-Wrt-TRF
+C({[TRF, Wrt]} , Wrt) = 746; route = AL-TRF-Wrt
+
+s = 3
+C({[GR, TRF, Ely]} , Ely) = 663; route = AL-TRF-GR-Ely
+C({[Ely, TRF, GR]} , GR) = 766; route = AL-Ely-TRF-GR
+C({[Ely, GR, TRF]} , TRF) = 606; route = AL-Ely-GR-TRF
+C({[GR, Wrt, Ely]} , Ely) = 553; route = AL-Wrt-GR-Ely
+C({[Ely, Wrt, GR]} , GR) = 641; route = AL-Wrt-Ely-GR
+C({[Ely, GR, Wrt]} , Wrt) = 776; route = AL-Ely-GR-Wrt
+C({[TRF, Wrt, Ely]} , Ely) = 732; route = AL-Wrt-TRF-Ely
+C({[Ely, Wrt, TRF]} , TRF) = 801; route = AL-Wrt-Ely-TRF
+C({[Ely, TRF, Wrt]} , Wrt) = 955; route = AL-Ely-TRF-Wrt
+C({[TRF, Wrt, GR]} , GR) = 627; route = AL-Wrt-TRF-GR
+C({[GR, Wrt, TRF]} , TRF) = 608; route = AL-Wrt-GR-TRF
+C({[GR, TRF, Wrt]} , Wrt) = 812; route = AL-GR-TRF-Wrt
+
+s = 4
+C({[GR, TRF, Wrt, Ely]} , Ely) = 733; route = AL-Wrt-TRF-GR-Ely
+C({[Ely, TRF, Wrt, GR]} , GR) = 838; route = AL-Wrt-TRF-Ely-GR
+C({[Ely, GR, Wrt, TRF]} , TRF) = 802; route = AL-Wrt-Ely-GR-TRF
+C({[Ely, GR, TRF, Wrt]} , Wrt) = 956; route = AL-Ely-GR-TRF-Wrt
+
+Opt:
+C({[GR, TRF, Wrt, Ely]}, Ely) to 0 = 1072; route = AL-Wrt-TRF-GR-Ely-AL
+C({[Ely, TRF, Wrt, GR]}, GR) to 0 = 1139; route = AL-Wrt-TRF-Ely-GR-AL
+C({[Ely, GR, Wrt, TRF]}, TRF) to 0 = 1198; route = AL-Wrt-Ely-GR-TRF-AL
+C({[Ely, GR, TRF, Wrt]}, Wrt) to 0 = 1072; route = AL-Ely-GR-TRF-Wrt-AL
+Opt = 1072; route = AL-Wrt-TRF-GR-Ely-AL

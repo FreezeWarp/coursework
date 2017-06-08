@@ -1,0 +1,22 @@
+C({[Mpl]} , Mpl) = 155; route = Dul-Mpl
+C({[Rch]} , Rch) = 227; route = Dul-Rch
+C({[SC]} , SC) = 146; route = Dul-SC
+
+s = 2
+C({[Rch, Mpl]} , Mpl) = 310; route = Dul-Rch-Mpl
+C({[Mpl, Rch]} , Rch) = 238; route = Dul-Mpl-Rch
+C({[SC, Mpl]} , Mpl) = 214; route = Dul-SC-Mpl
+C({[Mpl, SC]} , SC) = 223; route = Dul-Mpl-SC
+C({[SC, Rch]} , Rch) = 298; route = Dul-SC-Rch
+C({[Rch, SC]} , SC) = 379; route = Dul-Rch-SC
+
+s = 3
+C({[Rch, SC, Mpl]} , Mpl) = 381; route = Dul-SC-Rch-Mpl
+C({[Mpl, SC, Rch]} , Rch) = 297; route = Dul-SC-Mpl-Rch
+C({[Mpl, Rch, SC]} , SC) = 378; route = Dul-Rch-Mpl-SC
+
+Opt:
+C({[Rch, SC, Mpl]}, Mpl) to 0 = 536; route = Dul-SC-Rch-Mpl-Dul
+C({[Mpl, SC, Rch]}, Rch) to 0 = 524; route = Dul-SC-Mpl-Rch-Dul
+C({[Mpl, Rch, SC]}, SC) to 0 = 524; route = Dul-Rch-Mpl-SC-Dul
+Opt = 524; route = Dul-SC-Mpl-Rch-Dul

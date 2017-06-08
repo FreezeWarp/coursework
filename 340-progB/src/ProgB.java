@@ -3,8 +3,7 @@ import javafx.application.Platform;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,8 +22,15 @@ public class ProgB extends Application {
 
     public void start(Stage primaryStage) {
         Object[] parsedData;
+        File[] fileHandles = openFile(primaryStage);
 
-        if ((parsedData = readCitiesFromFile(primaryStage)) != null) {
+        if ((parsedData = readCitiesFromFile(fileHandles[0])) != null) {
+            try {
+                System.setOut(new PrintStream(fileHandles[1]));
+            } catch (java.io.IOException ex) {
+                System.out.println("Unable to register output handler. Exitting.");
+            }
+
             HeldKarp mailman = new HeldKarp((List<String>) parsedData[0], (Map<String, Integer>) parsedData[1]);
         }
         else {
@@ -35,11 +41,13 @@ public class ProgB extends Application {
         System.exit(0);
     }
 
-    public Object[] readCitiesFromFile(Stage primaryStage) {
-        Map<String, Integer> directDistances = new HashMap<String, Integer>();
-        List<String> cities = new ArrayList<String>();
-
-        /* Display Chooser and Select File */
+    /**
+     * Standard method to open a file. I will probably just reuse this in all programs.
+     * @param primaryStage The JavaFX stage to use for opening.
+     * @return A pair of file objects, the first belonging to the input file, the second a file to output to.
+     */
+    public File[] openFile(Stage primaryStage) {
+         /* Display Chooser and Select File */
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File(System.getProperty("user.dir"))); // See, this is default in Linux. As it would be in any reasonable operating system. In Windows, it is not.
         File file = fileChooser.showOpenDialog(primaryStage);
@@ -49,16 +57,11 @@ public class ProgB extends Application {
         if (file == null) {
             System.out.println("No file selected. Exiting.");
             return null;
-        }
-
-        else if (!file.exists()) {
+        } else if (!file.exists()) {
             System.out.println("File does not exist. Exiting.");
             return null;
-        }
-
-        else {
+        } else {
             System.out.println("Input File Is: " + file.getAbsolutePath());
-
 
             /* Calculate Output File Name Using Input File Name */
             String fileName = file.getAbsolutePath();
@@ -66,72 +69,81 @@ public class ProgB extends Application {
             Path outFile = Paths.get(fileName.substring(0, extensionDelimiter) + "_out" + fileName.substring(extensionDelimiter, fileName.length()));
 
             System.out.println("Output File Will Be: " + outFile.toAbsolutePath());
-
+            System.out.println();
 
             try {
                 /* Delete Output File if It Currently Exists */
                 Files.deleteIfExists(outFile);
 
+                return new File[]{file, outFile.toFile()};
+            } catch (IOException ex) {
+                return null;
+            }
+        }
+    }
 
-                /* Run through each line of the input file from a stream */
+    /**
+     * Reads the city distance graph (as a matrix) from an input file.
+     *
+     * @param inFile An input file object to read from.
+     * @return A map of direct distances, and a list of cities.
+     */
+    public Object[] readCitiesFromFile(File inFile) {
+        Map<String, Integer> directDistances = new HashMap<String, Integer>(); // mpls-rch
+        List<String> cities = new ArrayList<String>();
 
-                Files.lines(Paths.get(file.getPath())).findFirst().map((line) -> {
-                    String[] columns = line.split("\\s+");
-                    for (int columnNum = 1; columnNum < columns.length; columnNum++) {
-                        cities.add(columns[columnNum]);
+        try {
+            /* Run through each line of the input file from a stream */
+
+            Files.lines(Paths.get(inFile.getPath())).findFirst().map((line) -> {
+                String[] columns = line.split("\\s+");
+                for (int columnNum = 1; columnNum < columns.length; columnNum++) {
+                    cities.add(columns[columnNum]);
+                }
+
+                return line;
+            });
+
+            Files.lines(Paths.get(inFile.getPath())).skip(1).forEach((line)->{
+                String[] columns = line.trim().split("\\s+");
+
+                System.out.println("File Parsing Information:");
+                for (String col : columns) System.out.print("Col: " + col + "; ");
+                System.out.println();
+
+                if (columns.length > cities.size() + 1) {
+                    throw new IllegalArgumentException("Too many columns on line.");
+                }
+
+                for (int columnNum = 1; columnNum < columns.length; columnNum++) {
+                    if (columns[0].equals(cities.get(cities.size() - columns.length + columnNum))) {
+                        if (!((String) (columns[columnNum])).equals("0"))
+                            throw new IllegalArgumentException("Parity violated: 0 expected, " + columns[columnNum] + "found. At position " + columns[0] + ", " + cities.get(cities.size() - 1 - columnNum) + "; column " + columnNum + ". Input data is invalid.");
+
+                        // Otherwise, just ignore the data. We don't need/want it.
                     }
 
-                    return line;
-                });
-
-                Files.lines(Paths.get(file.getPath())).skip(1).forEach((line)->{
-                    String[] columns = line.split("\\s+");
-
-                    for (String col : columns) System.out.print("Col: " + col + "; ");
-                    System.out.println();
-
-                    if (columns.length > cities.size() + 1) {
-                        throw new IllegalArgumentException("Too many columns on line.");
-                    }
-
-                    for (int columnNum = 1; columnNum < columns.length; columnNum++) {
-                        if (columns[0].equals(cities.get(cities.size() - columns.length + columnNum))) {
-                            if (!((String) (columns[columnNum])).equals("0"))
-                                throw new IllegalArgumentException("Parity violated: 0 expected, " + columns[columnNum] + "found. At position " + columns[0] + ", " + cities.get(cities.size() - 1 - columnNum) + "; column " + columnNum + ". Input data is invalid.");
-
-                            // Otherwise, just ignore the data. We don't need/want it.
-                        }
-
-                        else {
+                    else {
+                        try {
+                            directDistances.put(columns[0] + "-" + cities.get(cities.size() - columns.length + columnNum), Integer.parseInt(columns[columnNum]));
+                        } catch (Exception ex) {
                             try {
-                                directDistances.put(columns[0] + "-" + cities.get(cities.size() - columns.length + columnNum), Integer.parseInt(columns[columnNum]));
-                            } catch (Exception ex) {
-                                try {
-                                    directDistances.put(columns[0] + "-" + cities.get(cities.size() - columns.length + columnNum), (int) Double.parseDouble(columns[columnNum]));
-                                    System.err.println("A double was encountered: " + columns[columnNum] + ". It will be added as an integer.");
-                                } catch (Exception ex2) {
-                                    System.err.println("An error was encountered parsing this value: " + columns[columnNum] + ". It will be ignored.");
-                                }
+                                directDistances.put(columns[0] + "-" + cities.get(cities.size() - columns.length + columnNum), (int) Double.parseDouble(columns[columnNum]));
+                                System.err.println("A double was encountered: " + columns[columnNum] + ". It will be added as an integer.");
+                            } catch (Exception ex2) {
+                                System.err.println("An error was encountered parsing this value: " + columns[columnNum] + ". It will be ignored.");
                             }
                         }
                     }
+                }
+            });
 
-                    /*try {
-                        Files.write(outFile, (total + System.lineSeparator()).getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-                    } catch (IOException ex) {
-                        System.err.println("IOException occured trying to write file. Attempts will continue with further input.");
-                    }
+            System.out.println("Hashmap:" + directDistances);
 
-                    System.out.println("Line Total: " + total);*/
-                });
-
-                System.out.println("Hashmap:" + directDistances);
-
-                Object[] returnData = {cities, directDistances};
-                return returnData;
-            } catch (IOException ex) {
-                System.err.println("IOException occurred trying to read file. Giving up.");
-            }
+            Object[] returnData = {cities, directDistances};
+            return returnData;
+        } catch (IOException ex) {
+            System.err.println("IOException occurred trying to read file. Giving up.");
         }
 
         return null;
