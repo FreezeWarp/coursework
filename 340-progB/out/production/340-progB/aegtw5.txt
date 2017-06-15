@@ -1,6 +1,0 @@
--    AL Ely  GR TRF Wrt
-AL    0 339 301 396 116
-Ely       0 106 266 419
-GR            0 161 331
-TRF               0 350
-Wrt                   0

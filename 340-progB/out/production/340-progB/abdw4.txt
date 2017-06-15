@@ -1,5 +1,0 @@
--   Aus Bem Dul Win
-Aus   0 336 263  82
-Bem       0 149 358
-Dul           0 278
-Win               0

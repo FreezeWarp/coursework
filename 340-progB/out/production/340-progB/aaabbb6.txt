@@ -1,7 +1,0 @@
--    AL Alx Aus Bau Bem Bra
-AL    0 228  22 432 322 329
-Alx       0 243 237 133  87
-Aus           0 447 336 243
-Bau               0 101 202
-Bem                   0  97
-Bra                       0
