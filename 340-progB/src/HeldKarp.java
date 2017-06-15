@@ -14,8 +14,6 @@ public class HeldKarp {
         this.directDistances = directDistances;
         this.cities = cities;
 
-        //int minimumDistance = directDistances.get(startCity + "-" + endCity);
-
         /*
          * Set initial directDistances between the origin city (which will be the first city index) and all other cities.
          */
@@ -23,9 +21,9 @@ public class HeldKarp {
             String cityKey = cities.get(0) + "-" + cities.get(cityNumber);
 
             setConnection(
-                    Arrays.asList(cities.get(cityNumber)), // The list of cities -- in this case, only one.
-                    directDistances.get(cityKey), // The distance to get between the cities.
-                    cityKey // The route taken.
+                Arrays.asList(cities.get(cityNumber)), // The list of cities -- in this case, only one.
+                directDistances.get(cityKey), // The distance to get between the cities.
+                cityKey // The route taken.
             );
         }
 
@@ -37,23 +35,23 @@ public class HeldKarp {
 
             // Find every combination of size visitCount
             Permute.combinations(cities.subList(1, cities.size()), visitCount).forEach((citySet)->{
-                //System.out.println("City Set: " + citySet);
-
                 // Find the minimum subset for the citySet
-                for (int k = 0; k < citySet.size(); k++) {
+                for (int k = 0; k < citySet.size(); k++) { // Performs the for-all k
                     int minimum = Integer.MAX_VALUE;
                     String route = "";
 
-                    for (int m = 0; m < citySet.size(); m++) {
-                        if (k == m) continue;
+                    for (int m = 0; m < citySet.size(); m++) { // Performs the minimum operation
+                        if (k == m) continue; // I honestly don't know why.
 
+                        // Create the city list to test.
                         List cityList = new ArrayList<Object>(citySet);
-                        cityList.remove(citySet.get(k)); // Subtract k from the cityList
+                        cityList.remove(citySet.get(k)); // Subtract k from the cityList, since we are using the subsolution of citySet - {k} to solve this problem efficiently.
 
                         cityList = getCitySet(cityList, citySet.get(m));
 
                         int minimumCheck = getDistanceFromSet(cityList) + getDirectDistance((String) citySet.get(k), (String) citySet.get(m));
 
+                        // Record the minimum.
                         if (minimumCheck < minimum) {
                             minimum = minimumCheck;
                             route = getRouteFromSet(cityList) + "-" + citySet.get(k);
@@ -62,8 +60,8 @@ public class HeldKarp {
 
                     // Shift K to the end, to make it our destination.
                     setConnection(getCitySet(
-                            new ArrayList<Object>(citySet),
-                            citySet.get(k)
+                        new ArrayList<Object>(citySet),
+                        citySet.get(k)
                     ), minimum, route);
                 }
             });
@@ -71,19 +69,24 @@ public class HeldKarp {
             System.out.println();
         }
 
+
+        /* Find the best path, where we end on a specific city and then return to our start city. */
+        int minimum = Integer.MAX_VALUE; // Record the minimum distance from all combinations.
+        int minimumRoute = 0; // Record the city number that produced the minimum.
+
         System.out.println("Opt:");
-        int minimum = Integer.MAX_VALUE;
-        int minimumRoute = 0;
         for (int i = 1; i < cities.size(); i++) {
             List citySetTest = getCitySet(
-                    new ArrayList<Object>(cities.subList(1, cities.size())),
-                    cities.get(i)
+                new ArrayList<Object>(cities.subList(1, cities.size())),
+                cities.get(i)
             );
 
+            // Display each path tested.
             int test = getDistanceFromSet(citySetTest) + getDirectDistance(cities.get(0), cities.get(i));
             System.out.println("C({" + citySetTest + "}, " + citySetTest.get(citySetTest.size() - 1) + ") to 0 = " + test +
                     "; route = " + getRouteFromSet(citySetTest) + "-" + cities.get(0));
 
+            // Record the optimal path.
             if (test < minimum) {
                 minimum = test;
                 minimumRoute = i;

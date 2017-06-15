@@ -14,6 +14,7 @@ import java.util.Map;
 
 /**
  * Created by joseph on 17/05/17.
+ * Well, I don't understand it, but I can perform a calculation of 15 cities (from distances3.txt) in about 5-10 seconds on a crappy laptop CPU with a decent but not amazing SDD.
  */
 public class ProgB extends Application {
     public static void main(String[] args) {
@@ -24,17 +25,18 @@ public class ProgB extends Application {
         Object[] parsedData;
         File[] fileHandles = openFile(primaryStage);
 
-        if ((parsedData = readCitiesFromFile(fileHandles[0])) != null) {
-            try {
-                System.setOut(new PrintStream(fileHandles[1]));
-            } catch (java.io.IOException ex) {
-                System.out.println("Unable to register output handler. Exitting.");
+        if (fileHandles != null) {
+            if ((parsedData = readCitiesFromFile(fileHandles[0])) != null) {
+                try {
+                    System.setOut(new PrintStream(fileHandles[1]));
+                } catch (java.io.IOException ex) {
+                    System.out.println("Unable to register output handler. Exitting.");
+                }
+
+                HeldKarp mailman = new HeldKarp((List<String>) parsedData[0], (Map<String, Integer>) parsedData[1]);
+            } else {
+                System.out.println("Unable to parse file.");
             }
-
-            HeldKarp mailman = new HeldKarp((List<String>) parsedData[0], (Map<String, Integer>) parsedData[1]);
-        }
-        else {
-
         }
 
         Platform.exit(); // Don't keep running after completion.
