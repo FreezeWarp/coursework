@@ -1,0 +1,10 @@
+-	Atlanta	Austin	Baltimore	Boston	Chicago	Dallas	Denver	Honolulu	Houston
+Atlanta	        0	1315.28	927.35	1505.11	944.40	1157.42	1945.42	7224.89	1126.72
+Austin	            0	2166.00	2724.01	1571.76	293.52	1240.77	6029.37	235.70
+Baltimore	            0	577.85	973.23	1947.28	2422.32	7792.75	2010.47
+Boston	                    0	1366.63	2490.97	2838.62	8171.81	2578.59
+Chicago	                        0	1290.15	1474.26	6831.68	1510.62
+Dallas	                            0	1064.41	6094.11	362.26
+Denver	                                0	5371.40	1412.40
+Honolulu	                                0	6263.11
+Houston	                                        0

@@ -1,0 +1,211 @@
+C({[Austin]} , Austin) = 1315; route = Atlanta-Austin
+C({[Baltimore]} , Baltimore) = 927; route = Atlanta-Baltimore
+C({[Boston]} , Boston) = 1505; route = Atlanta-Boston
+C({[Chicago]} , Chicago) = 944; route = Atlanta-Chicago
+C({[Dallas]} , Dallas) = 1157; route = Atlanta-Dallas
+C({[Denver]} , Denver) = 1945; route = Atlanta-Denver
+
+s = 2
+C({[Baltimore, Austin]} , Austin) = 3093; route = Atlanta-Baltimore-Austin
+C({[Austin, Baltimore]} , Baltimore) = 3481; route = Atlanta-Austin-Baltimore
+C({[Boston, Austin]} , Austin) = 4229; route = Atlanta-Boston-Austin
+C({[Austin, Boston]} , Boston) = 4039; route = Atlanta-Austin-Boston
+C({[Chicago, Austin]} , Austin) = 2515; route = Atlanta-Chicago-Austin
+C({[Austin, Chicago]} , Chicago) = 2886; route = Atlanta-Austin-Chicago
+C({[Dallas, Austin]} , Austin) = 1450; route = Atlanta-Dallas-Austin
+C({[Austin, Dallas]} , Dallas) = 1608; route = Atlanta-Austin-Dallas
+C({[Denver, Austin]} , Austin) = 3185; route = Atlanta-Denver-Austin
+C({[Austin, Denver]} , Denver) = 2555; route = Atlanta-Austin-Denver
+C({[Boston, Baltimore]} , Baltimore) = 2082; route = Atlanta-Boston-Baltimore
+C({[Baltimore, Boston]} , Boston) = 1504; route = Atlanta-Baltimore-Boston
+C({[Chicago, Baltimore]} , Baltimore) = 1917; route = Atlanta-Chicago-Baltimore
+C({[Baltimore, Chicago]} , Chicago) = 1900; route = Atlanta-Baltimore-Chicago
+C({[Dallas, Baltimore]} , Baltimore) = 3104; route = Atlanta-Dallas-Baltimore
+C({[Baltimore, Dallas]} , Dallas) = 2874; route = Atlanta-Baltimore-Dallas
+C({[Denver, Baltimore]} , Baltimore) = 4367; route = Atlanta-Denver-Baltimore
+C({[Baltimore, Denver]} , Denver) = 3349; route = Atlanta-Baltimore-Denver
+C({[Chicago, Boston]} , Boston) = 2310; route = Atlanta-Chicago-Boston
+C({[Boston, Chicago]} , Chicago) = 2871; route = Atlanta-Boston-Chicago
+C({[Dallas, Boston]} , Boston) = 3647; route = Atlanta-Dallas-Boston
+C({[Boston, Dallas]} , Dallas) = 3995; route = Atlanta-Boston-Dallas
+C({[Denver, Boston]} , Boston) = 4783; route = Atlanta-Denver-Boston
+C({[Boston, Denver]} , Denver) = 4343; route = Atlanta-Boston-Denver
+C({[Dallas, Chicago]} , Chicago) = 2447; route = Atlanta-Dallas-Chicago
+C({[Chicago, Dallas]} , Dallas) = 2234; route = Atlanta-Chicago-Dallas
+C({[Denver, Chicago]} , Chicago) = 3419; route = Atlanta-Denver-Chicago
+C({[Chicago, Denver]} , Denver) = 2418; route = Atlanta-Chicago-Denver
+C({[Denver, Dallas]} , Dallas) = 3009; route = Atlanta-Denver-Dallas
+C({[Dallas, Denver]} , Denver) = 2221; route = Atlanta-Dallas-Denver
+
+s = 3
+C({[Baltimore, Boston, Austin]} , Austin) = 4228; route = Atlanta-Baltimore-Boston-Austin
+C({[Austin, Boston, Baltimore]} , Baltimore) = 4616; route = Atlanta-Austin-Boston-Baltimore
+C({[Austin, Baltimore, Boston]} , Boston) = 4058; route = Atlanta-Austin-Baltimore-Boston
+C({[Baltimore, Chicago, Austin]} , Austin) = 3471; route = Atlanta-Baltimore-Chicago-Austin
+C({[Austin, Chicago, Baltimore]} , Baltimore) = 3859; route = Atlanta-Austin-Chicago-Baltimore
+C({[Austin, Baltimore, Chicago]} , Chicago) = 4454; route = Atlanta-Austin-Baltimore-Chicago
+C({[Baltimore, Dallas, Austin]} , Austin) = 3167; route = Atlanta-Baltimore-Dallas-Austin
+C({[Austin, Dallas, Baltimore]} , Baltimore) = 3555; route = Atlanta-Austin-Dallas-Baltimore
+C({[Austin, Baltimore, Dallas]} , Dallas) = 3386; route = Atlanta-Baltimore-Austin-Dallas
+C({[Baltimore, Denver, Austin]} , Austin) = 4589; route = Atlanta-Baltimore-Denver-Austin
+C({[Austin, Denver, Baltimore]} , Baltimore) = 4977; route = Atlanta-Austin-Denver-Baltimore
+C({[Austin, Baltimore, Denver]} , Denver) = 4333; route = Atlanta-Baltimore-Austin-Denver
+C({[Boston, Chicago, Austin]} , Austin) = 4442; route = Atlanta-Boston-Chicago-Austin
+C({[Austin, Chicago, Boston]} , Boston) = 4252; route = Atlanta-Austin-Chicago-Boston
+C({[Austin, Boston, Chicago]} , Chicago) = 5405; route = Atlanta-Austin-Boston-Chicago
+C({[Boston, Dallas, Austin]} , Austin) = 4288; route = Atlanta-Boston-Dallas-Austin
+C({[Austin, Dallas, Boston]} , Boston) = 4098; route = Atlanta-Austin-Dallas-Boston
+C({[Austin, Boston, Dallas]} , Dallas) = 4522; route = Atlanta-Boston-Austin-Dallas
+C({[Boston, Denver, Austin]} , Austin) = 5583; route = Atlanta-Boston-Denver-Austin
+C({[Austin, Denver, Boston]} , Boston) = 5393; route = Atlanta-Austin-Denver-Boston
+C({[Austin, Boston, Denver]} , Denver) = 5469; route = Atlanta-Boston-Austin-Denver
+C({[Chicago, Dallas, Austin]} , Austin) = 2527; route = Atlanta-Chicago-Dallas-Austin
+C({[Austin, Dallas, Chicago]} , Chicago) = 2898; route = Atlanta-Austin-Dallas-Chicago
+C({[Austin, Chicago, Dallas]} , Dallas) = 2808; route = Atlanta-Chicago-Austin-Dallas
+C({[Chicago, Denver, Austin]} , Austin) = 3658; route = Atlanta-Chicago-Denver-Austin
+C({[Austin, Denver, Chicago]} , Chicago) = 4029; route = Atlanta-Austin-Denver-Chicago
+C({[Austin, Chicago, Denver]} , Denver) = 3755; route = Atlanta-Chicago-Austin-Denver
+C({[Dallas, Denver, Austin]} , Austin) = 3302; route = Atlanta-Denver-Dallas-Austin
+C({[Austin, Denver, Dallas]} , Dallas) = 3478; route = Atlanta-Denver-Austin-Dallas
+C({[Austin, Dallas, Denver]} , Denver) = 2672; route = Atlanta-Austin-Dallas-Denver
+C({[Boston, Chicago, Baltimore]} , Baltimore) = 2887; route = Atlanta-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Boston]} , Boston) = 2494; route = Atlanta-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Chicago]} , Chicago) = 2870; route = Atlanta-Baltimore-Boston-Chicago
+C({[Boston, Dallas, Baltimore]} , Baltimore) = 4224; route = Atlanta-Dallas-Boston-Baltimore
+C({[Baltimore, Dallas, Boston]} , Boston) = 3681; route = Atlanta-Dallas-Baltimore-Boston
+C({[Baltimore, Boston, Dallas]} , Dallas) = 3994; route = Atlanta-Baltimore-Boston-Dallas
+C({[Boston, Denver, Baltimore]} , Baltimore) = 5360; route = Atlanta-Denver-Boston-Baltimore
+C({[Baltimore, Denver, Boston]} , Boston) = 4944; route = Atlanta-Denver-Baltimore-Boston
+C({[Baltimore, Boston, Denver]} , Denver) = 4342; route = Atlanta-Baltimore-Boston-Denver
+C({[Chicago, Dallas, Baltimore]} , Baltimore) = 3420; route = Atlanta-Dallas-Chicago-Baltimore
+C({[Baltimore, Dallas, Chicago]} , Chicago) = 4077; route = Atlanta-Dallas-Baltimore-Chicago
+C({[Baltimore, Chicago, Dallas]} , Dallas) = 3190; route = Atlanta-Baltimore-Chicago-Dallas
+C({[Chicago, Denver, Baltimore]} , Baltimore) = 4392; route = Atlanta-Denver-Chicago-Baltimore
+C({[Baltimore, Denver, Chicago]} , Chicago) = 4823; route = Atlanta-Baltimore-Denver-Chicago
+C({[Baltimore, Chicago, Denver]} , Denver) = 3374; route = Atlanta-Baltimore-Chicago-Denver
+C({[Dallas, Denver, Baltimore]} , Baltimore) = 4643; route = Atlanta-Dallas-Denver-Baltimore
+C({[Baltimore, Denver, Dallas]} , Dallas) = 4413; route = Atlanta-Baltimore-Denver-Dallas
+C({[Baltimore, Dallas, Denver]} , Denver) = 3938; route = Atlanta-Baltimore-Dallas-Denver
+C({[Chicago, Dallas, Boston]} , Boston) = 3813; route = Atlanta-Dallas-Chicago-Boston
+C({[Boston, Dallas, Chicago]} , Chicago) = 5013; route = Atlanta-Dallas-Boston-Chicago
+C({[Boston, Chicago, Dallas]} , Dallas) = 4161; route = Atlanta-Boston-Chicago-Dallas
+C({[Chicago, Denver, Boston]} , Boston) = 4785; route = Atlanta-Denver-Chicago-Boston
+C({[Boston, Denver, Chicago]} , Chicago) = 5817; route = Atlanta-Boston-Denver-Chicago
+C({[Boston, Chicago, Denver]} , Denver) = 4345; route = Atlanta-Boston-Chicago-Denver
+C({[Dallas, Denver, Boston]} , Boston) = 5059; route = Atlanta-Dallas-Denver-Boston
+C({[Boston, Denver, Dallas]} , Dallas) = 5407; route = Atlanta-Boston-Denver-Dallas
+C({[Boston, Dallas, Denver]} , Denver) = 5059; route = Atlanta-Boston-Dallas-Denver
+C({[Dallas, Denver, Chicago]} , Chicago) = 3695; route = Atlanta-Dallas-Denver-Chicago
+C({[Chicago, Denver, Dallas]} , Dallas) = 3482; route = Atlanta-Chicago-Denver-Dallas
+C({[Chicago, Dallas, Denver]} , Denver) = 3298; route = Atlanta-Chicago-Dallas-Denver
+
+s = 4
+C({[Baltimore, Boston, Chicago, Austin]} , Austin) = 4441; route = Atlanta-Baltimore-Boston-Chicago-Austin
+C({[Austin, Boston, Chicago, Baltimore]} , Baltimore) = 4829; route = Atlanta-Austin-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Boston]} , Boston) = 4436; route = Atlanta-Austin-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Chicago]} , Chicago) = 5424; route = Atlanta-Austin-Baltimore-Boston-Chicago
+C({[Baltimore, Boston, Dallas, Austin]} , Austin) = 4287; route = Atlanta-Baltimore-Boston-Dallas-Austin
+C({[Austin, Boston, Dallas, Baltimore]} , Baltimore) = 4675; route = Atlanta-Austin-Dallas-Boston-Baltimore
+C({[Austin, Baltimore, Dallas, Boston]} , Boston) = 4132; route = Atlanta-Austin-Dallas-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas]} , Dallas) = 4521; route = Atlanta-Baltimore-Boston-Austin-Dallas
+C({[Baltimore, Boston, Denver, Austin]} , Austin) = 5582; route = Atlanta-Baltimore-Boston-Denver-Austin
+C({[Austin, Boston, Denver, Baltimore]} , Baltimore) = 5970; route = Atlanta-Austin-Denver-Boston-Baltimore
+C({[Austin, Baltimore, Denver, Boston]} , Boston) = 5554; route = Atlanta-Austin-Denver-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver]} , Denver) = 5468; route = Atlanta-Baltimore-Boston-Austin-Denver
+C({[Baltimore, Chicago, Dallas, Austin]} , Austin) = 3483; route = Atlanta-Baltimore-Chicago-Dallas-Austin
+C({[Austin, Chicago, Dallas, Baltimore]} , Baltimore) = 3871; route = Atlanta-Austin-Dallas-Chicago-Baltimore
+C({[Austin, Baltimore, Dallas, Chicago]} , Chicago) = 4528; route = Atlanta-Austin-Dallas-Baltimore-Chicago
+C({[Austin, Baltimore, Chicago, Dallas]} , Dallas) = 3764; route = Atlanta-Baltimore-Chicago-Austin-Dallas
+C({[Baltimore, Chicago, Denver, Austin]} , Austin) = 4614; route = Atlanta-Baltimore-Chicago-Denver-Austin
+C({[Austin, Chicago, Denver, Baltimore]} , Baltimore) = 5002; route = Atlanta-Austin-Denver-Chicago-Baltimore
+C({[Austin, Baltimore, Denver, Chicago]} , Chicago) = 5807; route = Atlanta-Baltimore-Austin-Denver-Chicago
+C({[Austin, Baltimore, Chicago, Denver]} , Denver) = 4711; route = Atlanta-Baltimore-Chicago-Austin-Denver
+C({[Baltimore, Dallas, Denver, Austin]} , Austin) = 4706; route = Atlanta-Baltimore-Denver-Dallas-Austin
+C({[Austin, Dallas, Denver, Baltimore]} , Baltimore) = 5094; route = Atlanta-Austin-Dallas-Denver-Baltimore
+C({[Austin, Baltimore, Denver, Dallas]} , Dallas) = 4882; route = Atlanta-Baltimore-Denver-Austin-Dallas
+C({[Austin, Baltimore, Dallas, Denver]} , Denver) = 4407; route = Atlanta-Baltimore-Dallas-Austin-Denver
+C({[Boston, Chicago, Dallas, Austin]} , Austin) = 4454; route = Atlanta-Boston-Chicago-Dallas-Austin
+C({[Austin, Chicago, Dallas, Boston]} , Boston) = 4264; route = Atlanta-Austin-Dallas-Chicago-Boston
+C({[Austin, Boston, Dallas, Chicago]} , Chicago) = 5464; route = Atlanta-Austin-Dallas-Boston-Chicago
+C({[Austin, Boston, Chicago, Dallas]} , Dallas) = 4735; route = Atlanta-Boston-Chicago-Austin-Dallas
+C({[Boston, Chicago, Denver, Austin]} , Austin) = 5585; route = Atlanta-Boston-Chicago-Denver-Austin
+C({[Austin, Chicago, Denver, Boston]} , Boston) = 5395; route = Atlanta-Austin-Denver-Chicago-Boston
+C({[Austin, Boston, Denver, Chicago]} , Chicago) = 6759; route = Atlanta-Austin-Denver-Boston-Chicago
+C({[Austin, Boston, Chicago, Denver]} , Denver) = 5682; route = Atlanta-Boston-Chicago-Austin-Denver
+C({[Boston, Dallas, Denver, Austin]} , Austin) = 5700; route = Atlanta-Boston-Denver-Dallas-Austin
+C({[Austin, Dallas, Denver, Boston]} , Boston) = 5510; route = Atlanta-Austin-Dallas-Denver-Boston
+C({[Austin, Boston, Denver, Dallas]} , Dallas) = 5876; route = Atlanta-Boston-Denver-Austin-Dallas
+C({[Austin, Boston, Dallas, Denver]} , Denver) = 5528; route = Atlanta-Boston-Dallas-Austin-Denver
+C({[Chicago, Dallas, Denver, Austin]} , Austin) = 3775; route = Atlanta-Chicago-Denver-Dallas-Austin
+C({[Austin, Dallas, Denver, Chicago]} , Chicago) = 4146; route = Atlanta-Austin-Dallas-Denver-Chicago
+C({[Austin, Chicago, Denver, Dallas]} , Dallas) = 3951; route = Atlanta-Chicago-Denver-Austin-Dallas
+C({[Austin, Chicago, Dallas, Denver]} , Denver) = 3767; route = Atlanta-Chicago-Dallas-Austin-Denver
+C({[Boston, Chicago, Dallas, Baltimore]} , Baltimore) = 4390; route = Atlanta-Dallas-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Dallas, Boston]} , Boston) = 3997; route = Atlanta-Dallas-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Dallas, Chicago]} , Chicago) = 5047; route = Atlanta-Dallas-Baltimore-Boston-Chicago
+C({[Baltimore, Boston, Chicago, Dallas]} , Dallas) = 4160; route = Atlanta-Baltimore-Boston-Chicago-Dallas
+C({[Boston, Chicago, Denver, Baltimore]} , Baltimore) = 5362; route = Atlanta-Denver-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Denver, Boston]} , Boston) = 4969; route = Atlanta-Denver-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Denver, Chicago]} , Chicago) = 5816; route = Atlanta-Baltimore-Boston-Denver-Chicago
+C({[Baltimore, Boston, Chicago, Denver]} , Denver) = 4344; route = Atlanta-Baltimore-Boston-Chicago-Denver
+C({[Boston, Dallas, Denver, Baltimore]} , Baltimore) = 5636; route = Atlanta-Dallas-Denver-Boston-Baltimore
+C({[Baltimore, Dallas, Denver, Boston]} , Boston) = 5220; route = Atlanta-Dallas-Denver-Baltimore-Boston
+C({[Baltimore, Boston, Denver, Dallas]} , Dallas) = 5406; route = Atlanta-Baltimore-Boston-Denver-Dallas
+C({[Baltimore, Boston, Dallas, Denver]} , Denver) = 5058; route = Atlanta-Baltimore-Boston-Dallas-Denver
+C({[Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 4668; route = Atlanta-Dallas-Denver-Chicago-Baltimore
+C({[Baltimore, Dallas, Denver, Chicago]} , Chicago) = 5412; route = Atlanta-Baltimore-Dallas-Denver-Chicago
+C({[Baltimore, Chicago, Denver, Dallas]} , Dallas) = 4438; route = Atlanta-Baltimore-Chicago-Denver-Dallas
+C({[Baltimore, Chicago, Dallas, Denver]} , Denver) = 4254; route = Atlanta-Baltimore-Chicago-Dallas-Denver
+C({[Chicago, Dallas, Denver, Boston]} , Boston) = 5061; route = Atlanta-Dallas-Denver-Chicago-Boston
+C({[Boston, Dallas, Denver, Chicago]} , Chicago) = 6425; route = Atlanta-Dallas-Denver-Boston-Chicago
+C({[Boston, Chicago, Denver, Dallas]} , Dallas) = 5409; route = Atlanta-Boston-Chicago-Denver-Dallas
+C({[Boston, Chicago, Dallas, Denver]} , Denver) = 5225; route = Atlanta-Boston-Chicago-Dallas-Denver
+
+s = 5
+C({[Baltimore, Boston, Chicago, Dallas, Austin]} , Austin) = 4453; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin
+C({[Austin, Boston, Chicago, Dallas, Baltimore]} , Baltimore) = 4841; route = Atlanta-Austin-Dallas-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Dallas, Boston]} , Boston) = 4448; route = Atlanta-Austin-Dallas-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas, Chicago]} , Chicago) = 5498; route = Atlanta-Austin-Dallas-Baltimore-Boston-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Dallas]} , Dallas) = 4734; route = Atlanta-Baltimore-Boston-Chicago-Austin-Dallas
+C({[Baltimore, Boston, Chicago, Denver, Austin]} , Austin) = 5584; route = Atlanta-Baltimore-Boston-Chicago-Denver-Austin
+C({[Austin, Boston, Chicago, Denver, Baltimore]} , Baltimore) = 5972; route = Atlanta-Austin-Denver-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Denver, Boston]} , Boston) = 5579; route = Atlanta-Austin-Denver-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver, Chicago]} , Chicago) = 6920; route = Atlanta-Austin-Denver-Baltimore-Boston-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Denver]} , Denver) = 5681; route = Atlanta-Baltimore-Boston-Chicago-Austin-Denver
+C({[Baltimore, Boston, Dallas, Denver, Austin]} , Austin) = 5699; route = Atlanta-Baltimore-Boston-Denver-Dallas-Austin
+C({[Austin, Boston, Dallas, Denver, Baltimore]} , Baltimore) = 6087; route = Atlanta-Austin-Dallas-Denver-Boston-Baltimore
+C({[Austin, Baltimore, Dallas, Denver, Boston]} , Boston) = 5671; route = Atlanta-Austin-Dallas-Denver-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver, Dallas]} , Dallas) = 5875; route = Atlanta-Baltimore-Boston-Denver-Austin-Dallas
+C({[Austin, Baltimore, Boston, Dallas, Denver]} , Denver) = 5527; route = Atlanta-Baltimore-Boston-Dallas-Austin-Denver
+C({[Baltimore, Chicago, Dallas, Denver, Austin]} , Austin) = 4731; route = Atlanta-Baltimore-Chicago-Denver-Dallas-Austin
+C({[Austin, Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 5119; route = Atlanta-Austin-Dallas-Denver-Chicago-Baltimore
+C({[Austin, Baltimore, Dallas, Denver, Chicago]} , Chicago) = 5881; route = Atlanta-Baltimore-Dallas-Austin-Denver-Chicago
+C({[Austin, Baltimore, Chicago, Denver, Dallas]} , Dallas) = 4907; route = Atlanta-Baltimore-Chicago-Denver-Austin-Dallas
+C({[Austin, Baltimore, Chicago, Dallas, Denver]} , Denver) = 4723; route = Atlanta-Baltimore-Chicago-Dallas-Austin-Denver
+C({[Boston, Chicago, Dallas, Denver, Austin]} , Austin) = 5702; route = Atlanta-Boston-Chicago-Denver-Dallas-Austin
+C({[Austin, Chicago, Dallas, Denver, Boston]} , Boston) = 5512; route = Atlanta-Austin-Dallas-Denver-Chicago-Boston
+C({[Austin, Boston, Dallas, Denver, Chicago]} , Chicago) = 6876; route = Atlanta-Austin-Dallas-Denver-Boston-Chicago
+C({[Austin, Boston, Chicago, Denver, Dallas]} , Dallas) = 5878; route = Atlanta-Boston-Chicago-Denver-Austin-Dallas
+C({[Austin, Boston, Chicago, Dallas, Denver]} , Denver) = 5694; route = Atlanta-Boston-Chicago-Dallas-Austin-Denver
+C({[Boston, Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 5638; route = Atlanta-Dallas-Denver-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Dallas, Denver, Boston]} , Boston) = 5245; route = Atlanta-Dallas-Denver-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Dallas, Denver, Chicago]} , Chicago) = 6532; route = Atlanta-Baltimore-Boston-Dallas-Denver-Chicago
+C({[Baltimore, Boston, Chicago, Denver, Dallas]} , Dallas) = 5408; route = Atlanta-Baltimore-Boston-Chicago-Denver-Dallas
+C({[Baltimore, Boston, Chicago, Dallas, Denver]} , Denver) = 5224; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Denver
+
+s = 6
+C({[Baltimore, Boston, Chicago, Dallas, Denver, Austin]} , Austin) = 5701; route = Atlanta-Baltimore-Boston-Chicago-Denver-Dallas-Austin
+C({[Austin, Boston, Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 6089; route = Atlanta-Austin-Dallas-Denver-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Dallas, Denver, Boston]} , Boston) = 5696; route = Atlanta-Austin-Dallas-Denver-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas, Denver, Chicago]} , Chicago) = 7001; route = Atlanta-Baltimore-Boston-Dallas-Austin-Denver-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Denver, Dallas]} , Dallas) = 5877; route = Atlanta-Baltimore-Boston-Chicago-Denver-Austin-Dallas
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Denver]} , Denver) = 5693; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Denver
+
+Opt:
+C({[Baltimore, Boston, Chicago, Dallas, Denver, Austin]}, Austin) to 0 = 7016; route = Atlanta-Baltimore-Boston-Chicago-Denver-Dallas-Austin-Atlanta
+C({[Austin, Boston, Chicago, Dallas, Denver, Baltimore]}, Baltimore) to 0 = 7016; route = Atlanta-Austin-Dallas-Denver-Chicago-Boston-Baltimore-Atlanta
+C({[Austin, Baltimore, Chicago, Dallas, Denver, Boston]}, Boston) to 0 = 7201; route = Atlanta-Austin-Dallas-Denver-Chicago-Baltimore-Boston-Atlanta
+C({[Austin, Baltimore, Boston, Dallas, Denver, Chicago]}, Chicago) to 0 = 7945; route = Atlanta-Baltimore-Boston-Dallas-Austin-Denver-Chicago-Atlanta
+C({[Austin, Baltimore, Boston, Chicago, Denver, Dallas]}, Dallas) to 0 = 7034; route = Atlanta-Baltimore-Boston-Chicago-Denver-Austin-Dallas-Atlanta
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Denver]}, Denver) to 0 = 7638; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Denver-Atlanta
+Opt = 7016; route = Atlanta-Baltimore-Boston-Chicago-Denver-Dallas-Austin-Atlanta

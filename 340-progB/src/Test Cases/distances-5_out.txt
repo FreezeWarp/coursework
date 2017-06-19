@@ -1,0 +1,45 @@
+C({[Austin]} , Austin) = 1315; route = Atlanta-Austin
+C({[Baltimore]} , Baltimore) = 927; route = Atlanta-Baltimore
+C({[Boston]} , Boston) = 1505; route = Atlanta-Boston
+C({[Chicago]} , Chicago) = 944; route = Atlanta-Chicago
+
+s = 2
+C({[Baltimore, Austin]} , Austin) = 3093; route = Atlanta-Baltimore-Austin
+C({[Austin, Baltimore]} , Baltimore) = 3481; route = Atlanta-Austin-Baltimore
+C({[Boston, Austin]} , Austin) = 4229; route = Atlanta-Boston-Austin
+C({[Austin, Boston]} , Boston) = 4039; route = Atlanta-Austin-Boston
+C({[Chicago, Austin]} , Austin) = 2515; route = Atlanta-Chicago-Austin
+C({[Austin, Chicago]} , Chicago) = 2886; route = Atlanta-Austin-Chicago
+C({[Boston, Baltimore]} , Baltimore) = 2082; route = Atlanta-Boston-Baltimore
+C({[Baltimore, Boston]} , Boston) = 1504; route = Atlanta-Baltimore-Boston
+C({[Chicago, Baltimore]} , Baltimore) = 1917; route = Atlanta-Chicago-Baltimore
+C({[Baltimore, Chicago]} , Chicago) = 1900; route = Atlanta-Baltimore-Chicago
+C({[Chicago, Boston]} , Boston) = 2310; route = Atlanta-Chicago-Boston
+C({[Boston, Chicago]} , Chicago) = 2871; route = Atlanta-Boston-Chicago
+
+s = 3
+C({[Baltimore, Boston, Austin]} , Austin) = 4228; route = Atlanta-Baltimore-Boston-Austin
+C({[Austin, Boston, Baltimore]} , Baltimore) = 4616; route = Atlanta-Austin-Boston-Baltimore
+C({[Austin, Baltimore, Boston]} , Boston) = 4058; route = Atlanta-Austin-Baltimore-Boston
+C({[Baltimore, Chicago, Austin]} , Austin) = 3471; route = Atlanta-Baltimore-Chicago-Austin
+C({[Austin, Chicago, Baltimore]} , Baltimore) = 3859; route = Atlanta-Austin-Chicago-Baltimore
+C({[Austin, Baltimore, Chicago]} , Chicago) = 4454; route = Atlanta-Austin-Baltimore-Chicago
+C({[Boston, Chicago, Austin]} , Austin) = 4442; route = Atlanta-Boston-Chicago-Austin
+C({[Austin, Chicago, Boston]} , Boston) = 4252; route = Atlanta-Austin-Chicago-Boston
+C({[Austin, Boston, Chicago]} , Chicago) = 5405; route = Atlanta-Austin-Boston-Chicago
+C({[Boston, Chicago, Baltimore]} , Baltimore) = 2887; route = Atlanta-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Boston]} , Boston) = 2494; route = Atlanta-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Chicago]} , Chicago) = 2870; route = Atlanta-Baltimore-Boston-Chicago
+
+s = 4
+C({[Baltimore, Boston, Chicago, Austin]} , Austin) = 4441; route = Atlanta-Baltimore-Boston-Chicago-Austin
+C({[Austin, Boston, Chicago, Baltimore]} , Baltimore) = 4829; route = Atlanta-Austin-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Boston]} , Boston) = 4436; route = Atlanta-Austin-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Chicago]} , Chicago) = 5424; route = Atlanta-Austin-Baltimore-Boston-Chicago
+
+Opt:
+C({[Baltimore, Boston, Chicago, Austin]}, Austin) to 0 = 5756; route = Atlanta-Baltimore-Boston-Chicago-Austin-Atlanta
+C({[Austin, Boston, Chicago, Baltimore]}, Baltimore) to 0 = 5756; route = Atlanta-Austin-Chicago-Boston-Baltimore-Atlanta
+C({[Austin, Baltimore, Chicago, Boston]}, Boston) to 0 = 5941; route = Atlanta-Austin-Chicago-Baltimore-Boston-Atlanta
+C({[Austin, Baltimore, Boston, Chicago]}, Chicago) to 0 = 6368; route = Atlanta-Austin-Baltimore-Boston-Chicago-Atlanta
+Opt = 5756; route = Atlanta-Baltimore-Boston-Chicago-Austin-Atlanta

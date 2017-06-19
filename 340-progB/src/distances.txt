@@ -1,5 +1,0 @@
--   Dul Mpl Rch SC
-Dul 0   155 227 146
-Mpl     0   83  68
-Rch         0   152
-SC              0

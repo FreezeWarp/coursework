@@ -1,0 +1,7 @@
+-	Atlanta	Austin	Baltimore	Boston	Chicago	Dallas
+Atlanta	        0	1315.28	927.35	1505.11	944.40	1157.42
+Austin	            0	2166.00	2724.01	1571.76	293.52
+Baltimore	            0	577.85	973.23	1947.28
+Boston	                    0	1366.63	2490.97
+Chicago	                        0	1290.15
+Dallas	                            0

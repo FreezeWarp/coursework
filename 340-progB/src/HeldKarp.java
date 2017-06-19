@@ -1,15 +1,41 @@
 import java.util.*;
 
 /**
- * Created by Joseph on 17/05/2017.
+ * Performs Held Karp travelling salesman solution based on instructor-provided pseudocode (same as the code from Wikipedia, I believe). I'd give a better summary, if I understood exactly what HeldKarp does.
+ * TODO: Prune the connectionRoutes and connections hashmaps when entries of a certain size are no longer needed -- that is, whenever we advance visitCount in the outer for loop. It's not really a problem for us until exceeding somewhere around 10 cities, so I didn't bother doing it.
+ * (General cleanup would also be nice to meet my normal standards, but this was a pain to write, and I really don't want to spend any extra time. ...Admittedly, I only probably spent 8-12 hours on it, but that's a lot!)
+ *
+ * @author Joseph T. Parsons
  */
 public class HeldKarp {
-    Map<List, Integer> directConnections = new HashMap<List, Integer>();
+    /**
+     * A map connecting sets of cities and the optimal distance needed to visit all of them.
+     */
+    Map<List, Integer> connections = new HashMap<List, Integer>();
+
+    /**
+     * A map connecting set of cities and the optimal route needed to visit all of them.
+     * TODO: eventually, should be merged into its own datatype with connections, but that would take more time than I want to spend on this.
+     */
     Map<List, String> connectionRoutes = new HashMap<List, String>();
 
+    /**
+     * A map of the direct distances between two cities, indexed by a string key in the format "city1-city2"
+     */
     Map<String, Integer> directDistances;
+
+    /**
+     * A list of city names.
+     */
     List<String> cities;
 
+
+    /**
+     * Runs a HeldKarp routine from the input list of cities and map of direct distances.
+     *
+     * @param cities The list of city names.
+     * @param directDistances The distances required to visit cities, indexed by a string key in the format "city1-city2"
+     */
     public HeldKarp(List<String> cities, Map<String, Integer> directDistances) {
         this.directDistances = directDistances;
         this.cities = cities;
@@ -131,7 +157,7 @@ public class HeldKarp {
      * @param route The route taken to visit the cities in set.
      */
     private void setConnection(List set, int value, String route) {
-        directConnections.put(set, value);
+        connections.put(set, value);
         connectionRoutes.put(set, route);
 
         System.out.println("C({" + set + "} , " + set.get(set.size() - 1) + ") = " + value + "; route = " + route);
@@ -145,7 +171,7 @@ public class HeldKarp {
      * @return The optimal distance needed to visit those cities.
      */
     private int getDistanceFromSet(List set) {
-        Integer value = directConnections.get(set);
+        Integer value = connections.get(set);
 
         if (value == null) {
             throw new IndexOutOfBoundsException("No distance found for: " + set);
