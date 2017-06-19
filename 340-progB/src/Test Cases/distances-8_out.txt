@@ -1,0 +1,470 @@
+C({[Austin]} , Austin) = 1315; route = Atlanta-Austin
+C({[Baltimore]} , Baltimore) = 927; route = Atlanta-Baltimore
+C({[Boston]} , Boston) = 1505; route = Atlanta-Boston
+C({[Chicago]} , Chicago) = 944; route = Atlanta-Chicago
+C({[Dallas]} , Dallas) = 1157; route = Atlanta-Dallas
+C({[Denver]} , Denver) = 1945; route = Atlanta-Denver
+C({[Honolulu]} , Honolulu) = 7224; route = Atlanta-Honolulu
+
+s = 2
+C({[Baltimore, Austin]} , Austin) = 3093; route = Atlanta-Baltimore-Austin
+C({[Austin, Baltimore]} , Baltimore) = 3481; route = Atlanta-Austin-Baltimore
+C({[Boston, Austin]} , Austin) = 4229; route = Atlanta-Boston-Austin
+C({[Austin, Boston]} , Boston) = 4039; route = Atlanta-Austin-Boston
+C({[Chicago, Austin]} , Austin) = 2515; route = Atlanta-Chicago-Austin
+C({[Austin, Chicago]} , Chicago) = 2886; route = Atlanta-Austin-Chicago
+C({[Dallas, Austin]} , Austin) = 1450; route = Atlanta-Dallas-Austin
+C({[Austin, Dallas]} , Dallas) = 1608; route = Atlanta-Austin-Dallas
+C({[Denver, Austin]} , Austin) = 3185; route = Atlanta-Denver-Austin
+C({[Austin, Denver]} , Denver) = 2555; route = Atlanta-Austin-Denver
+C({[Honolulu, Austin]} , Austin) = 13253; route = Atlanta-Honolulu-Austin
+C({[Austin, Honolulu]} , Honolulu) = 7344; route = Atlanta-Austin-Honolulu
+C({[Boston, Baltimore]} , Baltimore) = 2082; route = Atlanta-Boston-Baltimore
+C({[Baltimore, Boston]} , Boston) = 1504; route = Atlanta-Baltimore-Boston
+C({[Chicago, Baltimore]} , Baltimore) = 1917; route = Atlanta-Chicago-Baltimore
+C({[Baltimore, Chicago]} , Chicago) = 1900; route = Atlanta-Baltimore-Chicago
+C({[Dallas, Baltimore]} , Baltimore) = 3104; route = Atlanta-Dallas-Baltimore
+C({[Baltimore, Dallas]} , Dallas) = 2874; route = Atlanta-Baltimore-Dallas
+C({[Denver, Baltimore]} , Baltimore) = 4367; route = Atlanta-Denver-Baltimore
+C({[Baltimore, Denver]} , Denver) = 3349; route = Atlanta-Baltimore-Denver
+C({[Honolulu, Baltimore]} , Baltimore) = 15016; route = Atlanta-Honolulu-Baltimore
+C({[Baltimore, Honolulu]} , Honolulu) = 8719; route = Atlanta-Baltimore-Honolulu
+C({[Chicago, Boston]} , Boston) = 2310; route = Atlanta-Chicago-Boston
+C({[Boston, Chicago]} , Chicago) = 2871; route = Atlanta-Boston-Chicago
+C({[Dallas, Boston]} , Boston) = 3647; route = Atlanta-Dallas-Boston
+C({[Boston, Dallas]} , Dallas) = 3995; route = Atlanta-Boston-Dallas
+C({[Denver, Boston]} , Boston) = 4783; route = Atlanta-Denver-Boston
+C({[Boston, Denver]} , Denver) = 4343; route = Atlanta-Boston-Denver
+C({[Honolulu, Boston]} , Boston) = 15395; route = Atlanta-Honolulu-Boston
+C({[Boston, Honolulu]} , Honolulu) = 9676; route = Atlanta-Boston-Honolulu
+C({[Dallas, Chicago]} , Chicago) = 2447; route = Atlanta-Dallas-Chicago
+C({[Chicago, Dallas]} , Dallas) = 2234; route = Atlanta-Chicago-Dallas
+C({[Denver, Chicago]} , Chicago) = 3419; route = Atlanta-Denver-Chicago
+C({[Chicago, Denver]} , Denver) = 2418; route = Atlanta-Chicago-Denver
+C({[Honolulu, Chicago]} , Chicago) = 14055; route = Atlanta-Honolulu-Chicago
+C({[Chicago, Honolulu]} , Honolulu) = 7775; route = Atlanta-Chicago-Honolulu
+C({[Denver, Dallas]} , Dallas) = 3009; route = Atlanta-Denver-Dallas
+C({[Dallas, Denver]} , Denver) = 2221; route = Atlanta-Dallas-Denver
+C({[Honolulu, Dallas]} , Dallas) = 13318; route = Atlanta-Honolulu-Dallas
+C({[Dallas, Honolulu]} , Honolulu) = 7251; route = Atlanta-Dallas-Honolulu
+C({[Honolulu, Denver]} , Denver) = 12595; route = Atlanta-Honolulu-Denver
+C({[Denver, Honolulu]} , Honolulu) = 7316; route = Atlanta-Denver-Honolulu
+
+s = 3
+C({[Baltimore, Boston, Austin]} , Austin) = 4228; route = Atlanta-Baltimore-Boston-Austin
+C({[Austin, Boston, Baltimore]} , Baltimore) = 4616; route = Atlanta-Austin-Boston-Baltimore
+C({[Austin, Baltimore, Boston]} , Boston) = 4058; route = Atlanta-Austin-Baltimore-Boston
+C({[Baltimore, Chicago, Austin]} , Austin) = 3471; route = Atlanta-Baltimore-Chicago-Austin
+C({[Austin, Chicago, Baltimore]} , Baltimore) = 3859; route = Atlanta-Austin-Chicago-Baltimore
+C({[Austin, Baltimore, Chicago]} , Chicago) = 4454; route = Atlanta-Austin-Baltimore-Chicago
+C({[Baltimore, Dallas, Austin]} , Austin) = 3167; route = Atlanta-Baltimore-Dallas-Austin
+C({[Austin, Dallas, Baltimore]} , Baltimore) = 3555; route = Atlanta-Austin-Dallas-Baltimore
+C({[Austin, Baltimore, Dallas]} , Dallas) = 3386; route = Atlanta-Baltimore-Austin-Dallas
+C({[Baltimore, Denver, Austin]} , Austin) = 4589; route = Atlanta-Baltimore-Denver-Austin
+C({[Austin, Denver, Baltimore]} , Baltimore) = 4977; route = Atlanta-Austin-Denver-Baltimore
+C({[Austin, Baltimore, Denver]} , Denver) = 4333; route = Atlanta-Baltimore-Austin-Denver
+C({[Baltimore, Honolulu, Austin]} , Austin) = 14748; route = Atlanta-Baltimore-Honolulu-Austin
+C({[Austin, Honolulu, Baltimore]} , Baltimore) = 15136; route = Atlanta-Austin-Honolulu-Baltimore
+C({[Austin, Baltimore, Honolulu]} , Honolulu) = 9122; route = Atlanta-Baltimore-Austin-Honolulu
+C({[Boston, Chicago, Austin]} , Austin) = 4442; route = Atlanta-Boston-Chicago-Austin
+C({[Austin, Chicago, Boston]} , Boston) = 4252; route = Atlanta-Austin-Chicago-Boston
+C({[Austin, Boston, Chicago]} , Chicago) = 5405; route = Atlanta-Austin-Boston-Chicago
+C({[Boston, Dallas, Austin]} , Austin) = 4288; route = Atlanta-Boston-Dallas-Austin
+C({[Austin, Dallas, Boston]} , Boston) = 4098; route = Atlanta-Austin-Dallas-Boston
+C({[Austin, Boston, Dallas]} , Dallas) = 4522; route = Atlanta-Boston-Austin-Dallas
+C({[Boston, Denver, Austin]} , Austin) = 5583; route = Atlanta-Boston-Denver-Austin
+C({[Austin, Denver, Boston]} , Boston) = 5393; route = Atlanta-Austin-Denver-Boston
+C({[Austin, Boston, Denver]} , Denver) = 5469; route = Atlanta-Boston-Austin-Denver
+C({[Boston, Honolulu, Austin]} , Austin) = 15705; route = Atlanta-Boston-Honolulu-Austin
+C({[Austin, Honolulu, Boston]} , Boston) = 15515; route = Atlanta-Austin-Honolulu-Boston
+C({[Austin, Boston, Honolulu]} , Honolulu) = 10258; route = Atlanta-Boston-Austin-Honolulu
+C({[Chicago, Dallas, Austin]} , Austin) = 2527; route = Atlanta-Chicago-Dallas-Austin
+C({[Austin, Dallas, Chicago]} , Chicago) = 2898; route = Atlanta-Austin-Dallas-Chicago
+C({[Austin, Chicago, Dallas]} , Dallas) = 2808; route = Atlanta-Chicago-Austin-Dallas
+C({[Chicago, Denver, Austin]} , Austin) = 3658; route = Atlanta-Chicago-Denver-Austin
+C({[Austin, Denver, Chicago]} , Chicago) = 4029; route = Atlanta-Austin-Denver-Chicago
+C({[Austin, Chicago, Denver]} , Denver) = 3755; route = Atlanta-Chicago-Austin-Denver
+C({[Chicago, Honolulu, Austin]} , Austin) = 13804; route = Atlanta-Chicago-Honolulu-Austin
+C({[Austin, Honolulu, Chicago]} , Chicago) = 14175; route = Atlanta-Austin-Honolulu-Chicago
+C({[Austin, Chicago, Honolulu]} , Honolulu) = 8544; route = Atlanta-Chicago-Austin-Honolulu
+C({[Dallas, Denver, Austin]} , Austin) = 3302; route = Atlanta-Denver-Dallas-Austin
+C({[Austin, Denver, Dallas]} , Dallas) = 3478; route = Atlanta-Denver-Austin-Dallas
+C({[Austin, Dallas, Denver]} , Denver) = 2672; route = Atlanta-Austin-Dallas-Denver
+C({[Dallas, Honolulu, Austin]} , Austin) = 13280; route = Atlanta-Dallas-Honolulu-Austin
+C({[Austin, Honolulu, Dallas]} , Dallas) = 13438; route = Atlanta-Austin-Honolulu-Dallas
+C({[Austin, Dallas, Honolulu]} , Honolulu) = 7479; route = Atlanta-Dallas-Austin-Honolulu
+C({[Denver, Honolulu, Austin]} , Austin) = 13345; route = Atlanta-Denver-Honolulu-Austin
+C({[Austin, Honolulu, Denver]} , Denver) = 12715; route = Atlanta-Austin-Honolulu-Denver
+C({[Austin, Denver, Honolulu]} , Honolulu) = 7926; route = Atlanta-Austin-Denver-Honolulu
+C({[Boston, Chicago, Baltimore]} , Baltimore) = 2887; route = Atlanta-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Boston]} , Boston) = 2494; route = Atlanta-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Chicago]} , Chicago) = 2870; route = Atlanta-Baltimore-Boston-Chicago
+C({[Boston, Dallas, Baltimore]} , Baltimore) = 4224; route = Atlanta-Dallas-Boston-Baltimore
+C({[Baltimore, Dallas, Boston]} , Boston) = 3681; route = Atlanta-Dallas-Baltimore-Boston
+C({[Baltimore, Boston, Dallas]} , Dallas) = 3994; route = Atlanta-Baltimore-Boston-Dallas
+C({[Boston, Denver, Baltimore]} , Baltimore) = 5360; route = Atlanta-Denver-Boston-Baltimore
+C({[Baltimore, Denver, Boston]} , Boston) = 4944; route = Atlanta-Denver-Baltimore-Boston
+C({[Baltimore, Boston, Denver]} , Denver) = 4342; route = Atlanta-Baltimore-Boston-Denver
+C({[Boston, Honolulu, Baltimore]} , Baltimore) = 15972; route = Atlanta-Honolulu-Boston-Baltimore
+C({[Baltimore, Honolulu, Boston]} , Boston) = 15593; route = Atlanta-Honolulu-Baltimore-Boston
+C({[Baltimore, Boston, Honolulu]} , Honolulu) = 9675; route = Atlanta-Baltimore-Boston-Honolulu
+C({[Chicago, Dallas, Baltimore]} , Baltimore) = 3420; route = Atlanta-Dallas-Chicago-Baltimore
+C({[Baltimore, Dallas, Chicago]} , Chicago) = 4077; route = Atlanta-Dallas-Baltimore-Chicago
+C({[Baltimore, Chicago, Dallas]} , Dallas) = 3190; route = Atlanta-Baltimore-Chicago-Dallas
+C({[Chicago, Denver, Baltimore]} , Baltimore) = 4392; route = Atlanta-Denver-Chicago-Baltimore
+C({[Baltimore, Denver, Chicago]} , Chicago) = 4823; route = Atlanta-Baltimore-Denver-Chicago
+C({[Baltimore, Chicago, Denver]} , Denver) = 3374; route = Atlanta-Baltimore-Chicago-Denver
+C({[Chicago, Honolulu, Baltimore]} , Baltimore) = 15028; route = Atlanta-Honolulu-Chicago-Baltimore
+C({[Baltimore, Honolulu, Chicago]} , Chicago) = 15550; route = Atlanta-Baltimore-Honolulu-Chicago
+C({[Baltimore, Chicago, Honolulu]} , Honolulu) = 8731; route = Atlanta-Baltimore-Chicago-Honolulu
+C({[Dallas, Denver, Baltimore]} , Baltimore) = 4643; route = Atlanta-Dallas-Denver-Baltimore
+C({[Baltimore, Denver, Dallas]} , Dallas) = 4413; route = Atlanta-Baltimore-Denver-Dallas
+C({[Baltimore, Dallas, Denver]} , Denver) = 3938; route = Atlanta-Baltimore-Dallas-Denver
+C({[Dallas, Honolulu, Baltimore]} , Baltimore) = 15043; route = Atlanta-Dallas-Honolulu-Baltimore
+C({[Baltimore, Honolulu, Dallas]} , Dallas) = 14813; route = Atlanta-Baltimore-Honolulu-Dallas
+C({[Baltimore, Dallas, Honolulu]} , Honolulu) = 8968; route = Atlanta-Baltimore-Dallas-Honolulu
+C({[Denver, Honolulu, Baltimore]} , Baltimore) = 15017; route = Atlanta-Honolulu-Denver-Baltimore
+C({[Baltimore, Honolulu, Denver]} , Denver) = 14090; route = Atlanta-Baltimore-Honolulu-Denver
+C({[Baltimore, Denver, Honolulu]} , Honolulu) = 8720; route = Atlanta-Baltimore-Denver-Honolulu
+C({[Chicago, Dallas, Boston]} , Boston) = 3813; route = Atlanta-Dallas-Chicago-Boston
+C({[Boston, Dallas, Chicago]} , Chicago) = 5013; route = Atlanta-Dallas-Boston-Chicago
+C({[Boston, Chicago, Dallas]} , Dallas) = 4161; route = Atlanta-Boston-Chicago-Dallas
+C({[Chicago, Denver, Boston]} , Boston) = 4785; route = Atlanta-Denver-Chicago-Boston
+C({[Boston, Denver, Chicago]} , Chicago) = 5817; route = Atlanta-Boston-Denver-Chicago
+C({[Boston, Chicago, Denver]} , Denver) = 4345; route = Atlanta-Boston-Chicago-Denver
+C({[Chicago, Honolulu, Boston]} , Boston) = 15421; route = Atlanta-Honolulu-Chicago-Boston
+C({[Boston, Honolulu, Chicago]} , Chicago) = 16507; route = Atlanta-Boston-Honolulu-Chicago
+C({[Boston, Chicago, Honolulu]} , Honolulu) = 9702; route = Atlanta-Boston-Chicago-Honolulu
+C({[Dallas, Denver, Boston]} , Boston) = 5059; route = Atlanta-Dallas-Denver-Boston
+C({[Boston, Denver, Dallas]} , Dallas) = 5407; route = Atlanta-Boston-Denver-Dallas
+C({[Boston, Dallas, Denver]} , Denver) = 5059; route = Atlanta-Boston-Dallas-Denver
+C({[Dallas, Honolulu, Boston]} , Boston) = 15422; route = Atlanta-Dallas-Honolulu-Boston
+C({[Boston, Honolulu, Dallas]} , Dallas) = 15770; route = Atlanta-Boston-Honolulu-Dallas
+C({[Boston, Dallas, Honolulu]} , Honolulu) = 10089; route = Atlanta-Boston-Dallas-Honolulu
+C({[Denver, Honolulu, Boston]} , Boston) = 15433; route = Atlanta-Honolulu-Denver-Boston
+C({[Boston, Honolulu, Denver]} , Denver) = 15047; route = Atlanta-Boston-Honolulu-Denver
+C({[Boston, Denver, Honolulu]} , Honolulu) = 9714; route = Atlanta-Boston-Denver-Honolulu
+C({[Dallas, Denver, Chicago]} , Chicago) = 3695; route = Atlanta-Dallas-Denver-Chicago
+C({[Chicago, Denver, Dallas]} , Dallas) = 3482; route = Atlanta-Chicago-Denver-Dallas
+C({[Chicago, Dallas, Denver]} , Denver) = 3298; route = Atlanta-Chicago-Dallas-Denver
+C({[Dallas, Honolulu, Chicago]} , Chicago) = 14082; route = Atlanta-Dallas-Honolulu-Chicago
+C({[Chicago, Honolulu, Dallas]} , Dallas) = 13869; route = Atlanta-Chicago-Honolulu-Dallas
+C({[Chicago, Dallas, Honolulu]} , Honolulu) = 8328; route = Atlanta-Chicago-Dallas-Honolulu
+C({[Denver, Honolulu, Chicago]} , Chicago) = 14069; route = Atlanta-Honolulu-Denver-Chicago
+C({[Chicago, Honolulu, Denver]} , Denver) = 13146; route = Atlanta-Chicago-Honolulu-Denver
+C({[Chicago, Denver, Honolulu]} , Honolulu) = 7789; route = Atlanta-Chicago-Denver-Honolulu
+C({[Denver, Honolulu, Dallas]} , Dallas) = 13410; route = Atlanta-Denver-Honolulu-Dallas
+C({[Dallas, Honolulu, Denver]} , Denver) = 12622; route = Atlanta-Dallas-Honolulu-Denver
+C({[Dallas, Denver, Honolulu]} , Honolulu) = 7592; route = Atlanta-Dallas-Denver-Honolulu
+
+s = 4
+C({[Baltimore, Boston, Chicago, Austin]} , Austin) = 4441; route = Atlanta-Baltimore-Boston-Chicago-Austin
+C({[Austin, Boston, Chicago, Baltimore]} , Baltimore) = 4829; route = Atlanta-Austin-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Boston]} , Boston) = 4436; route = Atlanta-Austin-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Chicago]} , Chicago) = 5424; route = Atlanta-Austin-Baltimore-Boston-Chicago
+C({[Baltimore, Boston, Dallas, Austin]} , Austin) = 4287; route = Atlanta-Baltimore-Boston-Dallas-Austin
+C({[Austin, Boston, Dallas, Baltimore]} , Baltimore) = 4675; route = Atlanta-Austin-Dallas-Boston-Baltimore
+C({[Austin, Baltimore, Dallas, Boston]} , Boston) = 4132; route = Atlanta-Austin-Dallas-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas]} , Dallas) = 4521; route = Atlanta-Baltimore-Boston-Austin-Dallas
+C({[Baltimore, Boston, Denver, Austin]} , Austin) = 5582; route = Atlanta-Baltimore-Boston-Denver-Austin
+C({[Austin, Boston, Denver, Baltimore]} , Baltimore) = 5970; route = Atlanta-Austin-Denver-Boston-Baltimore
+C({[Austin, Baltimore, Denver, Boston]} , Boston) = 5554; route = Atlanta-Austin-Denver-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver]} , Denver) = 5468; route = Atlanta-Baltimore-Boston-Austin-Denver
+C({[Baltimore, Boston, Honolulu, Austin]} , Austin) = 15704; route = Atlanta-Baltimore-Boston-Honolulu-Austin
+C({[Austin, Boston, Honolulu, Baltimore]} , Baltimore) = 16092; route = Atlanta-Austin-Honolulu-Boston-Baltimore
+C({[Austin, Baltimore, Honolulu, Boston]} , Boston) = 15713; route = Atlanta-Austin-Honolulu-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Honolulu]} , Honolulu) = 10257; route = Atlanta-Baltimore-Boston-Austin-Honolulu
+C({[Baltimore, Chicago, Dallas, Austin]} , Austin) = 3483; route = Atlanta-Baltimore-Chicago-Dallas-Austin
+C({[Austin, Chicago, Dallas, Baltimore]} , Baltimore) = 3871; route = Atlanta-Austin-Dallas-Chicago-Baltimore
+C({[Austin, Baltimore, Dallas, Chicago]} , Chicago) = 4528; route = Atlanta-Austin-Dallas-Baltimore-Chicago
+C({[Austin, Baltimore, Chicago, Dallas]} , Dallas) = 3764; route = Atlanta-Baltimore-Chicago-Austin-Dallas
+C({[Baltimore, Chicago, Denver, Austin]} , Austin) = 4614; route = Atlanta-Baltimore-Chicago-Denver-Austin
+C({[Austin, Chicago, Denver, Baltimore]} , Baltimore) = 5002; route = Atlanta-Austin-Denver-Chicago-Baltimore
+C({[Austin, Baltimore, Denver, Chicago]} , Chicago) = 5807; route = Atlanta-Baltimore-Austin-Denver-Chicago
+C({[Austin, Baltimore, Chicago, Denver]} , Denver) = 4711; route = Atlanta-Baltimore-Chicago-Austin-Denver
+C({[Baltimore, Chicago, Honolulu, Austin]} , Austin) = 14760; route = Atlanta-Baltimore-Chicago-Honolulu-Austin
+C({[Austin, Chicago, Honolulu, Baltimore]} , Baltimore) = 15148; route = Atlanta-Austin-Honolulu-Chicago-Baltimore
+C({[Austin, Baltimore, Honolulu, Chicago]} , Chicago) = 15953; route = Atlanta-Baltimore-Austin-Honolulu-Chicago
+C({[Austin, Baltimore, Chicago, Honolulu]} , Honolulu) = 9500; route = Atlanta-Baltimore-Chicago-Austin-Honolulu
+C({[Baltimore, Dallas, Denver, Austin]} , Austin) = 4706; route = Atlanta-Baltimore-Denver-Dallas-Austin
+C({[Austin, Dallas, Denver, Baltimore]} , Baltimore) = 5094; route = Atlanta-Austin-Dallas-Denver-Baltimore
+C({[Austin, Baltimore, Denver, Dallas]} , Dallas) = 4882; route = Atlanta-Baltimore-Denver-Austin-Dallas
+C({[Austin, Baltimore, Dallas, Denver]} , Denver) = 4407; route = Atlanta-Baltimore-Dallas-Austin-Denver
+C({[Baltimore, Dallas, Honolulu, Austin]} , Austin) = 14997; route = Atlanta-Baltimore-Dallas-Honolulu-Austin
+C({[Austin, Dallas, Honolulu, Baltimore]} , Baltimore) = 15271; route = Atlanta-Dallas-Austin-Honolulu-Baltimore
+C({[Austin, Baltimore, Honolulu, Dallas]} , Dallas) = 15041; route = Atlanta-Baltimore-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Dallas, Honolulu]} , Honolulu) = 9196; route = Atlanta-Baltimore-Dallas-Austin-Honolulu
+C({[Baltimore, Denver, Honolulu, Austin]} , Austin) = 14749; route = Atlanta-Baltimore-Denver-Honolulu-Austin
+C({[Austin, Denver, Honolulu, Baltimore]} , Baltimore) = 15137; route = Atlanta-Austin-Honolulu-Denver-Baltimore
+C({[Austin, Baltimore, Honolulu, Denver]} , Denver) = 14493; route = Atlanta-Baltimore-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Denver, Honolulu]} , Honolulu) = 9704; route = Atlanta-Baltimore-Austin-Denver-Honolulu
+C({[Boston, Chicago, Dallas, Austin]} , Austin) = 4454; route = Atlanta-Boston-Chicago-Dallas-Austin
+C({[Austin, Chicago, Dallas, Boston]} , Boston) = 4264; route = Atlanta-Austin-Dallas-Chicago-Boston
+C({[Austin, Boston, Dallas, Chicago]} , Chicago) = 5464; route = Atlanta-Austin-Dallas-Boston-Chicago
+C({[Austin, Boston, Chicago, Dallas]} , Dallas) = 4735; route = Atlanta-Boston-Chicago-Austin-Dallas
+C({[Boston, Chicago, Denver, Austin]} , Austin) = 5585; route = Atlanta-Boston-Chicago-Denver-Austin
+C({[Austin, Chicago, Denver, Boston]} , Boston) = 5395; route = Atlanta-Austin-Denver-Chicago-Boston
+C({[Austin, Boston, Denver, Chicago]} , Chicago) = 6759; route = Atlanta-Austin-Denver-Boston-Chicago
+C({[Austin, Boston, Chicago, Denver]} , Denver) = 5682; route = Atlanta-Boston-Chicago-Austin-Denver
+C({[Boston, Chicago, Honolulu, Austin]} , Austin) = 15731; route = Atlanta-Boston-Chicago-Honolulu-Austin
+C({[Austin, Chicago, Honolulu, Boston]} , Boston) = 15541; route = Atlanta-Austin-Honolulu-Chicago-Boston
+C({[Austin, Boston, Honolulu, Chicago]} , Chicago) = 16881; route = Atlanta-Austin-Honolulu-Boston-Chicago
+C({[Austin, Boston, Chicago, Honolulu]} , Honolulu) = 10471; route = Atlanta-Boston-Chicago-Austin-Honolulu
+C({[Boston, Dallas, Denver, Austin]} , Austin) = 5700; route = Atlanta-Boston-Denver-Dallas-Austin
+C({[Austin, Dallas, Denver, Boston]} , Boston) = 5510; route = Atlanta-Austin-Dallas-Denver-Boston
+C({[Austin, Boston, Denver, Dallas]} , Dallas) = 5876; route = Atlanta-Boston-Denver-Austin-Dallas
+C({[Austin, Boston, Dallas, Denver]} , Denver) = 5528; route = Atlanta-Boston-Dallas-Austin-Denver
+C({[Boston, Dallas, Honolulu, Austin]} , Austin) = 16063; route = Atlanta-Boston-Honolulu-Dallas-Austin
+C({[Austin, Dallas, Honolulu, Boston]} , Boston) = 15650; route = Atlanta-Dallas-Austin-Honolulu-Boston
+C({[Austin, Boston, Honolulu, Dallas]} , Dallas) = 15998; route = Atlanta-Boston-Honolulu-Austin-Dallas
+C({[Austin, Boston, Dallas, Honolulu]} , Honolulu) = 10317; route = Atlanta-Boston-Dallas-Austin-Honolulu
+C({[Boston, Denver, Honolulu, Austin]} , Austin) = 15743; route = Atlanta-Boston-Denver-Honolulu-Austin
+C({[Austin, Denver, Honolulu, Boston]} , Boston) = 15553; route = Atlanta-Austin-Honolulu-Denver-Boston
+C({[Austin, Boston, Honolulu, Denver]} , Denver) = 15629; route = Atlanta-Boston-Austin-Honolulu-Denver
+C({[Austin, Boston, Denver, Honolulu]} , Honolulu) = 10840; route = Atlanta-Boston-Austin-Denver-Honolulu
+C({[Chicago, Dallas, Denver, Austin]} , Austin) = 3775; route = Atlanta-Chicago-Denver-Dallas-Austin
+C({[Austin, Dallas, Denver, Chicago]} , Chicago) = 4146; route = Atlanta-Austin-Dallas-Denver-Chicago
+C({[Austin, Chicago, Denver, Dallas]} , Dallas) = 3951; route = Atlanta-Chicago-Denver-Austin-Dallas
+C({[Austin, Chicago, Dallas, Denver]} , Denver) = 3767; route = Atlanta-Chicago-Dallas-Austin-Denver
+C({[Chicago, Dallas, Honolulu, Austin]} , Austin) = 14162; route = Atlanta-Chicago-Honolulu-Dallas-Austin
+C({[Austin, Dallas, Honolulu, Chicago]} , Chicago) = 14310; route = Atlanta-Dallas-Austin-Honolulu-Chicago
+C({[Austin, Chicago, Honolulu, Dallas]} , Dallas) = 14097; route = Atlanta-Chicago-Honolulu-Austin-Dallas
+C({[Austin, Chicago, Dallas, Honolulu]} , Honolulu) = 8556; route = Atlanta-Chicago-Dallas-Austin-Honolulu
+C({[Chicago, Denver, Honolulu, Austin]} , Austin) = 13818; route = Atlanta-Chicago-Denver-Honolulu-Austin
+C({[Austin, Denver, Honolulu, Chicago]} , Chicago) = 14189; route = Atlanta-Austin-Honolulu-Denver-Chicago
+C({[Austin, Chicago, Honolulu, Denver]} , Denver) = 13915; route = Atlanta-Chicago-Austin-Honolulu-Denver
+C({[Austin, Chicago, Denver, Honolulu]} , Honolulu) = 9126; route = Atlanta-Chicago-Austin-Denver-Honolulu
+C({[Dallas, Denver, Honolulu, Austin]} , Austin) = 13621; route = Atlanta-Dallas-Denver-Honolulu-Austin
+C({[Austin, Denver, Honolulu, Dallas]} , Dallas) = 13638; route = Atlanta-Denver-Honolulu-Austin-Dallas
+C({[Austin, Dallas, Honolulu, Denver]} , Denver) = 12850; route = Atlanta-Dallas-Austin-Honolulu-Denver
+C({[Austin, Dallas, Denver, Honolulu]} , Honolulu) = 8043; route = Atlanta-Austin-Dallas-Denver-Honolulu
+C({[Boston, Chicago, Dallas, Baltimore]} , Baltimore) = 4390; route = Atlanta-Dallas-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Dallas, Boston]} , Boston) = 3997; route = Atlanta-Dallas-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Dallas, Chicago]} , Chicago) = 5047; route = Atlanta-Dallas-Baltimore-Boston-Chicago
+C({[Baltimore, Boston, Chicago, Dallas]} , Dallas) = 4160; route = Atlanta-Baltimore-Boston-Chicago-Dallas
+C({[Boston, Chicago, Denver, Baltimore]} , Baltimore) = 5362; route = Atlanta-Denver-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Denver, Boston]} , Boston) = 4969; route = Atlanta-Denver-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Denver, Chicago]} , Chicago) = 5816; route = Atlanta-Baltimore-Boston-Denver-Chicago
+C({[Baltimore, Boston, Chicago, Denver]} , Denver) = 4344; route = Atlanta-Baltimore-Boston-Chicago-Denver
+C({[Boston, Chicago, Honolulu, Baltimore]} , Baltimore) = 15998; route = Atlanta-Honolulu-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Honolulu, Boston]} , Boston) = 15605; route = Atlanta-Honolulu-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Honolulu, Chicago]} , Chicago) = 16506; route = Atlanta-Baltimore-Boston-Honolulu-Chicago
+C({[Baltimore, Boston, Chicago, Honolulu]} , Honolulu) = 9701; route = Atlanta-Baltimore-Boston-Chicago-Honolulu
+C({[Boston, Dallas, Denver, Baltimore]} , Baltimore) = 5636; route = Atlanta-Dallas-Denver-Boston-Baltimore
+C({[Baltimore, Dallas, Denver, Boston]} , Boston) = 5220; route = Atlanta-Dallas-Denver-Baltimore-Boston
+C({[Baltimore, Boston, Denver, Dallas]} , Dallas) = 5406; route = Atlanta-Baltimore-Boston-Denver-Dallas
+C({[Baltimore, Boston, Dallas, Denver]} , Denver) = 5058; route = Atlanta-Baltimore-Boston-Dallas-Denver
+C({[Boston, Dallas, Honolulu, Baltimore]} , Baltimore) = 15999; route = Atlanta-Dallas-Honolulu-Boston-Baltimore
+C({[Baltimore, Dallas, Honolulu, Boston]} , Boston) = 15620; route = Atlanta-Dallas-Honolulu-Baltimore-Boston
+C({[Baltimore, Boston, Honolulu, Dallas]} , Dallas) = 15769; route = Atlanta-Baltimore-Boston-Honolulu-Dallas
+C({[Baltimore, Boston, Dallas, Honolulu]} , Honolulu) = 10088; route = Atlanta-Baltimore-Boston-Dallas-Honolulu
+C({[Boston, Denver, Honolulu, Baltimore]} , Baltimore) = 16010; route = Atlanta-Honolulu-Denver-Boston-Baltimore
+C({[Baltimore, Denver, Honolulu, Boston]} , Boston) = 15594; route = Atlanta-Honolulu-Denver-Baltimore-Boston
+C({[Baltimore, Boston, Honolulu, Denver]} , Denver) = 15046; route = Atlanta-Baltimore-Boston-Honolulu-Denver
+C({[Baltimore, Boston, Denver, Honolulu]} , Honolulu) = 9713; route = Atlanta-Baltimore-Boston-Denver-Honolulu
+C({[Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 4668; route = Atlanta-Dallas-Denver-Chicago-Baltimore
+C({[Baltimore, Dallas, Denver, Chicago]} , Chicago) = 5412; route = Atlanta-Baltimore-Dallas-Denver-Chicago
+C({[Baltimore, Chicago, Denver, Dallas]} , Dallas) = 4438; route = Atlanta-Baltimore-Chicago-Denver-Dallas
+C({[Baltimore, Chicago, Dallas, Denver]} , Denver) = 4254; route = Atlanta-Baltimore-Chicago-Dallas-Denver
+C({[Chicago, Dallas, Honolulu, Baltimore]} , Baltimore) = 15055; route = Atlanta-Dallas-Honolulu-Chicago-Baltimore
+C({[Baltimore, Dallas, Honolulu, Chicago]} , Chicago) = 15799; route = Atlanta-Baltimore-Dallas-Honolulu-Chicago
+C({[Baltimore, Chicago, Honolulu, Dallas]} , Dallas) = 14825; route = Atlanta-Baltimore-Chicago-Honolulu-Dallas
+C({[Baltimore, Chicago, Dallas, Honolulu]} , Honolulu) = 9284; route = Atlanta-Baltimore-Chicago-Dallas-Honolulu
+C({[Chicago, Denver, Honolulu, Baltimore]} , Baltimore) = 15042; route = Atlanta-Honolulu-Denver-Chicago-Baltimore
+C({[Baltimore, Denver, Honolulu, Chicago]} , Chicago) = 15551; route = Atlanta-Baltimore-Denver-Honolulu-Chicago
+C({[Baltimore, Chicago, Honolulu, Denver]} , Denver) = 14102; route = Atlanta-Baltimore-Chicago-Honolulu-Denver
+C({[Baltimore, Chicago, Denver, Honolulu]} , Honolulu) = 8745; route = Atlanta-Baltimore-Chicago-Denver-Honolulu
+C({[Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 15044; route = Atlanta-Dallas-Honolulu-Denver-Baltimore
+C({[Baltimore, Denver, Honolulu, Dallas]} , Dallas) = 14814; route = Atlanta-Baltimore-Denver-Honolulu-Dallas
+C({[Baltimore, Dallas, Honolulu, Denver]} , Denver) = 14339; route = Atlanta-Baltimore-Dallas-Honolulu-Denver
+C({[Baltimore, Dallas, Denver, Honolulu]} , Honolulu) = 9309; route = Atlanta-Baltimore-Dallas-Denver-Honolulu
+C({[Chicago, Dallas, Denver, Boston]} , Boston) = 5061; route = Atlanta-Dallas-Denver-Chicago-Boston
+C({[Boston, Dallas, Denver, Chicago]} , Chicago) = 6425; route = Atlanta-Dallas-Denver-Boston-Chicago
+C({[Boston, Chicago, Denver, Dallas]} , Dallas) = 5409; route = Atlanta-Boston-Chicago-Denver-Dallas
+C({[Boston, Chicago, Dallas, Denver]} , Denver) = 5225; route = Atlanta-Boston-Chicago-Dallas-Denver
+C({[Chicago, Dallas, Honolulu, Boston]} , Boston) = 15448; route = Atlanta-Dallas-Honolulu-Chicago-Boston
+C({[Boston, Dallas, Honolulu, Chicago]} , Chicago) = 16788; route = Atlanta-Dallas-Honolulu-Boston-Chicago
+C({[Boston, Chicago, Honolulu, Dallas]} , Dallas) = 15796; route = Atlanta-Boston-Chicago-Honolulu-Dallas
+C({[Boston, Chicago, Dallas, Honolulu]} , Honolulu) = 10255; route = Atlanta-Boston-Chicago-Dallas-Honolulu
+C({[Chicago, Denver, Honolulu, Boston]} , Boston) = 15435; route = Atlanta-Honolulu-Denver-Chicago-Boston
+C({[Boston, Denver, Honolulu, Chicago]} , Chicago) = 16521; route = Atlanta-Boston-Honolulu-Denver-Chicago
+C({[Boston, Chicago, Honolulu, Denver]} , Denver) = 15073; route = Atlanta-Boston-Chicago-Honolulu-Denver
+C({[Boston, Chicago, Denver, Honolulu]} , Honolulu) = 9716; route = Atlanta-Boston-Chicago-Denver-Honolulu
+C({[Dallas, Denver, Honolulu, Boston]} , Boston) = 15460; route = Atlanta-Dallas-Honolulu-Denver-Boston
+C({[Boston, Denver, Honolulu, Dallas]} , Dallas) = 15808; route = Atlanta-Boston-Denver-Honolulu-Dallas
+C({[Boston, Dallas, Honolulu, Denver]} , Denver) = 15460; route = Atlanta-Boston-Dallas-Honolulu-Denver
+C({[Boston, Dallas, Denver, Honolulu]} , Honolulu) = 10430; route = Atlanta-Boston-Dallas-Denver-Honolulu
+C({[Dallas, Denver, Honolulu, Chicago]} , Chicago) = 14096; route = Atlanta-Dallas-Honolulu-Denver-Chicago
+C({[Chicago, Denver, Honolulu, Dallas]} , Dallas) = 13883; route = Atlanta-Chicago-Denver-Honolulu-Dallas
+C({[Chicago, Dallas, Honolulu, Denver]} , Denver) = 13699; route = Atlanta-Chicago-Dallas-Honolulu-Denver
+C({[Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 8669; route = Atlanta-Chicago-Dallas-Denver-Honolulu
+
+s = 5
+C({[Baltimore, Boston, Chicago, Dallas, Austin]} , Austin) = 4453; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin
+C({[Austin, Boston, Chicago, Dallas, Baltimore]} , Baltimore) = 4841; route = Atlanta-Austin-Dallas-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Dallas, Boston]} , Boston) = 4448; route = Atlanta-Austin-Dallas-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas, Chicago]} , Chicago) = 5498; route = Atlanta-Austin-Dallas-Baltimore-Boston-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Dallas]} , Dallas) = 4734; route = Atlanta-Baltimore-Boston-Chicago-Austin-Dallas
+C({[Baltimore, Boston, Chicago, Denver, Austin]} , Austin) = 5584; route = Atlanta-Baltimore-Boston-Chicago-Denver-Austin
+C({[Austin, Boston, Chicago, Denver, Baltimore]} , Baltimore) = 5972; route = Atlanta-Austin-Denver-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Denver, Boston]} , Boston) = 5579; route = Atlanta-Austin-Denver-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver, Chicago]} , Chicago) = 6920; route = Atlanta-Austin-Denver-Baltimore-Boston-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Denver]} , Denver) = 5681; route = Atlanta-Baltimore-Boston-Chicago-Austin-Denver
+C({[Baltimore, Boston, Chicago, Honolulu, Austin]} , Austin) = 15730; route = Atlanta-Baltimore-Boston-Chicago-Honolulu-Austin
+C({[Austin, Boston, Chicago, Honolulu, Baltimore]} , Baltimore) = 16118; route = Atlanta-Austin-Honolulu-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Honolulu, Boston]} , Boston) = 15725; route = Atlanta-Austin-Honolulu-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Honolulu, Chicago]} , Chicago) = 17065; route = Atlanta-Austin-Honolulu-Boston-Baltimore-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Honolulu]} , Honolulu) = 10470; route = Atlanta-Baltimore-Boston-Chicago-Austin-Honolulu
+C({[Baltimore, Boston, Dallas, Denver, Austin]} , Austin) = 5699; route = Atlanta-Baltimore-Boston-Denver-Dallas-Austin
+C({[Austin, Boston, Dallas, Denver, Baltimore]} , Baltimore) = 6087; route = Atlanta-Austin-Dallas-Denver-Boston-Baltimore
+C({[Austin, Baltimore, Dallas, Denver, Boston]} , Boston) = 5671; route = Atlanta-Austin-Dallas-Denver-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver, Dallas]} , Dallas) = 5875; route = Atlanta-Baltimore-Boston-Denver-Austin-Dallas
+C({[Austin, Baltimore, Boston, Dallas, Denver]} , Denver) = 5527; route = Atlanta-Baltimore-Boston-Dallas-Austin-Denver
+C({[Baltimore, Boston, Dallas, Honolulu, Austin]} , Austin) = 16062; route = Atlanta-Baltimore-Boston-Honolulu-Dallas-Austin
+C({[Austin, Boston, Dallas, Honolulu, Baltimore]} , Baltimore) = 16227; route = Atlanta-Dallas-Austin-Honolulu-Boston-Baltimore
+C({[Austin, Baltimore, Dallas, Honolulu, Boston]} , Boston) = 15848; route = Atlanta-Dallas-Austin-Honolulu-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Honolulu, Dallas]} , Dallas) = 15997; route = Atlanta-Baltimore-Boston-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Boston, Dallas, Honolulu]} , Honolulu) = 10316; route = Atlanta-Baltimore-Boston-Dallas-Austin-Honolulu
+C({[Baltimore, Boston, Denver, Honolulu, Austin]} , Austin) = 15742; route = Atlanta-Baltimore-Boston-Denver-Honolulu-Austin
+C({[Austin, Boston, Denver, Honolulu, Baltimore]} , Baltimore) = 16130; route = Atlanta-Austin-Honolulu-Denver-Boston-Baltimore
+C({[Austin, Baltimore, Denver, Honolulu, Boston]} , Boston) = 15714; route = Atlanta-Austin-Honolulu-Denver-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Honolulu, Denver]} , Denver) = 15628; route = Atlanta-Baltimore-Boston-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Boston, Denver, Honolulu]} , Honolulu) = 10839; route = Atlanta-Baltimore-Boston-Austin-Denver-Honolulu
+C({[Baltimore, Chicago, Dallas, Denver, Austin]} , Austin) = 4731; route = Atlanta-Baltimore-Chicago-Denver-Dallas-Austin
+C({[Austin, Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 5119; route = Atlanta-Austin-Dallas-Denver-Chicago-Baltimore
+C({[Austin, Baltimore, Dallas, Denver, Chicago]} , Chicago) = 5881; route = Atlanta-Baltimore-Dallas-Austin-Denver-Chicago
+C({[Austin, Baltimore, Chicago, Denver, Dallas]} , Dallas) = 4907; route = Atlanta-Baltimore-Chicago-Denver-Austin-Dallas
+C({[Austin, Baltimore, Chicago, Dallas, Denver]} , Denver) = 4723; route = Atlanta-Baltimore-Chicago-Dallas-Austin-Denver
+C({[Baltimore, Chicago, Dallas, Honolulu, Austin]} , Austin) = 15118; route = Atlanta-Baltimore-Chicago-Honolulu-Dallas-Austin
+C({[Austin, Chicago, Dallas, Honolulu, Baltimore]} , Baltimore) = 15283; route = Atlanta-Dallas-Austin-Honolulu-Chicago-Baltimore
+C({[Austin, Baltimore, Dallas, Honolulu, Chicago]} , Chicago) = 16027; route = Atlanta-Baltimore-Dallas-Austin-Honolulu-Chicago
+C({[Austin, Baltimore, Chicago, Honolulu, Dallas]} , Dallas) = 15053; route = Atlanta-Baltimore-Chicago-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Chicago, Dallas, Honolulu]} , Honolulu) = 9512; route = Atlanta-Baltimore-Chicago-Dallas-Austin-Honolulu
+C({[Baltimore, Chicago, Denver, Honolulu, Austin]} , Austin) = 14774; route = Atlanta-Baltimore-Chicago-Denver-Honolulu-Austin
+C({[Austin, Chicago, Denver, Honolulu, Baltimore]} , Baltimore) = 15162; route = Atlanta-Austin-Honolulu-Denver-Chicago-Baltimore
+C({[Austin, Baltimore, Denver, Honolulu, Chicago]} , Chicago) = 15967; route = Atlanta-Baltimore-Austin-Honolulu-Denver-Chicago
+C({[Austin, Baltimore, Chicago, Honolulu, Denver]} , Denver) = 14871; route = Atlanta-Baltimore-Chicago-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Chicago, Denver, Honolulu]} , Honolulu) = 10082; route = Atlanta-Baltimore-Chicago-Austin-Denver-Honolulu
+C({[Baltimore, Dallas, Denver, Honolulu, Austin]} , Austin) = 15107; route = Atlanta-Baltimore-Denver-Honolulu-Dallas-Austin
+C({[Austin, Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 15272; route = Atlanta-Dallas-Austin-Honolulu-Denver-Baltimore
+C({[Austin, Baltimore, Denver, Honolulu, Dallas]} , Dallas) = 15042; route = Atlanta-Baltimore-Denver-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Dallas, Honolulu, Denver]} , Denver) = 14567; route = Atlanta-Baltimore-Dallas-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Dallas, Denver, Honolulu]} , Honolulu) = 9778; route = Atlanta-Baltimore-Dallas-Austin-Denver-Honolulu
+C({[Boston, Chicago, Dallas, Denver, Austin]} , Austin) = 5702; route = Atlanta-Boston-Chicago-Denver-Dallas-Austin
+C({[Austin, Chicago, Dallas, Denver, Boston]} , Boston) = 5512; route = Atlanta-Austin-Dallas-Denver-Chicago-Boston
+C({[Austin, Boston, Dallas, Denver, Chicago]} , Chicago) = 6876; route = Atlanta-Austin-Dallas-Denver-Boston-Chicago
+C({[Austin, Boston, Chicago, Denver, Dallas]} , Dallas) = 5878; route = Atlanta-Boston-Chicago-Denver-Austin-Dallas
+C({[Austin, Boston, Chicago, Dallas, Denver]} , Denver) = 5694; route = Atlanta-Boston-Chicago-Dallas-Austin-Denver
+C({[Boston, Chicago, Dallas, Honolulu, Austin]} , Austin) = 16089; route = Atlanta-Boston-Chicago-Honolulu-Dallas-Austin
+C({[Austin, Chicago, Dallas, Honolulu, Boston]} , Boston) = 15676; route = Atlanta-Dallas-Austin-Honolulu-Chicago-Boston
+C({[Austin, Boston, Dallas, Honolulu, Chicago]} , Chicago) = 17016; route = Atlanta-Dallas-Austin-Honolulu-Boston-Chicago
+C({[Austin, Boston, Chicago, Honolulu, Dallas]} , Dallas) = 16024; route = Atlanta-Boston-Chicago-Honolulu-Austin-Dallas
+C({[Austin, Boston, Chicago, Dallas, Honolulu]} , Honolulu) = 10483; route = Atlanta-Boston-Chicago-Dallas-Austin-Honolulu
+C({[Boston, Chicago, Denver, Honolulu, Austin]} , Austin) = 15745; route = Atlanta-Boston-Chicago-Denver-Honolulu-Austin
+C({[Austin, Chicago, Denver, Honolulu, Boston]} , Boston) = 15555; route = Atlanta-Austin-Honolulu-Denver-Chicago-Boston
+C({[Austin, Boston, Denver, Honolulu, Chicago]} , Chicago) = 16919; route = Atlanta-Austin-Honolulu-Denver-Boston-Chicago
+C({[Austin, Boston, Chicago, Honolulu, Denver]} , Denver) = 15842; route = Atlanta-Boston-Chicago-Austin-Honolulu-Denver
+C({[Austin, Boston, Chicago, Denver, Honolulu]} , Honolulu) = 11053; route = Atlanta-Boston-Chicago-Austin-Denver-Honolulu
+C({[Boston, Dallas, Denver, Honolulu, Austin]} , Austin) = 16101; route = Atlanta-Boston-Denver-Honolulu-Dallas-Austin
+C({[Austin, Dallas, Denver, Honolulu, Boston]} , Boston) = 15688; route = Atlanta-Dallas-Austin-Honolulu-Denver-Boston
+C({[Austin, Boston, Denver, Honolulu, Dallas]} , Dallas) = 16036; route = Atlanta-Boston-Denver-Honolulu-Austin-Dallas
+C({[Austin, Boston, Dallas, Honolulu, Denver]} , Denver) = 15688; route = Atlanta-Boston-Dallas-Austin-Honolulu-Denver
+C({[Austin, Boston, Dallas, Denver, Honolulu]} , Honolulu) = 10899; route = Atlanta-Boston-Dallas-Austin-Denver-Honolulu
+C({[Chicago, Dallas, Denver, Honolulu, Austin]} , Austin) = 14176; route = Atlanta-Chicago-Denver-Honolulu-Dallas-Austin
+C({[Austin, Dallas, Denver, Honolulu, Chicago]} , Chicago) = 14324; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago
+C({[Austin, Chicago, Denver, Honolulu, Dallas]} , Dallas) = 14111; route = Atlanta-Chicago-Denver-Honolulu-Austin-Dallas
+C({[Austin, Chicago, Dallas, Honolulu, Denver]} , Denver) = 13927; route = Atlanta-Chicago-Dallas-Austin-Honolulu-Denver
+C({[Austin, Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 9138; route = Atlanta-Chicago-Dallas-Austin-Denver-Honolulu
+C({[Boston, Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 5638; route = Atlanta-Dallas-Denver-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Dallas, Denver, Boston]} , Boston) = 5245; route = Atlanta-Dallas-Denver-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Dallas, Denver, Chicago]} , Chicago) = 6532; route = Atlanta-Baltimore-Boston-Dallas-Denver-Chicago
+C({[Baltimore, Boston, Chicago, Denver, Dallas]} , Dallas) = 5408; route = Atlanta-Baltimore-Boston-Chicago-Denver-Dallas
+C({[Baltimore, Boston, Chicago, Dallas, Denver]} , Denver) = 5224; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Denver
+C({[Boston, Chicago, Dallas, Honolulu, Baltimore]} , Baltimore) = 16025; route = Atlanta-Dallas-Honolulu-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Dallas, Honolulu, Boston]} , Boston) = 15632; route = Atlanta-Dallas-Honolulu-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Dallas, Honolulu, Chicago]} , Chicago) = 16919; route = Atlanta-Baltimore-Boston-Dallas-Honolulu-Chicago
+C({[Baltimore, Boston, Chicago, Honolulu, Dallas]} , Dallas) = 15795; route = Atlanta-Baltimore-Boston-Chicago-Honolulu-Dallas
+C({[Baltimore, Boston, Chicago, Dallas, Honolulu]} , Honolulu) = 10254; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Honolulu
+C({[Boston, Chicago, Denver, Honolulu, Baltimore]} , Baltimore) = 16012; route = Atlanta-Honolulu-Denver-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Denver, Honolulu, Boston]} , Boston) = 15619; route = Atlanta-Honolulu-Denver-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Denver, Honolulu, Chicago]} , Chicago) = 16520; route = Atlanta-Baltimore-Boston-Honolulu-Denver-Chicago
+C({[Baltimore, Boston, Chicago, Honolulu, Denver]} , Denver) = 15072; route = Atlanta-Baltimore-Boston-Chicago-Honolulu-Denver
+C({[Baltimore, Boston, Chicago, Denver, Honolulu]} , Honolulu) = 9715; route = Atlanta-Baltimore-Boston-Chicago-Denver-Honolulu
+C({[Boston, Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 16037; route = Atlanta-Dallas-Honolulu-Denver-Boston-Baltimore
+C({[Baltimore, Dallas, Denver, Honolulu, Boston]} , Boston) = 15621; route = Atlanta-Dallas-Honolulu-Denver-Baltimore-Boston
+C({[Baltimore, Boston, Denver, Honolulu, Dallas]} , Dallas) = 15807; route = Atlanta-Baltimore-Boston-Denver-Honolulu-Dallas
+C({[Baltimore, Boston, Dallas, Honolulu, Denver]} , Denver) = 15459; route = Atlanta-Baltimore-Boston-Dallas-Honolulu-Denver
+C({[Baltimore, Boston, Dallas, Denver, Honolulu]} , Honolulu) = 10429; route = Atlanta-Baltimore-Boston-Dallas-Denver-Honolulu
+C({[Chicago, Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 15069; route = Atlanta-Dallas-Honolulu-Denver-Chicago-Baltimore
+C({[Baltimore, Dallas, Denver, Honolulu, Chicago]} , Chicago) = 15813; route = Atlanta-Baltimore-Dallas-Honolulu-Denver-Chicago
+C({[Baltimore, Chicago, Denver, Honolulu, Dallas]} , Dallas) = 14839; route = Atlanta-Baltimore-Chicago-Denver-Honolulu-Dallas
+C({[Baltimore, Chicago, Dallas, Honolulu, Denver]} , Denver) = 14655; route = Atlanta-Baltimore-Chicago-Dallas-Honolulu-Denver
+C({[Baltimore, Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 9625; route = Atlanta-Baltimore-Chicago-Dallas-Denver-Honolulu
+C({[Chicago, Dallas, Denver, Honolulu, Boston]} , Boston) = 15462; route = Atlanta-Dallas-Honolulu-Denver-Chicago-Boston
+C({[Boston, Dallas, Denver, Honolulu, Chicago]} , Chicago) = 16826; route = Atlanta-Dallas-Honolulu-Denver-Boston-Chicago
+C({[Boston, Chicago, Denver, Honolulu, Dallas]} , Dallas) = 15810; route = Atlanta-Boston-Chicago-Denver-Honolulu-Dallas
+C({[Boston, Chicago, Dallas, Honolulu, Denver]} , Denver) = 15626; route = Atlanta-Boston-Chicago-Dallas-Honolulu-Denver
+C({[Boston, Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 10596; route = Atlanta-Boston-Chicago-Dallas-Denver-Honolulu
+
+s = 6
+C({[Baltimore, Boston, Chicago, Dallas, Denver, Austin]} , Austin) = 5701; route = Atlanta-Baltimore-Boston-Chicago-Denver-Dallas-Austin
+C({[Austin, Boston, Chicago, Dallas, Denver, Baltimore]} , Baltimore) = 6089; route = Atlanta-Austin-Dallas-Denver-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Dallas, Denver, Boston]} , Boston) = 5696; route = Atlanta-Austin-Dallas-Denver-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas, Denver, Chicago]} , Chicago) = 7001; route = Atlanta-Baltimore-Boston-Dallas-Austin-Denver-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Denver, Dallas]} , Dallas) = 5877; route = Atlanta-Baltimore-Boston-Chicago-Denver-Austin-Dallas
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Denver]} , Denver) = 5693; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Denver
+C({[Baltimore, Boston, Chicago, Dallas, Honolulu, Austin]} , Austin) = 16088; route = Atlanta-Baltimore-Boston-Chicago-Honolulu-Dallas-Austin
+C({[Austin, Boston, Chicago, Dallas, Honolulu, Baltimore]} , Baltimore) = 16253; route = Atlanta-Dallas-Austin-Honolulu-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Dallas, Honolulu, Boston]} , Boston) = 15860; route = Atlanta-Dallas-Austin-Honolulu-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas, Honolulu, Chicago]} , Chicago) = 17147; route = Atlanta-Baltimore-Boston-Dallas-Austin-Honolulu-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Honolulu, Dallas]} , Dallas) = 16023; route = Atlanta-Baltimore-Boston-Chicago-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Honolulu]} , Honolulu) = 10482; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Honolulu
+C({[Baltimore, Boston, Chicago, Denver, Honolulu, Austin]} , Austin) = 15744; route = Atlanta-Baltimore-Boston-Chicago-Denver-Honolulu-Austin
+C({[Austin, Boston, Chicago, Denver, Honolulu, Baltimore]} , Baltimore) = 16132; route = Atlanta-Austin-Honolulu-Denver-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Denver, Honolulu, Boston]} , Boston) = 15739; route = Atlanta-Austin-Honolulu-Denver-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver, Honolulu, Chicago]} , Chicago) = 17080; route = Atlanta-Austin-Honolulu-Denver-Baltimore-Boston-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Honolulu, Denver]} , Denver) = 15841; route = Atlanta-Baltimore-Boston-Chicago-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Boston, Chicago, Denver, Honolulu]} , Honolulu) = 11052; route = Atlanta-Baltimore-Boston-Chicago-Austin-Denver-Honolulu
+C({[Baltimore, Boston, Dallas, Denver, Honolulu, Austin]} , Austin) = 16100; route = Atlanta-Baltimore-Boston-Denver-Honolulu-Dallas-Austin
+C({[Austin, Boston, Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 16265; route = Atlanta-Dallas-Austin-Honolulu-Denver-Boston-Baltimore
+C({[Austin, Baltimore, Dallas, Denver, Honolulu, Boston]} , Boston) = 15849; route = Atlanta-Dallas-Austin-Honolulu-Denver-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Denver, Honolulu, Dallas]} , Dallas) = 16035; route = Atlanta-Baltimore-Boston-Denver-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Boston, Dallas, Honolulu, Denver]} , Denver) = 15687; route = Atlanta-Baltimore-Boston-Dallas-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Boston, Dallas, Denver, Honolulu]} , Honolulu) = 10898; route = Atlanta-Baltimore-Boston-Dallas-Austin-Denver-Honolulu
+C({[Baltimore, Chicago, Dallas, Denver, Honolulu, Austin]} , Austin) = 15132; route = Atlanta-Baltimore-Chicago-Denver-Honolulu-Dallas-Austin
+C({[Austin, Chicago, Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 15297; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago-Baltimore
+C({[Austin, Baltimore, Dallas, Denver, Honolulu, Chicago]} , Chicago) = 16041; route = Atlanta-Baltimore-Dallas-Austin-Honolulu-Denver-Chicago
+C({[Austin, Baltimore, Chicago, Denver, Honolulu, Dallas]} , Dallas) = 15067; route = Atlanta-Baltimore-Chicago-Denver-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Chicago, Dallas, Honolulu, Denver]} , Denver) = 14883; route = Atlanta-Baltimore-Chicago-Dallas-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 10094; route = Atlanta-Baltimore-Chicago-Dallas-Austin-Denver-Honolulu
+C({[Boston, Chicago, Dallas, Denver, Honolulu, Austin]} , Austin) = 16103; route = Atlanta-Boston-Chicago-Denver-Honolulu-Dallas-Austin
+C({[Austin, Chicago, Dallas, Denver, Honolulu, Boston]} , Boston) = 15690; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago-Boston
+C({[Austin, Boston, Dallas, Denver, Honolulu, Chicago]} , Chicago) = 17054; route = Atlanta-Dallas-Austin-Honolulu-Denver-Boston-Chicago
+C({[Austin, Boston, Chicago, Denver, Honolulu, Dallas]} , Dallas) = 16038; route = Atlanta-Boston-Chicago-Denver-Honolulu-Austin-Dallas
+C({[Austin, Boston, Chicago, Dallas, Honolulu, Denver]} , Denver) = 15854; route = Atlanta-Boston-Chicago-Dallas-Austin-Honolulu-Denver
+C({[Austin, Boston, Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 11065; route = Atlanta-Boston-Chicago-Dallas-Austin-Denver-Honolulu
+C({[Boston, Chicago, Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 16039; route = Atlanta-Dallas-Honolulu-Denver-Chicago-Boston-Baltimore
+C({[Baltimore, Chicago, Dallas, Denver, Honolulu, Boston]} , Boston) = 15646; route = Atlanta-Dallas-Honolulu-Denver-Chicago-Baltimore-Boston
+C({[Baltimore, Boston, Dallas, Denver, Honolulu, Chicago]} , Chicago) = 16933; route = Atlanta-Baltimore-Boston-Dallas-Honolulu-Denver-Chicago
+C({[Baltimore, Boston, Chicago, Denver, Honolulu, Dallas]} , Dallas) = 15809; route = Atlanta-Baltimore-Boston-Chicago-Denver-Honolulu-Dallas
+C({[Baltimore, Boston, Chicago, Dallas, Honolulu, Denver]} , Denver) = 15625; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Honolulu-Denver
+C({[Baltimore, Boston, Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 10595; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Denver-Honolulu
+
+s = 7
+C({[Baltimore, Boston, Chicago, Dallas, Denver, Honolulu, Austin]} , Austin) = 16102; route = Atlanta-Baltimore-Boston-Chicago-Denver-Honolulu-Dallas-Austin
+C({[Austin, Boston, Chicago, Dallas, Denver, Honolulu, Baltimore]} , Baltimore) = 16267; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago-Boston-Baltimore
+C({[Austin, Baltimore, Chicago, Dallas, Denver, Honolulu, Boston]} , Boston) = 15874; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago-Baltimore-Boston
+C({[Austin, Baltimore, Boston, Dallas, Denver, Honolulu, Chicago]} , Chicago) = 17161; route = Atlanta-Baltimore-Boston-Dallas-Austin-Honolulu-Denver-Chicago
+C({[Austin, Baltimore, Boston, Chicago, Denver, Honolulu, Dallas]} , Dallas) = 16037; route = Atlanta-Baltimore-Boston-Chicago-Denver-Honolulu-Austin-Dallas
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Honolulu, Denver]} , Denver) = 15853; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Honolulu-Denver
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Denver, Honolulu]} , Honolulu) = 11064; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Denver-Honolulu
+
+Opt:
+C({[Baltimore, Boston, Chicago, Dallas, Denver, Honolulu, Austin]}, Austin) to 0 = 17417; route = Atlanta-Baltimore-Boston-Chicago-Denver-Honolulu-Dallas-Austin-Atlanta
+C({[Austin, Boston, Chicago, Dallas, Denver, Honolulu, Baltimore]}, Baltimore) to 0 = 17194; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago-Boston-Baltimore-Atlanta
+C({[Austin, Baltimore, Chicago, Dallas, Denver, Honolulu, Boston]}, Boston) to 0 = 17379; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago-Baltimore-Boston-Atlanta
+C({[Austin, Baltimore, Boston, Dallas, Denver, Honolulu, Chicago]}, Chicago) to 0 = 18105; route = Atlanta-Baltimore-Boston-Dallas-Austin-Honolulu-Denver-Chicago-Atlanta
+C({[Austin, Baltimore, Boston, Chicago, Denver, Honolulu, Dallas]}, Dallas) to 0 = 17194; route = Atlanta-Baltimore-Boston-Chicago-Denver-Honolulu-Austin-Dallas-Atlanta
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Honolulu, Denver]}, Denver) to 0 = 17798; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Honolulu-Denver-Atlanta
+C({[Austin, Baltimore, Boston, Chicago, Dallas, Denver, Honolulu]}, Honolulu) to 0 = 18288; route = Atlanta-Baltimore-Boston-Chicago-Dallas-Austin-Denver-Honolulu-Atlanta
+Opt = 17194; route = Atlanta-Dallas-Austin-Honolulu-Denver-Chicago-Boston-Baltimore-Atlanta
