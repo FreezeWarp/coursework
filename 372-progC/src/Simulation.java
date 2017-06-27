@@ -3,40 +3,8 @@ import java.util.*;
 /**
  * Created by joseph on 26/06/17.
  */
-public class Driver {
-    public static void main(String args[]) {
-        /* Initialise Map */
-        Node nodeA = new Node("A");
-        Node nodeB = new Node("B");
-        Node nodeC = new Node("C");
-        Node nodeD = new Node("D");
-        Node nodeE = new Node("E");
-
-        nodeA.registerConnection(nodeB, 3);
-        nodeA.registerConnection(nodeC, 2);
-        nodeA.registerConnection(nodeE, 5);
-
-        nodeB.registerConnection(nodeA, 4);
-        nodeB.registerConnection(nodeC, 5);
-        nodeB.registerConnection(nodeD, 3);
-
-        nodeD.registerConnection(nodeA, 6);
-        nodeD.registerConnection(nodeC, 5);
-        nodeD.registerConnection(nodeE, 1);
-
-        nodeE.registerConnection(nodeB, 6);
-        nodeE.registerConnection(nodeC, 4);
-        nodeE.registerConnection(nodeD, 2);
-
-        List<Node> graph = new LinkedList<Node>();
-        graph.add(nodeA);
-        graph.add(nodeB);
-        graph.add(nodeC);
-        graph.add(nodeD);
-        graph.add(nodeE);
-
-
-
+public class Simulation {
+    public static void main(List<Node> graph) {
         /* Print Node Names In Order Processed
          * (This could, I believe, be a different order, since Java foreach doesn't gurantee order, but it'll probably be right.) */
         for (Node node : graph) {
@@ -70,10 +38,10 @@ public class Driver {
             // Iterate through alphabetically-sorted connections
             for (Node adj : alphabeticalConnections) {
                 System.out.println(node.name + adj.name + " " +
-                    (node.startTime > adj.startTime
-                        ? (node.endTime > adj.endTime ? "C" : "B")
-                        : (adj.previous.equals(node) ? "T" : "F")
-                    )
+                        (node.startTime > adj.startTime
+                                ? (node.endTime > adj.endTime ? "C" : "B")
+                                : (adj.previous.equals(node) ? "T" : "F")
+                        )
                 );
             }
         }
