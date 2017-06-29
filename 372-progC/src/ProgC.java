@@ -21,7 +21,6 @@ import java.util.*;
 
 
 public class ProgC {
-
     /**
      * Passes to ProgBGraphical if possible, or opens the first command line argument as the file if ProgBGraphical fails.
      */
@@ -48,9 +47,11 @@ public class ProgC {
      */
     public static void passData(File[] fileHandles, boolean measurementMode) {
         Collection<Node> parsedData;
+        measurementMode = false;
 
         if (fileHandles != null) {
             if ((parsedData = readNodesFromFile(fileHandles[0])) != null) {
+                System.err.println(parsedData);
                 PrintStream stdout = System.out;
 
                 if (measurementMode) { // Forward output to /dev/null to avoid overhead in measurement mode.
@@ -69,7 +70,7 @@ public class ProgC {
                 }
 
                 long startTime = System.nanoTime(); // For time measurement.
-                //HeldKarp mailman = new HeldKarp((List<String>) parsedData[0], (Map<String, Integer>) parsedData[1]); // Pass parsed data to HeldKarp class.
+                Simulation.main(new ArrayList<Node>(parsedData));
 
                 if (measurementMode) { // If in measurement mode, switch back to stdout and print the time it took to run.
                     System.setOut(stdout);
@@ -140,8 +141,10 @@ public class ProgC {
         try {
             /* Build the List of city names from the first line */
             Files.lines(Paths.get(inFile.getPath())).findFirst().map((line) -> {
-                String[] columns = line.split("\\s+"); // Real talk, though, why would you use anything other than the space regex to split by spaces?
-                for (int columnNum = 1; columnNum < columns.length; columnNum++) {
+                String[] columns = line.trim().split("\\s+"); // Real talk, though, why would you use anything other than the space regex to split by spaces?
+                for (int columnNum = 0; columnNum < columns.length; columnNum++) {
+                    if (columns[columnNum].matches("[\\-\\.]+")) continue; // Allow the first column name to be a punctuation filler.
+
                     nodeNames.add(columns[columnNum]);
                     nodes.put(columns[columnNum], new Node(columns[columnNum]));
                 }
@@ -152,10 +155,6 @@ public class ProgC {
             /* Run through each line of the input file (except the first) from a stream */
             Files.lines(Paths.get(inFile.getPath())).skip(1).forEach((line)->{
                 String[] columns = line.trim().split("\\s+");
-
-                System.out.println("File Parsing Information:");
-                for (String col : columns) System.out.print("Col: " + col + "; ");
-                System.out.println();
 
                 if (columns.length != nodeNames.size()) { // Detect for more values than possible for a given line.
                     System.err.println("Warning! An invalid number of inputs was detected. The rightmost n inputs will be used, with a lack of connection being assumed for any remaining inputs as needed.");
@@ -168,11 +167,11 @@ public class ProgC {
 
                         if (sourceNode == null) {
                             System.err.println("Invalid node name: " + columns[0]);
-                            return null;
+                            //return null;
                         }
                         else if (destNode == null) {
                             System.err.println("Invalid node name in first line. This is probably a development error.");
-                            return null;
+                            //return null;
                         }
                         else {
                             if (!columns[columnNum].matches("[\\.\\-]+")) {
@@ -183,6 +182,8 @@ public class ProgC {
                                 }
                             }
                         }
+                    } catch (Exception ex) {
+                        System.out.println("Iunno.");
                     }
                 }
             });
