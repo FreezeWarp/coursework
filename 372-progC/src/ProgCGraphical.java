@@ -4,7 +4,8 @@ import javafx.stage.Stage;
 import java.io.File;
 
 /**
- * Graphical components of p    rogram -- solely the file opener. If unavailable, file can be specified as the sole argument to the program.
+ * Graphical components of the program -- solely the file opener.
+ * This is not required for Program C; ProgC.java will open from the first command line argument instead, if JavaFX fails to launch (e.g. in a virtual console environment).
  */
 public class ProgCGraphical extends Application {
     public static Stage primaryStage;

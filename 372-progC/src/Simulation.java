@@ -5,8 +5,12 @@ import java.util.*;
  */
 public class Simulation {
     public static void main(List<Node> graph) {
-        /* Print Node Names In Order Processed
-         * (This could, I believe, be a different order, since Java foreach doesn't gurantee order, but it'll probably be right.) */
+        main(graph, null);
+    }
+
+
+    public static void main(List<Node> graph, GraphDrawer graphDrawer) {
+        /* Print Node Names In Order Processed */
         for (Node node : graph) {
             System.out.print(node.name);
         }
@@ -16,8 +20,7 @@ public class Simulation {
 
 
         /* Run DFS */
-        DFS dfs = new DFS();
-        dfs.search(graph);
+        DFS dfs = new DFS(graph, graphDrawer); // Run the DFS algorithm, marking nodes as we go with previous and color.
 
 
 
@@ -38,10 +41,10 @@ public class Simulation {
             // Iterate through alphabetically-sorted connections
             for (Node adj : alphabeticalConnections) {
                 System.out.println(node.name + adj.name + " " +
-                        (node.equals(adj) ? "S" :
-                            (node.startTime > adj.startTime
+                        (node.equals(adj) ? "S" : // This is an edge case that was detected from erroneous input, but is nonetheless useful to have.
+                            (node.startTime > adj.startTime // You can look up the classifications, but if we visited this node before the adjacent node, the connection is either C or B. Otherwise, T or F.
                                     ? (node.endTime > adj.endTime ? "C" : "B")
-                                    : (adj.previous.equals(node) ? "T" : "F")
+                                    : (adj.previous.equals(node) ? "T" : "F") // Notably, this isn't the only way of doing this (we could mark Tree nodes as we come across them instead), but is arguably more general-purpose and cleaner.
                             )
                         )
                 );
@@ -53,13 +56,13 @@ public class Simulation {
 
         /* Print Topological Sort */
         // Sort the Nodes Using a SortedMap and endTime as key
-        SortedMap<Integer, Node> topologicalSort = new TreeMap<Integer, Node>();
-        for (Node node : graph) {
+        SortedMap<Integer, Node> topologicalSort = new TreeMap<Integer, Node>(); // Tree maps are sorted by key, hence we'll iterate these back in order of the key.
+        for (Node node : graph) { // For every node in the graph...
             topologicalSort.put(-1 * node.endTime, node); // -1 as an easy hack to reverse the order.
         }
 
         // Iterate Through the SortedMap's values
-        for (Node node : topologicalSort.values()) {
+        for (Node node : topologicalSort.values()) { // For every node in the sorted list...
             System.out.print(node.name);
         }
         System.out.println();
@@ -67,27 +70,27 @@ public class Simulation {
 
 
 
-        /* Strongly Connected Components */
+        /* Strongly Connected Components
+         * We do this by inverting our existing connections data to minimise coupling, but you could also have just read the input graph flipped from its file. */
         // Create New Graph of Nodes
         Map<String, Node> graphT = new HashMap<String, Node>();
-        for (Node node : graph) {
-            graphT.put(node.name, new Node(node)); // keeps name, start, and end times; color and previous attributes are reset.
+        for (Node node : graph) { // For every node in the graph...
+            graphT.put(node.name, new Node(node)); // keeps name, start, and end times; color and previous attributes are reset, since these exist only as temporary DFS helpers.
         }
 
-        // Add Vertexes to the Graph (Reversing Previous Connections
-        for (int i = 0; i < graph.size(); i++) {
-            for (Node connection : graph.get(i)) {
-                graphT.get(connection.name).registerConnection(graphT.get(graph.get(i).name), Integer.MAX_VALUE - connection.endTime);
+        // Add Vertexes to the Graph (Reversing Previous Connections)
+        for (int i = 0; i < graph.size(); i++) { // For every node in the graph...
+            for (Node connection : graph.get(i)) { // For every node connected to the node...
+                graphT.get(connection.name).registerConnection(graphT.get(graph.get(i).name), Integer.MAX_VALUE - connection.endTime); // Note that to ensure the correct order of execution, we have the distances in flipped order. There are other approaches to this, but I thought it was the cleanest.
             }
         }
 
         // Sort the New Graph Values In Reverse Order of End Time
-        List<Node> graphTSorted = new LinkedList<Node>(graphT.values());
+        List<Node> graphTSorted = new LinkedList<Node>(graphT.values()); // Get them in an easily sortable format. (Not yet sorted.)
         Collections.sort(graphTSorted, (o1, o2) -> o2.getEndTime() - o1.getEndTime()); // Sort the collection in the *reverse* order of ending time.
 
         // Run DFS on the Sorted Reversed Graph
-        DFS dfsT = new DFS();
-        dfsT.search(graphTSorted);
+        DFS dfsT = new DFS(graphTSorted);
 
         // Iterate Through the Forests That Were Found During the DFS
         for (List<Node> dfsTree : dfsT.getDfsForest()) {

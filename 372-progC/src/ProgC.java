@@ -1,7 +1,3 @@
-import guru.nidi.graphviz.engine.Format;
-import guru.nidi.graphviz.engine.Graphviz;
-import guru.nidi.graphviz.model.Graph;
-import javafx.application.Platform;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -12,12 +8,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import static guru.nidi.graphviz.model.Factory.*;
 
 /**
- * Simulation of algorithms (right now, Held Karp) on map data sets.
+ * Simulation of DFS graph algorithm on graph.
  * Can run graphically (using JavaFX) or non-graphically (if JavaFX fails to launch).
  * Takes an input file as source graph and outputs to the same filename with _out appended before the file ext.
+ * Additionally, uses GraphDrawer to output a visual representation of the input graph, for easier debugging.
  *
  * @author Joseph T. Parsons
  */
@@ -28,18 +24,18 @@ public class ProgC {
      * Passes to ProgBGraphical if possible, or opens the first command line argument as the file if ProgBGraphical fails.
      */
     public static void main(String[] args) {
-        try {
+//        try {
             ProgCGraphical.main(args);
-        } catch (Exception ex) {
+/*        } catch (Exception ex) {
             System.out.println("Unable to launch JavaFX. Reading file from first parameter and assuming measurement mode.");
             System.out.println(args);
 
-            File[] files = new File[2];
-            files[0] = new File(args[0]);
+            File[] files = new File[3];
+            files[0] = (args.length > 0 ? new File(args[0]) : null);
             files[1] = null;
             files[2] = null;
             ProgC.passData(files, true);
-        }
+        }*/
         
         System.exit(0);
     }
@@ -74,14 +70,19 @@ public class ProgC {
                     }
                 }
 
-                long startTime = System.nanoTime(); // For time measurement.
-                Simulation.main(new ArrayList<Node>(parsedData));
+                GraphDrawer graphDrawer = new GraphDrawer(fileHandles[2]);
 
                 try {
-                    GraphDrawer.drawGraph(fileHandles[2], new ArrayList<Node>(parsedData));
+                    graphDrawer.drawGraph(parsedData); // Draw the initial, uncoloured phase of the graph.
                 } catch (Exception ex) {
                     System.out.println("GraphDrawer failed.");
                 }
+
+
+                long startTime = System.nanoTime(); // For time measurement.
+                Simulation.main(new ArrayList<Node>(parsedData), graphDrawer);
+
+                graphDrawer.close(); // Close up the graph drawer, ensuring the final image data is written.
 
                 if (measurementMode) { // If in measurement mode, switch back to stdout and print the time it took to run.
                     System.setOut(stdout);
@@ -91,9 +92,6 @@ public class ProgC {
                 System.out.println("Unable to parse file. Exitting.");
             }
         }
-
-        //Platform.exit(); // Don't keep running after completion.
-        //System.exit(0);
     }
 
 
