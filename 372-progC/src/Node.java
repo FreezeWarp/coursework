@@ -41,6 +41,9 @@ public class Node implements Iterable<Node> {
     public String toString() {
         return name;
     }
+    public String getName() {
+        return name;
+    }
 
     public int getEndTime() {
         return endTime;
@@ -57,6 +60,22 @@ public class Node implements Iterable<Node> {
 
         for (List<Node> list : values) {
             listValues.addAll(list);
+        }
+
+        return listValues;
+    }
+
+    /**
+     * @return A list of Entry pairs containing all connections.
+     */
+    public List<Map.Entry<Integer, Node>> getConnectionsWithDistances() {
+        Collection<List<Node>> values = connections.values();
+        List<Map.Entry<Integer, Node>> listValues = new LinkedList<>();
+
+        for (Map.Entry<Integer, List<Node>> pair : connections.entrySet()) {
+            for (Node node : pair.getValue()) {
+                listValues.add(new AbstractMap.SimpleEntry<Integer, Node>(pair.getKey(), node));
+            }
         }
 
         return listValues;

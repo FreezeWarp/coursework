@@ -38,9 +38,11 @@ public class Simulation {
             // Iterate through alphabetically-sorted connections
             for (Node adj : alphabeticalConnections) {
                 System.out.println(node.name + adj.name + " " +
-                        (node.startTime > adj.startTime
-                                ? (node.endTime > adj.endTime ? "C" : "B")
-                                : (adj.previous.equals(node) ? "T" : "F")
+                        (node.equals(adj) ? "S" :
+                            (node.startTime > adj.startTime
+                                    ? (node.endTime > adj.endTime ? "C" : "B")
+                                    : (adj.previous.equals(node) ? "T" : "F")
+                            )
                         )
                 );
             }

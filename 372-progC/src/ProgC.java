@@ -1,3 +1,6 @@
+import guru.nidi.graphviz.engine.Format;
+import guru.nidi.graphviz.engine.Graphviz;
+import guru.nidi.graphviz.model.Graph;
 import javafx.application.Platform;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -9,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-
+import static guru.nidi.graphviz.model.Factory.*;
 
 /**
  * Simulation of algorithms (right now, Held Karp) on map data sets.
@@ -71,6 +74,7 @@ public class ProgC {
 
                 long startTime = System.nanoTime(); // For time measurement.
                 Simulation.main(new ArrayList<Node>(parsedData));
+                ProgCGraphical.drawGraph(fileHandles[2], new ArrayList<Node>(parsedData));
 
                 if (measurementMode) { // If in measurement mode, switch back to stdout and print the time it took to run.
                     System.setOut(stdout);
@@ -81,8 +85,8 @@ public class ProgC {
             }
         }
 
-        Platform.exit(); // Don't keep running after completion.
-        System.exit(0);
+        //Platform.exit(); // Don't keep running after completion.
+        //System.exit(0);
     }
 
 
@@ -112,6 +116,7 @@ public class ProgC {
             String fileName = file.getAbsolutePath();
             int extensionDelimiter = fileName.lastIndexOf('.');
             Path outFile = Paths.get(fileName.substring(0, extensionDelimiter) + "_out" + fileName.substring(extensionDelimiter, fileName.length()));
+            Path outImage = Paths.get(fileName.substring(0, extensionDelimiter) + "_out" + ".png");
 
             System.out.println("Output File Will Be: " + outFile.toAbsolutePath());
             System.out.println();
@@ -120,7 +125,7 @@ public class ProgC {
                 /* Delete Output File if It Currently Exists */
                 Files.deleteIfExists(outFile);
 
-                return new File[]{file, outFile.toFile()};
+                return new File[]{file, outFile.toFile(), outImage.toFile()};
             } catch (IOException ex) {
                 return null;
             }
@@ -156,8 +161,8 @@ public class ProgC {
             Files.lines(Paths.get(inFile.getPath())).skip(1).forEach((line)->{
                 String[] columns = line.trim().split("\\s+");
 
-                if (columns.length != nodeNames.size()) { // Detect for more values than possible for a given line.
-                    System.err.println("Warning! An invalid number of inputs was detected. The rightmost n inputs will be used, with a lack of connection being assumed for any remaining inputs as needed.");
+                if (columns.length != nodeNames.size() + 1) { // Detect for more values than possible for a given line.
+                    System.err.println("Warning! An invalid number of inputs was detected: " + columns.length + " found, " + (nodeNames.size() + 1) + " expected. The rightmost n inputs will be used, with a lack of connection being assumed for any remaining inputs as needed.");
                 }
 
                 for (int columnNum = 1; columnNum < columns.length; columnNum++) {
