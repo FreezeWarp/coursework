@@ -7,6 +7,7 @@ import guru.nidi.graphviz.engine.Graphviz;
 import guru.nidi.graphviz.model.Graph;
 import guru.nidi.graphviz.model.Label;
 import ork.sevenstates.apng.APNGSeqWriter;
+import ork.sevenstates.apng.optimizing.ARGBSlicingSubtractor;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -21,7 +22,7 @@ import static guru.nidi.graphviz.model.Factory.*;
 
 /**
  * Ah, this was so fun! Initially created for debugging (and as an excuse to learn more about Java dependencies and packaging, as well as GraphViz itself), this creates an image representation of the graph using GraphViz, and then, because I really wanted to have fun with it, animates it with DFS's execution.
- * Note that I'm using a random APNG library I found on GitHub, which has the important caveat that APNGs are only supported on fairly modern browsers; Firefox, *very* recent versions of Chrome, and so-on: http://caniuse.com/#feat=apng. Edge does not support them (nor, of-course, Internet Explorer). I will likely transcode to GIF to ensure the demo remains functional for all users, since I am totally using this as a demo in a future job interview.
+ * Note that I'm using a random APNG library I found on GitHub, which has the important caveat that APNGs are only supported on fairly modern browsers; Firefox, *very* recent versions of Chrome, and so-on: http://caniuse.com/#feat=apng. Edge does not support them (nor, of-course, Internet Explorer), nor does the Windows default file viewer. I will likely transcode to GIF to ensure the demo remains functional for all users, since I am totally using this as a demo in a future job interview.
  *
  * To use this, proper Maven configuration is required for the GraphViz executable in graphviz-java-master and the APNG library in apng-writer-master. In IntelliJ, this is as simple as opening "Maven Projects" and importing the pom.xml file from both folders, and then adding as a project dependency both folders. Additionally, the svg-salamander*.jar file in graphviz-java-master must be added to the project dependencies. Everything should, at this point, work.
  * For submission, I'm commenting the entire file out (and omitting graphviz-java-master), because the required imports won't be available. But my Git source should include everything.
@@ -35,6 +36,13 @@ public class GraphDrawer {
      * {@link APNGSeqWriter} allows us to progressively update the image. In contrast, {@link ork.sevenstates.apng.APNGWriter} requires that the total frames be known in advance.
      */
     APNGSeqWriter apngWriter;
+
+
+    /**
+     * A basic string list of connections that are "marked" and should be shown as visited. (A reasonably performant way of doing this without being overly complicated.)
+     * Invoke {@link GraphDrawer#drawGraph(Collection, Node, Node)} to draw the graph while adding a new connection to this list.
+     */
+    List<String> markedConnections;
 
 
     /**
@@ -54,7 +62,7 @@ public class GraphDrawer {
      */
     public void registerFile(File file) {
         try {
-            apngWriter = new APNGSeqWriter(file, -1); // -1 is the differential algorithm, which seems... ideal for this purpose.
+            apngWriter = new APNGSeqWriter(file, -1, new ARGBSlicingSubtractor(.6d)); // -1 is the differential algorithm, which seems... ideal for this purpose.
         } catch (FileNotFoundException ex) {
             System.err.println("Unable to initalise animated PNG writer; file not found (" + file.getAbsolutePath() + "). Expect errors.");
         } catch (IOException ex) {
@@ -83,6 +91,10 @@ public class GraphDrawer {
     public void drawGraph(Collection<Node> graph, Node nodeFrom, Node nodeTo) {
         Graph g = graph("example1").directed().generalAttr().with(RankDir.LEFT_TO_RIGHT);
 
+        if (nodeFrom != null && nodeTo != null) {
+            markedConnections.add(nodeFrom.getName() + ";;" + nodeTo.getName()); // Collisions are possible, but pretty unlikely. Dunno why a nodename would have two semicolons in it, after all.
+        }
+
         for (Node localNode : graph) {
             List<Map.Entry<Integer, Node>> distances = localNode.getConnectionsWithDistances();
 
@@ -91,7 +103,7 @@ public class GraphDrawer {
             for (int i = 0; i < distances.size(); i++) {
                 newList[i] = to(node(distances.get(i).getValue().getName())).with(Label.of(distances.get(i).getKey().toString()));
 
-                if (nodeFrom != null && nodeTo != null && nodeFrom.getName().equals(localNode.getName()) && nodeTo.getName().equals(distances.get(i).getValue().getName())) {
+                if (markedConnections.contains(localNode.getName() + ";;" + distances.get(i).getValue().getName())) {
                     newList[i] = newList[i].with(Style.BOLD);
                 }
             }
