@@ -37,8 +37,11 @@ public class ProgC {
             File[] files = new File[2];
             files[0] = new File(args[0]);
             files[1] = null;
+            files[2] = null;
             ProgC.passData(files, true);
         }
+        
+        System.exit(0);
     }
 
 
@@ -54,7 +57,6 @@ public class ProgC {
 
         if (fileHandles != null) {
             if ((parsedData = readNodesFromFile(fileHandles[0])) != null) {
-                System.err.println(parsedData);
                 PrintStream stdout = System.out;
 
                 if (measurementMode) { // Forward output to /dev/null to avoid overhead in measurement mode.
@@ -74,7 +76,12 @@ public class ProgC {
 
                 long startTime = System.nanoTime(); // For time measurement.
                 Simulation.main(new ArrayList<Node>(parsedData));
-                ProgCGraphical.drawGraph(fileHandles[2], new ArrayList<Node>(parsedData));
+
+                try {
+                    GraphDrawer.drawGraph(fileHandles[2], new ArrayList<Node>(parsedData));
+                } catch (Exception ex) {
+                    System.out.println("GraphDrawer failed.");
+                }
 
                 if (measurementMode) { // If in measurement mode, switch back to stdout and print the time it took to run.
                     System.setOut(stdout);
