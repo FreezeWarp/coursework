@@ -1,10 +1,7 @@
 import java.util.*;
 
 /**
- * A simple data structure for storing linked nodes.
- * All outgoing connections are stored as references in {@link Node#connections}.
- *
- * @author Joseph T. Parsons
+ * Created by joseph on 26/06/17.
  */
 public class Node implements Iterable<Node> {
     /* Attributes Used for General Graph Information */
