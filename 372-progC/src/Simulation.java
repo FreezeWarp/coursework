@@ -1,7 +1,10 @@
 import java.util.*;
 
 /**
- * Created by joseph on 26/06/17.
+ * Given an input graph (which is just a collection of nodes that presumably have connections to each-other), calculate various DFS properties.
+ * This will list node names in order processed, print the DFS start and finish time, calculate edge types of DFS tree based on start/finish times, print the topological sort of nodes, and then -find the strongly-connected components.
+ *
+ * @author Joseph T. Parsons
  */
 public class Simulation {
     public static void main(List<Node> graph) {
@@ -36,7 +39,7 @@ public class Simulation {
         for (Node node : graph) {
             // Sort the node's connections alphabetically (by default, they are sorted by distance)
             List<Node> alphabeticalConnections = new LinkedList<Node>(node.getConnections());
-            Collections.sort(alphabeticalConnections, Comparator.comparing(Node::toString));
+            Collections.sort(alphabeticalConnections, Comparator.comparing(Node::getName));
 
             // Iterate through alphabetically-sorted connections
             for (Node adj : alphabeticalConnections) {
@@ -94,6 +97,8 @@ public class Simulation {
 
         // Iterate Through the Forests That Were Found During the DFS
         for (List<Node> dfsTree : dfsT.getDfsForest()) {
+            Collections.sort(dfsTree, Comparator.comparing(Node::getName)); // Sort the collection in alphabetical order. (I could probably do this better, but I only just noticed I wasn't doing this a bit before deadline.)
+
             for (Node node : dfsTree) {
                 System.out.print(node);
             }

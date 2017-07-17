@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * This is a basic test case of our Simulation functionality that doesn't require file input. While I would be absolutely shocked if it came to this, you could use this file to grade the submission if file IO somehow didn't work. (More importantly, it allowed me to implement things before dealing with file IO. In my experience, file parsing is, for some reason, the hardest part and the most likely to introduce unexpected bugs.)
+ * This is a basic test case of our Simulation functionality that doesn't require file input. (It allowed me to implement things before dealing with file IO. In my experience, file parsing is, for some reason, the hardest part and the most likely to introduce unexpected bugs.)
  *
  * @author Joseph T. Parsons
  */
