@@ -1,3 +1,4 @@
+/*
 import guru.nidi.graphviz.attribute.Color;
 import guru.nidi.graphviz.attribute.RankDir;
 import guru.nidi.graphviz.attribute.SingleAttributes;
@@ -9,23 +10,25 @@ import guru.nidi.graphviz.model.Label;
 import ork.sevenstates.apng.APNGSeqWriter;
 import ork.sevenstates.apng.optimizing.ARGBSlicingSubtractor;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import static guru.nidi.graphviz.model.Factory.*;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+*/
 
-import static guru.nidi.graphviz.model.Factory.*;
+import java.io.File;
+import java.util.Collection;
 
 /**
  * Ah, this was so fun! Initially created for debugging (and as an excuse to learn more about Java dependencies and packaging, as well as GraphViz itself), this creates an image representation of the graph using GraphViz, and then, because I really wanted to have fun with it, animates it with DFS's execution.
  * Note that I'm using a random APNG library I found on GitHub, which has the important caveat that APNGs are only supported on fairly modern browsers; Firefox, *very* recent versions of Chrome, and so-on: http://caniuse.com/#feat=apng. Edge does not support them (nor, of-course, Internet Explorer), nor does the Windows default file viewer. I will likely transcode to GIF to ensure the demo remains functional for all users, since I am totally using this as a demo in a future job interview.
  *
  * To use this, proper Maven configuration is required for the GraphViz executable in graphviz-java-master and the APNG library in apng-writer-master. In IntelliJ, this is as simple as opening "Maven Projects" and importing the pom.xml file from both folders, and then adding as a project dependency both folders. Additionally, the svg-salamander*.jar file in graphviz-java-master must be added to the project dependencies. Everything should, at this point, work.
- * For submission, I'm commenting the entire file out (and omitting graphviz-java-master), because the required imports won't be available. But my Git source should include everything.
+ * For submission, I'm commenting the entire file out (and omitting graphviz-java-master), because the required imports won't be available. But my Git source should include everything at https://github.com/FreezeWarp/java-coursework/tree/master/372-progC/
  *
  * @author Joseph T. Parsons
  */
@@ -35,14 +38,14 @@ public class GraphDrawer {
      * The APNG writer object we're using/adapting.
      * {@link APNGSeqWriter} allows us to progressively update the image. In contrast, {@link ork.sevenstates.apng.APNGWriter} requires that the total frames be known in advance.
      */
-    APNGSeqWriter apngWriter;
+    //APNGSeqWriter apngWriter;
 
 
     /**
      * A basic string list of connections that are "marked" and should be shown as visited. (A reasonably performant way of doing this without being overly complicated.)
      * Invoke {@link GraphDrawer#drawGraph(Collection, Node, Node)} to draw the graph while adding a new connection to this list.
      */
-    List<String> markedConnections;
+    //Collection<String> markedConnections = new TreeSet<>();
 
 
     /**
@@ -51,7 +54,7 @@ public class GraphDrawer {
      * @param file The file the output images should be written to.
      */
     public GraphDrawer(File file) {
-        registerFile(file);
+        //registerFile(file);
     }
 
 
@@ -61,13 +64,13 @@ public class GraphDrawer {
      * @param file The file to write to.
      */
     public void registerFile(File file) {
-        try {
+        /*try {
             apngWriter = new APNGSeqWriter(file, -1, new ARGBSlicingSubtractor(.6d)); // -1 is the differential algorithm, which seems... ideal for this purpose.
         } catch (FileNotFoundException ex) {
             System.err.println("Unable to initalise animated PNG writer; file not found (" + file.getAbsolutePath() + "). Expect errors.");
         } catch (IOException ex) {
             System.err.println("Unable to initalise animated PNG writer; IO exception. Expect errors.");
-        }
+        }*/
     }
 
 
@@ -89,7 +92,7 @@ public class GraphDrawer {
      * @param nodeTo The destination node of a connection to highlight.
      */
     public void drawGraph(Collection<Node> graph, Node nodeFrom, Node nodeTo) {
-        Graph g = graph("example1").directed().generalAttr().with(RankDir.LEFT_TO_RIGHT);
+        /*Graph g = graph("example1").directed().generalAttr().with(RankDir.LEFT_TO_RIGHT);
 
         if (nodeFrom != null && nodeTo != null) {
             markedConnections.add(nodeFrom.getName() + ";;" + nodeTo.getName()); // Collisions are possible, but pretty unlikely. Dunno why a nodename would have two semicolons in it, after all.
@@ -119,7 +122,7 @@ public class GraphDrawer {
             apngWriter.writeImage(image, new Dimension(2048, 1024), 1, 1);
         } catch (Exception ex) {
             System.err.println("Failed to write image: " + ex);
-        }
+        }*/
     }
 
 
@@ -127,11 +130,11 @@ public class GraphDrawer {
      * Close the current GraphDrawer, flushing all changes to disk.
      */
     public void close() {
-        try {
+        /*try {
             apngWriter.close();
         } catch (IOException ex) {
             System.err.println("Unable to close animated PNG writer; IO exception. Expect errors:" + ex);
-        }
+        }*/
     }
 
 
@@ -142,7 +145,9 @@ public class GraphDrawer {
      * @param nodeColor The source nodecolor enum.
      * @return A list of SingleAttributes to use for styling.
      */
+    /*
     public static SingleAttributes[] nodeColorToStyle(Node.NodeColor nodeColor) {
+
         // Note: Style.lineWidth(3).and(Style.FILLED) is the magic that makes a filled, outlined rectangle. Color.xxx is then the color of the outline, while Color.xxx.fill() is the color inside the outline.
 
         switch (nodeColor) {
@@ -159,4 +164,5 @@ public class GraphDrawer {
                 return new SingleAttributes[]{};
         }
     }
+    */
 }

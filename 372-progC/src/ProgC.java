@@ -11,7 +11,6 @@ import java.util.*;
 
 /**
  * Simulation of DFS graph algorithm on graph.
- * Can run graphically (using JavaFX) or non-graphically (if JavaFX fails to launch).
  * Takes an input file as source graph and outputs to the same filename with _out appended before the file ext.
  * Additionally, uses GraphDrawer to output a visual representation of the input graph, for easier debugging.
  *
@@ -21,16 +20,18 @@ import java.util.*;
 
 public class ProgC {
     /**
-     * Passes to ProgBGraphical if possible, or opens the first command line argument as the file if ProgBGraphical fails.
+     * Passes to ProgBGraphical, which launches file opener.
      */
     public static void main(String[] args) {
+        // Commented code here would be used to support command line stuff. Since I'm not doing that, better to make sure exceptions fire normally.
+
 //        try {
             ProgCGraphical.main(args);
 /*        } catch (Exception ex) {
             System.out.println("Unable to launch JavaFX. Reading file from first parameter and assuming measurement mode.");
             System.out.println(args);
 
-            File[] files = new File[3];
+            File[] files = new File[3];`1
             files[0] = (args.length > 0 ? new File(args[0]) : null);
             files[1] = null;
             files[2] = null;
@@ -42,14 +43,13 @@ public class ProgC {
 
 
     /**
-     * Reads in data from the first file handle (using readCitiesFromFile) and then sets the second file as the output source. Then performs Held Karp algorithm on input data.
+     * Reads in data from the first file handle (using readNodesFromFile) and then sets the second file as the output source. Then performs DFS algorithm on input data.
      *
      * @param fileHandles Two file handles, the first reading, and the second for writing.
-     * @param measurementMode If true, this will disable most output. At present, only works on Linux. (It would be trivial to add Windows support -- use NUL instead /dev/null -- but since this was just for me to analyse run time, I didn't want to waste the time.)
      */
-    public static void passData(File[] fileHandles, boolean measurementMode) {
+    public static void passData(File[] fileHandles) {
         Collection<Node> parsedData;
-        measurementMode = false;
+        boolean measurementMode = false; // Would be used to support execution measurement, but not presently implemented.
 
         if (fileHandles != null) {
             if ((parsedData = readNodesFromFile(fileHandles[0])) != null) {
@@ -89,7 +89,7 @@ public class ProgC {
                     System.out.println("Time for " + parsedData.size() + " nodes: " + (System.nanoTime() - startTime));
                 }
             } else {
-                System.out.println("Unable to parse file. Exitting.");
+                System.out.println("Unable to parse file. Exiting.");
             }
         }
     }
@@ -121,9 +121,10 @@ public class ProgC {
             String fileName = file.getAbsolutePath();
             int extensionDelimiter = fileName.lastIndexOf('.');
             Path outFile = Paths.get(fileName.substring(0, extensionDelimiter) + "_out" + fileName.substring(extensionDelimiter, fileName.length()));
-            Path outImage = Paths.get(fileName.substring(0, extensionDelimiter) + "_out" + ".png");
+            Path outImage = Paths.get(fileName.substring(0, extensionDelimiter) + "_out" + ".png"); // For graph output.
 
             System.out.println("Output File Will Be: " + outFile.toAbsolutePath());
+            System.out.println("Output Image Will Be: " + outImage.toAbsolutePath());
             System.out.println();
 
             try {
@@ -193,7 +194,7 @@ public class ProgC {
                             }
                         }
                     } catch (Exception ex) {
-                        System.out.println("Iunno.");
+                        System.out.println("Iunno. Something went wrong. Better fix it. ");
                     }
                 }
             });

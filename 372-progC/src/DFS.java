@@ -5,6 +5,8 @@ import java.util.List;
 /**
  * The code for a DFS search, as well as incidental information resulting from said DFS search.
  * (At present, said incidental information is just the DFS forest. Nodes are marked directly during traversal, instead of copies being kept here. Worse design, but so, so much easier and even cleaner, really.)
+ *
+ * @author Joseph T. Parsons
  */
 public class DFS {
     /**
@@ -85,7 +87,7 @@ public class DFS {
             }
         }
 
-        node.color = Node.NodeColor.black; // Mark the node as finished. (Technically redundant. I'm hoping I might use GraphDrawer to somehow create GIFs of the process, though. That would be so fun.)
+        node.color = Node.NodeColor.black; // Mark the node as finished. (Technically redundant, but used by GraphDrawer.)
         node.endTime = ++time;
 
         /* Refresh Graph Drawer to Reflect Color Change */
