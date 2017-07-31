@@ -81,30 +81,8 @@ public class ProgD {
 
         System.out.println("Assignment found.");
         coursePrint(courseListSorted, courseList);
-        /*
-        List<List<Course>> semesters = new ArrayList<>();
-
-        for (int i = 0; i < courses.size(); i++) {
-            if (semesters.get(i / 3) == null) {
-                semesters.set(i / 3, new ArrayList<Course>());
-            }
-            semesters.get(i / 3).add(courses.get(i));
-        }
-        */
-
-        // Evaluate assignments for inaccuracies.
 
     }
-/*
-    public static void coursePrint(List<Course> coursesListSorted, List<Course> courseList) {
-        String print = "";
-
-        for (int i = 0; i < coursesListSorted.size(); i++) {
-            print += courseList.indexOf(coursesListSorted.get(i)) + "\t";
-        }
-
-        System.out.println(print);
-    }*/
 
 
     public static void coursePrint(List<Course> coursesListSorted, List<Course> courseList) {
@@ -116,20 +94,4 @@ public class ProgD {
 
         System.out.println(print);
     }
-
-/*    public static boolean isValidAssignment(List<Course> courses, Prereqs prereqs) {
-        int result = 0;
-
-        for (int i = 0; i < courses.size(); i++) {
-            for (int j = i; j < i + i%3; j++) {
-                result += prereqs.checkForPrereqOrDuring(courses.get(i), courses.get(j));
-            }
-
-            for (int j = i - i%3 + 3; j < courses.size(); j++) {
-                result = result && prereqs.checkForPrereq(courses.get(i), courses.get(j));
-            }
-        }
-
-        return result;
-    }*/
 }
