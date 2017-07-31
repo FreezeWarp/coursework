@@ -1,20 +1,13 @@
 import java.util.*;
 
 /**
- * Simulation of DFS graph algorithm on graph.
- * Takes an input file as source graph and outputs to the same filename with _out appended before the file ext.
- * Additionally, uses GraphDrawer to output a visual representation of the input graph, for easier debugging.
+ * Simulation of local search over a set of rules.
  *
  * @author Joseph T. Parsons
  */
 
 
 public class ProgD {
-    private enum Rule {
-        BEFORE,
-        BEFORE_OR_DOING
-    };
-
     /**
      * Passes to ProgBGraphical, which launches file opener.
      */
@@ -23,6 +16,7 @@ public class ProgD {
         Department mathDepartment = new Department("Math");
         Department icsDepartment = new Department("ICS");
         Department lsDepartment = new Department("Liberal Studies");
+
 
         // Create list of courses. (A hashmap is used to more easily specify each course by its code.)
         Map<Integer, Course> courses = new HashMap<>();
@@ -47,6 +41,7 @@ public class ProgD {
         courses.put(999, new Course(lsDepartment, 999));
         List<Course> courseListSorted = new ArrayList<>(courses.values());
 
+
         // Create prereqs object.
         Prereqs prereqs = new Prereqs();
         prereqs.addPrereq(courses.get(120), courses.get(210));
@@ -67,21 +62,23 @@ public class ProgD {
         prereqs.addRule(new SophomoreBeforeSeniorRule());
         prereqs.addRule(new SemesterRestrictionsRule());
 
-        // Assign every 3 courses randomly to a semester.
-        List<Course> courseList = new ArrayList<>(courses.values());
-        Collections.shuffle(courseList); // Eh, same diff: this randomises our list of courses. I could have implemented this manually with Math.random, but why?
 
+        // Randomise the list of courses.
+        List<Course> courseList = new ArrayList<>(courses.values());
+        Collections.shuffle(courseList);
+
+
+        // Find Conflicts, Swap Stuff, and Repeat
         List<Map.Entry<Integer, Integer>> conflicts;
         while ((conflicts = prereqs.findConflicts(courseList)).size() != 0) {
             coursePrint(courseListSorted, courseList);
 
-            int randomIndex = (int) Math.random() % conflicts.size();
+            int randomIndex = (int) Math.random() * conflicts.size();
             Collections.swap(courseList, conflicts.get(randomIndex).getKey(), conflicts.get(randomIndex).getValue());
         }
 
         System.out.println("Assignment found.");
         coursePrint(courseListSorted, courseList);
-
     }
 
 
