@@ -22,34 +22,4 @@ public class UserInterfacePrompts {
 
         return input;
     }
-
-
-    /**
-     * Prompts the user for a string of text matching certain parameters.
-     *
-     * @param promptText The text to display for the prompt.
-     * @param regexToFilterOut A regex that will be removed from the user's input text.
-     * @param regexToMatch A regex that the user's text must match, after regexToFilterOut has been applied.
-     * @param failText Text to display when regexToMatch fails.
-     *
-     * @return A string that matches regexToMatch and doesn't contain regexToFilterOut.
-     */
-    public static String promptLineRegex(String promptText, String regexToFilterOut, String regexToMatch, String failText) {
-        Scanner s  = new Scanner(System.in);
-
-        while (true) {
-            System.out.print(promptText);
-            String input = s.nextLine();
-
-            // Typically used to remove space and punctuation characters from the input, since we can reasonably assume they were typed in error.
-            input = input.replaceAll(regexToFilterOut, "");
-
-            if (input.matches(regexToMatch)) {
-                return input;
-            }
-            else {
-                System.out.println(failText);
-            }
-        }
-    }
 }

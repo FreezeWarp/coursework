@@ -2,7 +2,7 @@
  * This enforces that any 400- level course (of any department) must be taken after *all* sub-300 level courses.
  * (Is this a strategy pattern? I'm not even really sure.)
  */
-public class SophomoreBeforeSeniorRule implements PrereqRule {
+public class FreshmanSophomoreBeforeSeniorRule implements PrereqRule {
     /**
      * {@link PrereqRule#checkForPrereq(Course, Course)}
      */
@@ -11,10 +11,10 @@ public class SophomoreBeforeSeniorRule implements PrereqRule {
     }
 
     /**
-     * {@link PrereqRule#checkForPrereqOrDuring(Course, Course)}
+     * {@link PrereqRule#checkForPrereqDuring(Course, Course)}
      */
-    public boolean checkForPrereqOrDuring(Course courseBefore, Course courseAfterOrDuring) {
-        return checkForPrereq(courseBefore, courseAfterOrDuring);
+    public boolean checkForPrereqDuring(Course firstCourse, Course secondCourse) {
+        return checkForPrereq(firstCourse, secondCourse) && checkForPrereq(secondCourse, firstCourse);
     }
 
     /**

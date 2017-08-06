@@ -12,9 +12,9 @@ public class SemesterRestrictionsRule implements PrereqRule {
     }
 
     /**
-     * {@link PrereqRule#checkForPrereqOrDuring(Course, Course)}
+     * {@link PrereqRule#checkForPrereqDuring(Course, Course)}
      */
-    public boolean checkForPrereqOrDuring(Course courseBefore, Course courseAfterOrDuring) {
+    public boolean checkForPrereqDuring(Course firstCourse, Course secondCourse) {
         return true;
     }
 

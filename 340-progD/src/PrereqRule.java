@@ -13,14 +13,14 @@ public interface PrereqRule {
     public boolean checkForPrereq(Course courseBefore, Course courseAfter);
 
     /**
-     * This should be written such that it returns true when courseBefore is allowed to come before (or during) courseAfterOrDuring. It should return false when courseBefore cannot come before courseAfterOrDuring.
+     * This should be written such that it returns true when firstCourse is allowed to come before (or during) secondCourse. It should return false when firstCourse cannot come before secondCourse.
      *
-     * @param courseBefore A course that is being taken before courseAfterOrDuring.
-     * @param courseAfterOrDuring A course that is being taken after (or alongside) courseBefore.
+     * @param firstCourse A course that is being taken before secondCourse.
+     * @param secondCourse A course that is being taken after (or alongside) firstCourse.
      *
      * @return True if allowed, false otherwise.
      */
-    public boolean checkForPrereqOrDuring(Course courseBefore, Course courseAfterOrDuring);
+    public boolean checkForPrereqDuring(Course firstCourse, Course secondCourse);
 
     /**
      * This should be written such that it returns true when course is allowed to be taken during semesterNum. It should return false when it is not allowed.

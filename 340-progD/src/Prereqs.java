@@ -50,7 +50,7 @@ public class Prereqs {
      * @param courseBefore A course that must be taken before (or simultaneously).
      * @param courseAfterOrDuring A course that must be taken after (or simultaneously).
      */
-    public void addPrereqOrDuring(Course courseBefore, Course courseAfterOrDuring) {
+    public void addPrereqDuring(Course courseBefore, Course courseAfterOrDuring) {
         prereqs.put(new AbstractMap.SimpleEntry<>(courseBefore, courseAfterOrDuring), Rule.BEFORE_OR_DURING);
     }
 
@@ -64,43 +64,44 @@ public class Prereqs {
      */
     public boolean checkForPrereq(Course courseBefore, Course courseAfter) {
         if (prereqs.get(new AbstractMap.SimpleEntry<>(courseAfter, courseBefore)) == Rule.BEFORE_OR_DURING
-                || prereqs.get(new AbstractMap.SimpleEntry<>(courseAfter, courseBefore)) == Rule.BEFORE) {
+            || prereqs.get(new AbstractMap.SimpleEntry<>(courseAfter, courseBefore)) == Rule.BEFORE) {
             return false;
         }
 
-
         // Check Custom Rules
-        boolean result = true;
-
         for (PrereqRule rule : prereqRuleList) {
-            result = result && rule.checkForPrereq(courseBefore, courseAfter);
+            if (!rule.checkForPrereq(courseBefore, courseAfter)) {
+                return false;
+            }
         }
 
-        return result;
+        return true;
     }
 
     /**
      * Test whether a given pair of courses complies with our existing list of prereq pairs and other rules.
      *
-     * @param courseBefore A course that is being taken zero semesters (or more) before courseAfterOrDuring.
-     * @param courseAfterOrDuring A course that is being taken zero semesters (or more) after courseAfterOrDuring.
+     * @param firstCourse A course that is being taken zero semesters (or more) before secondCourse.
+     * @param secondCourse A course that is being taken zero semesters (or more) after secondCourse.
      *
-     * @return True if courseBefore can correctly be taken before (or alongside) courseAfterOrDuring, false otherwise.
+     * @return True if firstCourse can correctly be taken before (or alongside) secondCourse, false otherwise.
      */
-    public boolean checkForPrereqOrDuring(Course courseBefore, Course courseAfterOrDuring) {
-        if (prereqs.get(new AbstractMap.SimpleEntry<>(courseAfterOrDuring, courseBefore)) == Rule.BEFORE) {
+    public boolean checkForPrereqDuring(Course firstCourse, Course secondCourse) {
+        if (prereqs.get(new AbstractMap.SimpleEntry<>(secondCourse, firstCourse)) == Rule.BEFORE) { // Check if the second course must come before the first
+            return false;
+        }
+        else if (prereqs.get(new AbstractMap.SimpleEntry<>(firstCourse, secondCourse)) == Rule.BEFORE) { // Check if the first course must come before the second
             return false;
         }
 
-
         // Check Custom Rules
-        boolean result = true;
-
         for (PrereqRule rule : prereqRuleList) {
-            result = result && rule.checkForPrereqOrDuring(courseBefore, courseAfterOrDuring);
+            if (!rule.checkForPrereqDuring(firstCourse, secondCourse)) {
+                return false;
+            }
         }
 
-        return result;
+        return true;
     }
 
     /**
@@ -112,14 +113,13 @@ public class Prereqs {
      * @return True if the course can be taken during semesterNum, false otherwise.
      */
     public boolean checkForSemester(Course course, int semesterNum) {
-        // Check Custom Rules
-        boolean result = true;
-
         for (PrereqRule rule : prereqRuleList) {
-            result = result && rule.checkForSemester(course, semesterNum);
+            if (!rule.checkForSemester(course, semesterNum)) {
+                return false;
+            }
         }
 
-        return result;
+        return true;
     }
 
     /**
@@ -136,13 +136,13 @@ public class Prereqs {
         for (int i = 0; i < courses.size(); i++) {
             // Check if the course conflicts with this semester. If it does, we specify the conflict by choosing one other course at random and using it as our conflict pair. This would not be necessary if we could tell our invoker that a semester is causing the conflict, not another course, but for simplicity we want to always be able to specify a *pair* of conflict courses (as this is then much easier to work with).
             if (!checkForSemester(courses.get(i), i / coursesPerSemester)) {
-                conflicts.add(new AbstractMap.SimpleEntry(i, (int) (Math.random() * courses.size())));
+                conflicts.add(new AbstractMap.SimpleEntry(i, (new Random()).nextInt(courses.size() - 1)));
             }
 
             // Check if the course conflicts with any other in this semester.
             for (int j = i + 1; j < i - i%coursesPerSemester + coursesPerSemester; j++) {
-                if (!checkForPrereqOrDuring(courses.get(i), courses.get(j))) {
-                    conflicts.add(new AbstractMap.SimpleEntry(i, j));
+                if (!checkForPrereqDuring(courses.get(i), courses.get(j))) {
+                    conflicts.add(new AbstractMap.SimpleEntry((new Random()).nextBoolean() ? i : j, (new Random()).nextInt(courses.size() - 1))); // Randomly return either i or j as the first item, and any other entry in the course list as the second item. This randomness ensures that same-semester conflicts will all eventually be resolved. (The other approach
                 }
             }
 

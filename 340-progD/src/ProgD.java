@@ -76,8 +76,8 @@ public class ProgD {
         Prereqs prereqs = new Prereqs();
         prereqs.addPrereq(courses.get(120), courses.get(210));
         prereqs.addPrereq(courses.get(120), courses.get(215));
-        prereqs.addPrereqOrDuring(courses.get(120), courses.get(140));
-        prereqs.addPrereqOrDuring(courses.get(215), courses.get(141));
+        prereqs.addPrereqDuring(courses.get(120), courses.get(140));
+        prereqs.addPrereqDuring(courses.get(215), courses.get(141));
         prereqs.addPrereq(courses.get(140), courses.get(141));
         prereqs.addPrereq(courses.get(141), courses.get(232));
         prereqs.addPrereq(courses.get(141), courses.get(240));
@@ -91,7 +91,7 @@ public class ProgD {
 
 
         // Create our special rules.
-        prereqs.addRule(new SophomoreBeforeSeniorRule());
+        prereqs.addRule(new FreshmanSophomoreBeforeSeniorRule());
         prereqs.addRule(new SemesterRestrictionsRule());
 
 
@@ -119,6 +119,7 @@ public class ProgD {
             }
 
             int randomIndex = (int) Math.random() * conflicts.size(); // Choose one conflict at random.
+
             Collections.swap(courseList, conflicts.get(randomIndex).getKey(), conflicts.get(randomIndex).getValue()); // Flip the two courses involved in the random conflict.
         }
 
@@ -155,6 +156,7 @@ public class ProgD {
                 }
             }
 
+
             if (coursesList.get(i).getCode() != 0) { // Don't print the empty courses.
                 print += coursesList.get(i);
             }
@@ -163,7 +165,7 @@ public class ProgD {
             if (i % COURSES_PER_SEMESTER == COURSES_PER_SEMESTER - 1) { // If this is the last course of the semester...
                 print += System.getProperty("line.separator");
             }
-            else { // If there are more courses in this semester...
+            else if (coursesList.get(i).getCode() != 0) { // Don't print the empty courses.
                 print += ", ";
             }
         }
