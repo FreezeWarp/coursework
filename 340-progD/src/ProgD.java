@@ -127,7 +127,7 @@ public class ProgD {
             coursePrint(courseListSorted, courseList);
         }
         else {
-            printSemesterAssignment(courseListSorted);
+            printSemesterAssignment(courseList);
         }
     }
 
@@ -149,24 +149,22 @@ public class ProgD {
         for (int i = 0; i < coursesList.size(); i++) { // For every course...
             if (i % COURSES_PER_SEMESTER == 0) { // If this is the first course of the semester...
                 switch ((i / COURSES_PER_SEMESTER) % COURSES_PER_SEMESTER) { // Get the semester season
-                    case 0: print += "Summer : "; break;
-                    case 1: print += "Fall   : "; break;
-                    case 2: print += "Spring : "; break;
+                    case 0: print += "Summer: "; break;
+                    case 1: print += "Autumn: "; break;
+                    case 2: print += "Spring: "; break;
                 }
             }
 
-            if (coursesList.get(i).getCode() == 0) { // Don't print the empty courses.
-                continue;
-            }
-            else {
+            if (coursesList.get(i).getCode() != 0) { // Don't print the empty courses.
                 print += coursesList.get(i);
+            }
 
-                if (i % COURSES_PER_SEMESTER == COURSES_PER_SEMESTER - 1) { // If this is the last course of the semester...
-                    print += System.getProperty("line.separator");
-                }
-                else { // If there are more courses in this semester...
-                    print += ", ";
-                }
+
+            if (i % COURSES_PER_SEMESTER == COURSES_PER_SEMESTER - 1) { // If this is the last course of the semester...
+                print += System.getProperty("line.separator");
+            }
+            else { // If there are more courses in this semester...
+                print += ", ";
             }
         }
 

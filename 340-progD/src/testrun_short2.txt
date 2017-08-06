@@ -1,0 +1,10 @@
+Would you like to print in verbose or short mode? s
+Using short mode.
+Assignment found.
+Summer: 120, 215, 140
+Autumn: 210, 141
+Spring: 240, 340, 232
+Summer: 492, 460, 372
+Autumn: 462, 440, 999
+Spring: 490, 365
+Summer: 311, 998, 499

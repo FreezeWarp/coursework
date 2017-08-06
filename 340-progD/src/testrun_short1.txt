@@ -1,0 +1,9 @@
+Using short mode.
+Assignment found.
+Summer: 120, 140
+Autumn: 215, 210, 141
+Spring: 999, 232
+Summer: 240, 462, 492
+Autumn: 998, 490, 372
+Spring: 311, 365, 340
+Summer: 499, 460, 440
