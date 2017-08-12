@@ -1,7 +1,7 @@
 /**
  * Models a course, composed of a Department and course code.
  */
-public class Course {
+public class Course implements Comparable<Course> {
     /**
      * The department the course belongs to.
      */
@@ -20,6 +20,15 @@ public class Course {
     public Course(Department department, int code) {
         this.department = department;
         this.code = code;
+    }
+
+    /**
+     * Allows sorting.
+     * @param course Course to compare against.
+     * @return Result of getCode's compareTo.
+     */
+    public int compareTo(Course course) {
+        return (new Integer(this.getCode())).compareTo(course.getCode());
     }
 
     /**

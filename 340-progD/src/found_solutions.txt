@@ -1,0 +1,55 @@
+Summer: 120, 140
+Autumn: 141, 215, 999
+Spring: 210, 240, 998
+Summer: 232, 340, 372
+Autumn: 365, 460
+Spring: 311, 440, 490
+Summer: 462, 492, 499
+
+
+Summer: 120, 140, 998
+Autumn: 141, 215
+Spring: 210, 240
+Summer: 232, 340, 372
+Autumn: 365, 440, 460
+Spring: 311, 462, 490
+Summer: 492, 499, 999
+
+
+Summer: 120, 140, 999
+Autumn: 141, 210, 215
+Spring: 232, 240
+Summer: 340, 365, 372
+Autumn: 440, 460
+Spring: 311, 462, 490
+Summer: 492, 499, 998
+
+
+Summer: 120, 140
+Autumn: 141, 210, 215
+Spring: 232, 240
+Summer: 311, 492, 999
+Autumn: 340, 460, 462
+Spring: 372, 490, 998
+Summer: 365, 440, 499
+
+
+Summer: 120, 140
+Autumn: 141, 215
+Spring: 210, 232, 240
+Summer: 340, 372, 460
+Autumn: 365, 440, 490
+Spring: 311, 462, 999
+Summer: 492, 499, 998
+
+
+Summer: 120, 140
+Autumn: 141, 210, 215
+Spring: 232, 240, 998
+Summer: 311, 462
+Autumn: 365, 372, 490
+Spring: 340, 460, 999
+Summer: 440, 492, 499
+
+
+(I'm a bit surprised how little repetition there is.)

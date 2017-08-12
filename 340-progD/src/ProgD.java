@@ -2,11 +2,19 @@ import java.util.*;
 
 /**
  * Simulation of local search over a set of rules.
+ * Note that I never tested with anything other than COURSES_PER_SEMESTER = 3, nor with any different number of courses. While I think all the arithmetic is right, I could have an off-by-one error here-or-there that will manifest with different courses or courses per semester. (Indeed, while it's possible a solution doesn't exist with COURSES_PER_SEMESTER > 3, I haven't been able to find one for =1 or =2 either. So there's probably a bug somewhere.)
  *
  * @author Joseph T. Parsons
  */
 public class ProgD {
-    private static final int COURSES_PER_SEMESTER = 3;
+    /**
+     * The number of courses that are allowed in a given semester. We use this for arithmetic operations, mainly.
+     */
+    static final int COURSES_PER_SEMESTER = 3;
+
+    /**
+     * Whether to print verbose or summary.
+     */
     private static boolean printVerbose = false;
 
     /**
@@ -37,7 +45,7 @@ public class ProgD {
         Department mathDepartment = new Department("Math");
         Department icsDepartment = new Department("ICS");
         Department lsDepartment = new Department("Liberal Studies");
-        Department nullDepartment = new Department("");
+        Department nullDepartment = new Department(""); // Used for dummy courses.
 
 
         // Create list of courses. (A hashmap is used to more easily specify each course by its code.)
@@ -64,6 +72,7 @@ public class ProgD {
 
 
         // Add two dummy courses which allow solutions to have any semester containing fewer than three courses (instead of defaulting to just the last).
+        // Obviously, we're doing this manually right now (because it's easier); but a simple loop could be used to manually fill in the needed number of courses.
         courses.put(0, new Course(nullDepartment, 0)); // An "empty" course -- i.e., no course. Fills out last semester.
         courses.put(1, new Course(nullDepartment, 0)); // Another "empty" course. Fills out last semester.
 
@@ -92,7 +101,7 @@ public class ProgD {
 
         // Create our special rules.
         prereqs.addRule(new FreshmanSophomoreBeforeSeniorRule());
-        prereqs.addRule(new SemesterRestrictionsRule());
+        prereqs.addRule(new SemesterRestrictionsRule(COURSES_PER_SEMESTER, ((courseListSorted.size() + (courseListSorted.size() % COURSES_PER_SEMESTER)) / COURSES_PER_SEMESTER) - 1)); // ...I'm tired. There's probably a much simpler expression that equates to this. Basically, calculates the last semester given our number of courses and the number of courses per semester.
 
 
         // Randomise the list of courses.
@@ -118,12 +127,24 @@ public class ProgD {
                 coursePrint(courseListSorted, courseList); // Print the assignment of courses that was tested.
             }
 
-            int randomIndex = (int) Math.random() * conflicts.size(); // Choose one conflict at random.
+            int randomIndex = (int) (Math.random() * conflicts.size()); // Choose one conflict at random.
 
             Collections.swap(courseList, conflicts.get(randomIndex).getKey(), conflicts.get(randomIndex).getValue()); // Flip the two courses involved in the random conflict.
         }
 
+
+        // Once we've exited the loop, and assignment will have been found.
         System.out.println("Assignment found.");
+
+
+        // Sort each semester individually for printing
+        // (As an aside, there's been a lot more arithmetic on this assignment than I'd expected.)
+        for (int i = 0; i < courseList.size() / COURSES_PER_SEMESTER; i++) {
+            Collections.sort(courseList.subList(i * COURSES_PER_SEMESTER, (((i + 1) * COURSES_PER_SEMESTER) > courseList.size() ? courseList.size() : ((i + 1) * COURSES_PER_SEMESTER))));
+        }
+
+
+        // Print found assignment.
         if (printVerbose) {
             coursePrint(courseListSorted, courseList);
         }
@@ -133,11 +154,16 @@ public class ProgD {
     }
 
 
+    /**
+     * Print the numerical semester assigned to a given course (starting at one),
+     * @param courseListSorted
+     * @param courseList
+     */
     public static void coursePrint(List<Course> courseListSorted, List<Course> courseList) {
         String print = "";
 
         for (int i = 0; i < courseListSorted.size(); i++) {
-            print += (courseList.indexOf(courseListSorted.get(i)) / 3) + "\t";
+            print += ((courseList.indexOf(courseListSorted.get(i)) / COURSES_PER_SEMESTER) + 1) + "\t";
         }
 
         System.out.println(print);

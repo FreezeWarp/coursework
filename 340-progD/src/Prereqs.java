@@ -140,9 +140,9 @@ public class Prereqs {
             }
 
             // Check if the course conflicts with any other in this semester.
-            for (int j = i + 1; j < i - i%coursesPerSemester + coursesPerSemester; j++) {
+            for (int j = i + 1; j < i - i%coursesPerSemester + coursesPerSemester && j < courses.size(); j++) {
                 if (!checkForPrereqDuring(courses.get(i), courses.get(j))) {
-                    conflicts.add(new AbstractMap.SimpleEntry((new Random()).nextBoolean() ? i : j, (new Random()).nextInt(courses.size() - 1))); // Randomly return either i or j as the first item, and any other entry in the course list as the second item. This randomness ensures that same-semester conflicts will all eventually be resolved. (The other approach
+                    conflicts.add(new AbstractMap.SimpleEntry((new Random()).nextBoolean() ? i : j, (new Random()).nextInt(courses.size() - 1))); // Randomly return either i or j as the first item, and any other entry in the course list as the second item. This randomness ensures that same-semester conflicts will all eventually be resolved.
                 }
             }
 
