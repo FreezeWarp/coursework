@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.PrintStream;
 import java.util.*;
 
 /**
@@ -9,8 +11,11 @@ import java.util.*;
 public class ProgD {
     /**
      * The number of courses that are allowed in a given semester. We use this for arithmetic operations, mainly.
+     * For this assignment, I have been able to get values of 2 and 3 working without anything special.
+     * Getting 4 and 5-per-semester working requires adding a few more "empty" courses in order to find a satisfying assignment.
+     * (I haven't been able to get 1 working with the SemesterRestrictionsRule. I think it's just too random in that case, since 499 must be in a very specific semester.)
      */
-    static final int COURSES_PER_SEMESTER = 3;
+    static final int COURSES_PER_SEMESTER = 1;
 
     /**
      * Whether to print verbose or summary.
@@ -40,6 +45,14 @@ public class ProgD {
             printModePrompt = UserInterfacePrompts.promptLine("Would you like to print in verbose or short mode? ");
         }
 
+
+        // Redirect Output to File
+        // (Personally, I believe this should be done by the user through use of piping, but I'm just following instructions.)
+        try {
+            System.setOut(new PrintStream(new File("ProgD-solution.txt")));
+        } catch (Exception e) {
+            System.err.println("Unable to open file for writing. Output will be to stdout.");
+        }
 
         // Create a separate department object for every department.
         Department mathDepartment = new Department("Math");
@@ -72,9 +85,18 @@ public class ProgD {
 
 
         // Add two dummy courses which allow solutions to have any semester containing fewer than three courses (instead of defaulting to just the last).
-        // Obviously, we're doing this manually right now (because it's easier); but a simple loop could be used to manually fill in the needed number of courses.
-        courses.put(0, new Course(nullDepartment, 0)); // An "empty" course -- i.e., no course. Fills out last semester.
-        courses.put(1, new Course(nullDepartment, 0)); // Another "empty" course. Fills out last semester.
+        // Note that this could be taken further (for instance, allowing most semesters to have two courses, and only a few to have three), but that gets quite complicated quite quickly.
+        for (int i = 0, courseSize = courses.values().size(); i < (COURSES_PER_SEMESTER - courseSize % COURSES_PER_SEMESTER) % COURSES_PER_SEMESTER; i++) {
+            courses.put(i, new Course(nullDepartment, 0)); // An "empty" course -- i.e., no course. Fills out last semester.
+        }
+
+        // I spoke too soon! Here we take it further, adding more dummy courses (and actually overwriting the previous ones) if we've got large semesters going.
+        // This works for COURSES_PER_SEMESTER values of 4 or 5. (I don't believe there exists a solution with six courses at once, so...)
+        if (COURSES_PER_SEMESTER > 3) {
+            for (int i = 0; i < (COURSES_PER_SEMESTER - 3) * 4; i++) {
+                courses.put(i, new Course(nullDepartment, 0)); // An "empty" course -- i.e., no course. Fills out last semester.
+            }
+        }
 
 
         // Now add the courses by order of their values to the "sorted" list. The sorted list is only used for printing.
@@ -101,7 +123,8 @@ public class ProgD {
 
         // Create our special rules.
         prereqs.addRule(new FreshmanSophomoreBeforeSeniorRule());
-        prereqs.addRule(new SemesterRestrictionsRule(COURSES_PER_SEMESTER, ((courseListSorted.size() + (courseListSorted.size() % COURSES_PER_SEMESTER)) / COURSES_PER_SEMESTER) - 1)); // ...I'm tired. There's probably a much simpler expression that equates to this. Basically, calculates the last semester given our number of courses and the number of courses per semester.
+        //System.out.println((int) Math.ceil((double) courseListSorted.size() / COURSES_PER_SEMESTER) - 1);
+        prereqs.addRule(new SemesterRestrictionsRule(COURSES_PER_SEMESTER, (int) Math.ceil((double) courseListSorted.size() / COURSES_PER_SEMESTER) - 1)); // Create a semester rule. Second parameter calculates the number of semesters needed to take the current list of courses, assuming COURSES_PER_SEMESTER is the maximum number taken per semester.
 
 
         // Randomise the list of courses.
@@ -109,7 +132,7 @@ public class ProgD {
         Collections.shuffle(courseList);
 
 
-        // Find Conflicts, Swap Stuff, and Repeat
+        // Print Course Titles as header if in verbose mode
         if (printVerbose) {
             for (int i = 0; i < courseListSorted.size(); i++) {
                 System.out.print(courseListSorted.get(i) + "\t");
@@ -121,6 +144,8 @@ public class ProgD {
             System.out.println();
         }
 
+
+        // Find Conflicts, Swap Stuff, and Repeat
         List<Map.Entry<Integer, Integer>> conflicts;
         while ((conflicts = prereqs.findConflicts(courseList, COURSES_PER_SEMESTER)).size() != 0) { // Basically, keep going until no conflicts recorded.
             if (printVerbose) {
@@ -130,17 +155,6 @@ public class ProgD {
             int randomIndex = (int) (Math.random() * conflicts.size()); // Choose one conflict at random.
 
             Collections.swap(courseList, conflicts.get(randomIndex).getKey(), conflicts.get(randomIndex).getValue()); // Flip the two courses involved in the random conflict.
-        }
-
-
-        // Once we've exited the loop, and assignment will have been found.
-        System.out.println("Assignment found.");
-
-
-        // Sort each semester individually for printing
-        // (As an aside, there's been a lot more arithmetic on this assignment than I'd expected.)
-        for (int i = 0; i < courseList.size() / COURSES_PER_SEMESTER; i++) {
-            Collections.sort(courseList.subList(i * COURSES_PER_SEMESTER, (((i + 1) * COURSES_PER_SEMESTER) > courseList.size() ? courseList.size() : ((i + 1) * COURSES_PER_SEMESTER))));
         }
 
 
@@ -156,8 +170,8 @@ public class ProgD {
 
     /**
      * Print the numerical semester assigned to a given course (starting at one),
-     * @param courseListSorted
-     * @param courseList
+     * @param courseListSorted The list of courses in the order that they should be printed.
+     * @param courseList The list of courses in semester-assigned order.
      */
     public static void coursePrint(List<Course> courseListSorted, List<Course> courseList) {
         String print = "";
@@ -170,12 +184,26 @@ public class ProgD {
     }
 
 
+    /**
+     * Print a semester assignment for each course; semesters are line-separator.
+     *
+     * @param coursesList The list of courses to print. They should be ordered by the semester they are in.
+     */
     public static void printSemesterAssignment(List<Course> coursesList) {
         String print = "";
 
+
+        // Sort each semester individually for printing
+        // (As an aside, there's been a lot more arithmetic on this assignment than I'd expected.)
+        for (int i = 0; i < coursesList.size() / COURSES_PER_SEMESTER; i++) {
+            Collections.sort(coursesList.subList(i * COURSES_PER_SEMESTER, (((i + 1) * COURSES_PER_SEMESTER) > coursesList.size() ? coursesList.size() : ((i + 1) * COURSES_PER_SEMESTER))));
+        }
+
+
+        // Print all courses.
         for (int i = 0; i < coursesList.size(); i++) { // For every course...
             if (i % COURSES_PER_SEMESTER == 0) { // If this is the first course of the semester...
-                switch ((i / COURSES_PER_SEMESTER) % COURSES_PER_SEMESTER) { // Get the semester season
+                switch ((i / COURSES_PER_SEMESTER) % 3) { // Get the semester season
                     case 0: print += "Summer: "; break;
                     case 1: print += "Autumn: "; break;
                     case 2: print += "Spring: "; break;
