@@ -1,0 +1,23 @@
+/*
+ Copyright © 2015 Ralph A. Foy. All Rights Reserved.
+ No part of this document may be reproduced without 
+    written consent from the author.
+*/
+
+body {
+    background-color: white;
+    zoom: 1.5;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #bfbfff;
+    font-weight: bold;
+}
+
+input[readonly] {
+    background-color: #cfcfcf;
+}
