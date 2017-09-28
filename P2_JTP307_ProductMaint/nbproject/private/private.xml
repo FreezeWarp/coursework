@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/joseph/Downloads/P2_JTP307_ProductMaint/src/java/edu/metrostate/ics425/product/Product.java</file>
-            <file>file:/home/joseph/Downloads/P2_JTP307_ProductMaint/src/java/edu/metrostate/ics425/jtp307/prodmaint/servlets/ProductServlet.java</file>
-            <file>file:/home/joseph/Downloads/P2_JTP307_ProductMaint/web/Product.jsp</file>
-            <file>file:/home/joseph/Downloads/P2_JTP307_ProductMaint/test/edu/metrostate/ics425/jtp307/prodmaint/model/ProductBeanTests.java</file>
-            <file>file:/home/joseph/Downloads/P2_JTP307_ProductMaint/src/java/edu/metrostate/ics425/jtp307/prodmaint/model/ProductBean.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
