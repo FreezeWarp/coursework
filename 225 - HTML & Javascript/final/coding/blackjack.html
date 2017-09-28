@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Let's Call it a Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="/global.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/theme1.css" media="screen" id="themedCSS" />
+    <script src="/global.js" type="text/javascript"></script>
+</head>
+<body>
+<header id="main_header">
+    <nav>
+        <ul id="primary_nav_bar">
+            <li id="skipToMain"><a href="#main">Skip to Content</a></li>
+            <li class="current"><a href="/">Home</li></a>
+            <li><a href="/coding/">Coding</a>
+                <ul>
+                    <a href="/coding/im-api.html"><li>Instant Messenger (PHP, MySQL, and APIs)</li></a>
+                    <a href="/coding/im-html.html"><li>Instant Messenger HTML Frontend (jQuery, Bootstrap, HTML)</li></a>
+                    <a href="/coding/im-java.html"><li>Instant Messenger Java Frontend (Java)</li></a>
+                    <a href="/coding/scw.html"><li>SeanCooperWriter.com (Wordpress, CSS)</li></a>
+                    <a href="/coding/blackjack.html"><li>Console Blackjack (C)</li></a>
+                    <a href="/coding/c-tutor.html"><li>C Practice Tests (C, Tutoring)</li></a>
+                    <a href="/coding/coursework/html.html"><li>HTML Coursework (HTML)</li></a>
+                    <a href="/coding/coursework/c.html"><li>C Coursework (C)</li></a><!--
+                    <a href="/coding/coursework/python.html"><li>Python Coursework (C)</li></a>
+                    <a href="/coding/coursework/c++.html"><li>C++ Coursework (C++)</li></a>
+                    <a href="/coding/coursework/java.html"><li>Java Coursework (Java)</li></a>-->
+                </ul>
+            </li>
+            <li><a href="/writing/technology/">Writing on Technology</a>
+                <ul>
+                    <a href="/writing/technology/mobile.html"><li>Mobile Support for Top 1,000,000 Websites</li></a>
+                    <a href="/writing/technology/maine.html"><li>Maine and the Future of Computers in Schools</li></a>
+                    <a href="/writing/technology/devices.html"><li>The Personalised Future: The March Towards Intrapersonal Devices</li></a>
+                </ul>
+            </li>
+            <li><a href="/writing/philosophy/">Writing on Philosophy</a>
+                <ul>
+                    <a href="/writing/philosophy/justness.html"><li>Ethical Justness</li></a>
+                    <a href="/writing/philosophy/choosing.html"><li>In Favour of Choosing</li></a>
+                    <a href="/writing/philosophy/pornography.html"><li>On Pornography</li></a>
+                    <a href="/writing/philosophy/darwin.html"><li>Charles Darwin</li></a>
+                    <a href="/writing/philosophy/democracy.html"><li>Neccessity of Democracy</li></a>
+                </ul>
+            </li>
+            <li><a href="/contact.html">Contact</a>
+                <ul>
+                    <a href="mailto:josephtparsons@gmail.com" target="_blank"><li>Email</li></a>
+                    <a href="https://www.linkedin.com/in/josephtparsons" target="_blank"><li><span class="linkedinIcon imageIcon"></span> LinkedIn</li></a>
+                    <a href="https://www.facebook.com/freezewarp" target="_blank"><li><span class="facebookIcon imageIcon"></span> Facebook</li></a>
+                </ul>
+            </li>
+            <li id="displaySettings"><a href="/contact.html">Settings</a>
+                <ul>
+                    <a href="#"><li onclick="setTheme(1)">Switch to Light Theme</li></a>
+                    <a href="#"><li onclick="setTheme(2)">Switch to Dark Theme</li></a>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div id="mainHolder"><main id="main">
+
+
+    <ul class="breadcrumbs">
+        <li><a href="../">Homepage</a></li>
+        <li><a href="./">Coding</a></li>
+        <li>This Page</li>
+    </ul>
+    <h1>Console Blackjack in C</h1>
+    <aside class="highlights card">
+        <h3>Highlights</h3>
+        <ul>
+            <li>C Programming</li>
+            <li>Unicode Interface (with Windows Console hacks)</li>
+            <li>Timing Events</li>
+            <li>State Preservation</li>
+        </ul>
+    </aside>
+
+    This is a fairly simple, albeit still substantial, C programme that simulates basic blackjack in the console, but does so with a bang: timing events are used to make the game feel more natural (one hand will appear, a delay of a few seconds, and the next hand will appear), and unicode is used to the greatest extent possible to try and make the game seem slightly more believable. You can play multiple hands, your earnings will persist overtime if you use the -r flag, and if you feel like training a bit, you can use -c to count cards. <strong>Notably, this game uses one or more fixed decks</strong>: when a card is dealt, it is removed from the deck, and when a deck runs out of cards, the whole deck is reshuffled. This means that you could easily use this program as a card-counting trainer, as it simulates a real deck (or decks!) as completely.
+
+    <aside class="download card">
+        <h3>Download</h3>
+        <ul>
+            <li><a target="_blank" href="https://github.com/FreezeWarp/c-examples/tree/master/blackjack">SourceCode (GitHub)</a></li>
+            <li><a target="_blank" href="/downloads/blackjack.exe">Windows Compiled .exe</a></li>
+        </ul>
+    </aside>
+
+
+    <div class="clear"></div>
+
+    <h2>Command Flags</h2>
+    <ul>
+        <li> -u forces unicode on a Windows system (requires non-raster fonts set in console)</li>
+        <li> -r will keep track of money across game sessions by writing to Assignment10Money.tmp.</li>
+        <li> -c will show card counts on every action. (Kind-of cheaty, needless to say.)</li>
+        <li> --money=x overrides the default amount of money.</li>
+        <li> --hands=x overrides the default number of simulated hands.</li>
+        <li> --sleep=x applies a multiplier to the sleep commands, effectively speeding up (<1) or slowing down (>1) the "animations." Use 0 to disable animations entirely.</li>
+    </ul>
+
+    <h2>Other Options -- Modify Assignment10.h and Recompile</h2>
+    <ul>
+        <li>CARDS_TOTAL is the number of total cards simulated. By default, only one deck (52) is used, but you can go as high as you want.</li>
+        <li>DEALER_LIMIT defines where the dealer stops. Consider changing from 17 to 16.</li>
+        <li>MULT_* defines the bonuses from doubling, blackjack, and surrendering.</li>
+    </ul>
+
+    <h2>Sample Run</h2>
+    <pre class="cols3 card">
+        Administrator@WIN-xyz C:\Users\Administrator\Documents\blackjack
+$ blackjack.exe
+You currently have 100000. How much would you like to bet this round (0 to quit)? 1000
+
+
+======Dealer's Hand======
+ ___  ___
+|###||6 ♠|
+ ‾‾‾  ‾‾‾
+
+
+
+========Hand 1:=======
+ ___  ___
+|3 ♠||3 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 6
+
+
+========Hand 2:=======
+ ___  ___
+|5 ♥||Q ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+========Hand 3:=======
+ ___  ___
+|6 ♥||3 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 9
+
+
+========Hand 4:=======
+ ___  ___
+|A ♥||K ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+========Hand 5:=======
+ ___  ___
+|4 ♦||7 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 11
+
+
+========Hand 1:=======
+ ___  ___
+|3 ♠||3 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 6
+
+
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+P - Split
+h
+
+========Hand 1:=======
+ ___  ___  ___
+|3 ♠||3 ♥||A ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 17
+
+
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+s
+
+========Hand 2:=======
+ ___  ___
+|5 ♥||Q ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 3:=======
+ ___  ___
+|6 ♥||3 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 9
+
+
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+h
+
+========Hand 3:=======
+ ___  ___  ___
+|6 ♥||3 ♣||A ♦|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+s
+
+========Hand 4:=======
+ ___  ___
+|A ♥||K ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+========Hand 5:=======
+ ___  ___
+|4 ♦||7 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 11
+
+
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+d
+
+========Hand 5:=======
+ ___  ___  ___
+|4 ♦||7 ♥||K ♠|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+======Dealer's Hand======
+ ___  ___
+|3 ♦||6 ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 9
+
+
+Dealer hits.
+
+======Dealer's Hand======
+ ___  ___  ___
+|3 ♦||6 ♠||J ♥|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+========Hand 1:=======
+ ___  ___  ___
+|3 ♠||3 ♥||A ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 17
+
+
+Hand 1 is a loser.
+1000 was lost.
+
+========Hand 2:=======
+ ___  ___
+|5 ♥||Q ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+Hand 2 is a loser.
+1000 was lost.
+
+========Hand 3:=======
+ ___  ___  ___
+|6 ♥||3 ♣||A ♦|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+Hand 3 is a winner!
+1000 was won.
+
+========Hand 4:=======
+ ___  ___
+|A ♥||K ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+Hand 4 is a winner!
+1500 was won.
+
+========Hand 5:=======
+ ___  ___  ___
+|4 ♦||7 ♥||K ♠|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+Hand 5 is a winner!
+2000 was won.
+
+You currently have 102500. How much would you like to bet this round (0 to quit)? 0
+    </pre>
+
+
+</main></div>
+<footer id="main_footer">
+    <!--Choose Theme: <a href="#" onclick="setTheme(1)">Light</a> | <a href="#" onclick="setTheme(2)">Dark</a><br />-->
+    Copyright &copy; 2016 Joseph T. Parsons
+</footer>
+</body>
+</html>

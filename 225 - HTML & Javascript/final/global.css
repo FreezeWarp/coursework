@@ -1,0 +1,348 @@
+/***** Globals ******/
+@charset "UTF-8";
+* {
+    box-sizing: border-box; /* Not really needed here, but makes the JS pageload animation a lot easier. If not supported, that will just be slightly unaligned. */
+}
+html, body {
+    height: 100%; /* Makes the footer always appear at the bottom of the page, which is nice. */
+}
+body {
+    padding: 0px; /* Get rid of the annoying default spacing on the body. */
+    margin: 0px;
+}
+
+
+
+/***** Element Overrides *****/
+img {
+    max-width: 100%; /* Images shouldn't cause overflows. */
+}
+
+input[type=text], input[type=email], input[type=tel], textarea {
+    width: 100%;
+}
+
+iframe {
+    width: 100%;
+    border: 0px;
+}
+
+h1 {
+    text-align: center;
+}
+
+pre {
+    font-size: .8em;
+    font-family: "Ubuntu Mono", Monaco, "Lucida Console", monospace;
+    border-radius: .5em;
+    padding: 20px;
+    white-space: pre-wrap;
+}
+
+
+
+/***** Layout Classes *****/
+.clear {
+    clear: both;
+    display: block;
+}
+
+.col12 {
+    width: 50%;
+    float: left;
+    margin-left: -10px;
+    margin-right: 10px;
+}
+.col22 {
+    width: 50%;
+    float: right;
+    margin-right: -10px;
+    margin-left: 10px;
+}
+
+.cols2 {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+.cols3 {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+}
+.cols2 li, .cols3 li {
+    /* No idea how well supported this is. It is in the latest Chrome, anyway. */
+    -webkit-column-break-inside : avoid;
+    -moz-column-break-inside : avoid;
+    column-break-inside : avoid;
+}
+
+
+
+/***** Description Classes *****/
+.highlights, .download {
+    border-radius: .25em;
+    padding: 0px 15px;
+}
+.highlights {
+    float: left;
+    margin-right: 30px;
+}
+.download {
+    margin-left: 30px;
+    float: right;
+}
+
+.gallery {
+    text-align: center;
+}
+.gallery img {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    max-width: 95%;
+}
+
+.paper {
+    line-height: 2em;
+    text-indent: 1in;
+}
+
+iframe.gDocs {
+    height: 1000px; /* An imperfect solution. Eventually, we'll want to have the copy the Google Doc into the HTML itself, instead of using an iframe, but for now, this works best. */
+}
+
+/* Creates a list of elements that are displayed as large blocks.
+ * Exactly how this is implemented should be able to change -- the key is, each <li> should be its own block, in some way. */
+ul.materialList {
+     list-style-type: none;
+     padding: 0px;
+ }
+ul.materialList a, ul.materialList a:link, ul.materialList a:active, ul.materialList a:hover, ul.materialList a:visited {
+    text-decoration: none;
+}
+ul.materialList > li, ul.materialList > a > li {
+    border-radius: .5em;
+    margin: 0px 10px 20px 10px;
+    padding: 10px;
+}
+ul.materialList > a:hover > li {
+    transition: all .3s ease;
+}
+
+ul.breadcrumbs {
+    list-style-type: none;
+}
+ul.breadcrumbs li {
+    display: inline;
+}
+ul.breadcrumbs li:not(:first-child)::before {
+    content: " \BB "
+}
+
+
+
+/***** Header/Main/Footer *****/
+header#main_header {
+    display: block;
+    border-bottom: 3px solid;
+}
+
+#mainHolder {
+}
+
+main {
+    /* Don't want it too close to the left on large monitors. */
+    padding: 20px;
+
+    /* Horizontally long content is impossible to read. */
+    max-width: 980px;
+
+    /* Center */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* For animation */
+    position: relative;
+}
+
+footer#main_footer {
+    display: block;
+    border-top: 2px solid;
+    text-align: center;
+    bottom: 0px;
+    font-weight: bold;
+    padding: 5px 0px;
+    font-family: sans-serif;
+}
+
+
+
+/***** Navigation Menu *****/
+/* (TODO: Browser comparability.) */
+/* First-level navigation bar and items. */
+nav {
+    text-align: center;
+}
+
+ul#primary_nav_bar {
+    font-size: 0px;
+    display: inline-block; /* Allows centring. */
+    list-style-type: none; /* Shouldn't be a list. */
+    font-family: sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+ul#primary_nav_bar > li {
+    font-size: 11pt;
+    display: inline-block; /* Make items stack horizontally instead of vertically. */
+    padding: 15px 40px;
+}
+ul#primary_nav_bar > li#skipToMain {
+    display: none;
+}
+ul#primary_nav_bar a {
+    text-decoration: none;
+}
+
+/* Popup navigation menu. */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+ul#primary_nav_bar > li:hover {
+    transition: background-color .3s ease;
+}
+ul#primary_nav_bar > li > ul {
+    display: none; /* Hidden by default. */
+    list-style-type: none; /* Remove list style. */
+    padding-left: 0px; /* Get rid of awkward padding. */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+ul#primary_nav_bar > li:hover > ul {
+    z-index: 1000; /* Make sure the popup appears over everything. */
+    position: absolute; /* Should go outside of element flow. */
+    margin-top: 15px; /* (same as ul#primary_nav_bar > li: padding-bottom) */
+    margin-left: -40px; /* (same as ul#primary_nav_bar > li: padding-left) */
+    display: block;
+    border: 2px solid;
+    opacity: 1;
+    animation: fadeIn .3s ease;
+    text-align: left;
+}
+
+/* Items in a popup navigation menu. */
+ul#primary_nav_bar > li > ul > a > li:hover { /* Pad each item and add a border as a sepeartor. */
+    transition: background-color .1s ease;
+}
+ul#primary_nav_bar > li > ul > a > li { /* Pad each item and add a border as a sepeartor. */
+    padding: 8px 5px;
+    border-bottom: 1px solid;
+}
+ul#primary_nav_bar > li > ul > a:last-child > li { /* Remove the bottom border on the last item for visual consistency. */
+    border-bottom: none;
+}
+
+
+
+/* Other stuff. */
+#myName {
+    position: relative;
+    top: -.5em;
+    padding: 5px;
+    font-size: 2em;
+    border-radius: .2em;
+}
+
+aside#headshot {
+    float: left;
+    margin-right: 20px;
+    text-align: center;
+}
+aside#headshot #name {
+    display: inline-block;
+}
+
+#dateContainer {
+    font-weight: bold;
+}
+
+.facebookIcon {
+    background: #3b5998 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsklEQVR42q3TPQrCQBCGYbGyS0RIjOAxPISlreJ9vISF1lYewFsIa2NlHdP4m+j6FlMsQ6IuycJTzMJ+7OxPy1pbS+MBAaIfgqqAEAZnJcMDBS4w6JYFxHiibGyxwF7qpCrgCj2Wzg5XMtf3CZgjQiH1zSdggxF6WOOE/N+Al9ur2Pm2cMRYFhi8cfc9gxmGsO4Z+FzjVAXkSL49pEyZYIBU6oN+SDokVjpoO3XY+Geq5QPvIk/5SRu4pgAAAABJRU5ErkJggg==);
+    background-size: cover;
+}
+
+.linkedinIcon {
+    background: #007fb1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAt0lEQVQ4y2P4//8/AyWYYVAZwALEXUC8C4g1yTGAH4h//IeAZHK9YAPE8UDMTa4XeoF4EdQLkUC8DogrgXgKEJ8D4sVALIPLADYgfgn1gjM0PGDgPRJ7ExAz4jLgAVSRIxC3QtkgmwWhXgOBz1A+0QbMg8rrQvk/gViCGAPaoOyFUHkDKP8HPgOeI4VBN5S9HCpvhBQOWA1gBeJVQHwMiA2BOA2IjwNxFVReFSq3B4iFBmdeIAsDAEyPLq1Du8FSAAAAAElFTkSuQmCC);
+    background-size: cover;
+}
+.imageIcon {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+}
+
+
+
+/***** @media overrides *****/
+/* Nice thing is, this general type of layout is already really print and screen reader friendly. We remove some unnecessary colouring for the print layout, show the skip-to-content link on the speech layout, and hide the display settings (which are useless) for speech as well. */
+@media print {
+    /* Obviously you don't need navigation if you're printing. */
+    nav {
+        display: none;
+    }
+
+    /* Otherwise, just set colors to black/white. */
+    body {
+        background-color: #ffffff !important; /* Will be used with header and footer. */
+        color: #000000 !important;
+    }
+
+    .breadcrumbs {
+        display: none;
+    }
+
+    #mainHolder {
+        background-color: #ffffff !important;
+    }
+
+    footer#main_footer {
+        display: none;
+    }
+}
+
+
+/* Look, let's be clear about something: this is a deprecated feature. You are not supposed to use @media braille. It should not be taught. Speech, print, and screen -- these are the only non-deprecated media types. */
+@media speech, braille {
+    ul#primary_nav_bar > li#skipToMain {
+        display: list-item; /* Inline-block not allowed in @braille */
+    }
+    ul#primary_nav_bar > li#displaySettings {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .cols3:not(.fixed) {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+@media screen and (max-width: 560px) {
+    .cols2:not(.fixed) {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+@media screen and (max-width: 440px) {
+    .cols3:not(.fixed) {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}

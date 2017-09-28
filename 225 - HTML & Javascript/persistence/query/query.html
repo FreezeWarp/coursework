@@ -1,0 +1,15 @@
+	<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Storage</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<form action="result.html" method="get" onsubmit="localStorage.setItem('firstName', document.getElementsByName('first')[0].value); localStorage.setItem('lastName', document.getElementsByName('last')[0].value);">
+			<input type="text" name="first" />
+			<input type="text" name="last" />
+			<input type="submit" />
+			
+		</form>
+	</body>
+</html>

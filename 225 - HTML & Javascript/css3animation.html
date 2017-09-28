@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSS3 Animation</title>
+		<meta charset="UTF-8" />
+		<style>
+			.funsies {
+				display: inline-block;
+				background-color: #6f6f6f;
+				color: #ffffff;
+				padding: 1em;
+				margin: 1em;
+			}
+			
+			@keyframes colorAnimation{
+				0%{
+					background-color:green;
+				}
+				100%{
+					background-color:blue;
+				}
+			}
+			
+			@keyframes rotate1 {
+				0% {
+					transform: rotate(0deg);
+					transform-origin: bottom left;
+				}
+				100%{
+					transform: rotate(360deg);
+					transform-origin: bottom left;
+				}
+			}
+			
+			@keyframes rotate2 {
+				0% {
+					transform: rotate(-10deg);
+					transform-origin: top center;
+				}
+				100%{
+					transform: rotate(10deg);
+					transform-origin: top center;
+				}
+			}
+			
+			@keyframes zoomify {
+				0% {
+					transform: scale(.8);
+				}
+				100%{
+					transform: scale(1.5);
+				}
+			}
+			
+			/* This one was difficult. */
+			@keyframes rotateY {
+				0% {
+					transform: rotateY(0deg) skewY(0deg);
+				}
+				25% {
+					transform: rotateY(90deg) skewY(-30deg);
+				}
+				50% {
+					transform: rotateY(180deg) skewY(0deg);
+				}
+				75% {
+					transform: rotateY(270deg) skewY(30deg);
+				}
+				100% {
+					transform: rotateY(360deg) skewY(0deg);
+				}
+			}
+
+			.colorLinear{
+				animation-name: colorAnimation; /*points to the keyframe animation above*/
+				animation-duration: 2s;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				-webkit-animation-timing-function: linear;
+			}
+			
+			.colorEase {
+				animation-name: colorAnimation;
+				animation-duration: 2s;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-timing-function: ease;
+				-webkit-animation-timing-function: ease;
+			}
+			
+			.rotate1, .rotate2 {
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-timing-function: ease-in-out;
+				-webkit-animation-timing-function: ease-in-out;
+			}
+			
+			.rotate1 {
+				animation-duration: 4s;
+				animation-name: rotate1;
+			}
+			
+			.rotate2 {
+				animation-duration: 2s;
+				animation-name: rotate2;
+			}
+			
+			.rotateY {    animation-name: rotateY;
+    animation-duration: 2500ms;
+	animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+			}
+			
+			.zoomify {
+				animation-name: zoomify;
+				animation-duration: 1s;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-timing-function: ease-out;
+				-webkit-animation-timing-function: ease-out;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="funsies">Control</p>
+		<p class="funsies colorLinear">Experiment</p>
+		<p class="funsies colorEase">Experiment</p>
+		<p class="funsies rotate1">Experiment</p>
+		<p class="funsies rotate2">Experiment</p>
+		<p class="funsies zoomify">Experiment</p>
+		<p class="funsies rotateY">Experiment</p>
+		<p class="funsies">Experiment</p>
+		<p class="funsies">Experiment</p>
+		<p class="funsies">Experiment</p>
+	</body>
+</html>

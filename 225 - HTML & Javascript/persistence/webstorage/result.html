@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Storage Submit</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body onload="document.getElementsByName('first')[0].value = localStorage.getItem('firstName'); document.getElementsByName('last')[0].value = localStorage.getItem('lastName');">
+		<form action="result.html">
+			<input type="text" name="first" readonly  />
+			<input type="text" name="last" readonly />
+		</form>
+	</body>
+</html>

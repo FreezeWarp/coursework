@@ -1,0 +1,71 @@
+Please enter an integer (any letter to quit): 
+Total Inputs: 1
+Sum: 10
+Average: 10.000
+Max Value: 10
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 2
+Sum: 30
+Average: 15.000
+Max Value: 20
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 3
+Sum: 60
+Average: 20.000
+Max Value: 30
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 4
+Sum: 100
+Average: 25.000
+Max Value: 40
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 5
+Sum: 150
+Average: 30.000
+Max Value: 50
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 6
+Sum: 210
+Average: 35.000
+Max Value: 60
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 7
+Sum: 280
+Average: 40.000
+Max Value: 70
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 8
+Sum: 360
+Average: 45.000
+Max Value: 80
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 9
+Sum: 450
+Average: 50.000
+Max Value: 90
+Min Value: 10
+
+Please enter an integer (any letter to quit): 
+Total Inputs: 10
+Sum: 550
+Average: 55.000
+Max Value: 100
+Min Value: 10
+
+Please enter an integer (any letter to quit): 

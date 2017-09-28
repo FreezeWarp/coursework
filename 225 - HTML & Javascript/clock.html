@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Clock</title>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<div id="dateContainer"></div>
+		<span id="countdownContainer"></span> hours until xmas.
+		
+		<script type="text/javascript">
+		function refreshClock() {
+			document.getElementById('dateContainer').innerHTML = Date().toString();
+			
+			var now = new Date();
+			var pastChristmas = now.getMonth() == 12 && now.getDate() > 25;
+			var christmas = new Date();
+			christmas.setDate(25);
+			christmas.setMonth(11);
+			christmas.setFullYear(pastChristmas ? now.getFullYear() + 1 : now.getFullYear());
+			document.getElementById('countdownContainer').innerHTML = Math.floor(((christmas - now) / 1000) / 3600).toLocaleString(); // Stupid language doesn't even have integer division...
+		}
+		refreshClock();
+		setInterval(refreshClock, 1000);
+		</script>
+	</body>
+</html>

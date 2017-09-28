@@ -1,0 +1,694 @@
+﻿Active code page: 65001
+You currently have 1469200. How much would you like to bet this round (0 to quit)? 10000
+
+
+======Dealer's Hand======
+ ___  ___
+|###||2 ♠|
+ ‾‾‾  ‾‾‾
+
+
+
+========Hand 1:=======
+ ___  ___
+|A ♦||A ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 12
+
+
+========Hand 2:=======
+ ___  ___
+|10♦||6 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+========Hand 3:=======
+ ___  ___
+|9 ♥||J ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+========Hand 4:=======
+ ___  ___
+|9 ♠||2 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 11
+
+
+========Hand 5:=======
+ ___  ___
+|8 ♠||7 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+========Hand 1:=======
+ ___  ___
+|A ♦||A ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 12
+
+
+2//2  3//4  4//4  5//4  6//3  7//2  8//3  9//2  10//14  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+P - Split
+p
+
+========Hand 1:=======
+ ___  ___
+|A ♦||9 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+2//2  3//4  4//3  5//4  6//3  7//2  8//3  9//1  10//14  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 2:=======
+ ___  ___
+|10♦||6 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+2//2  3//4  4//3  5//4  6//3  7//2  8//3  9//1  10//14  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 3:=======
+ ___  ___
+|9 ♥||J ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+2//2  3//4  4//3  5//4  6//3  7//2  8//3  9//1  10//14  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 4:=======
+ ___  ___
+|9 ♠||2 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 11
+
+
+2//2  3//4  4//3  5//4  6//3  7//2  8//3  9//1  10//14  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+d
+
+========Hand 4:=======
+ ___  ___  ___
+|9 ♠||2 ♦||J ♦|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+========Hand 5:=======
+ ___  ___
+|8 ♠||7 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+2//2  3//4  4//3  5//4  6//3  7//2  8//3  9//1  10//13  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 6:=======
+ ___  ___
+|A ♣||4 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+2//2  3//4  4//3  5//4  6//3  7//2  8//3  9//1  10//13  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+h
+
+========Hand 6:=======
+ ___  ___  ___
+|A ♣||4 ♦||4 ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+2//2  3//4  4//2  5//4  6//3  7//2  8//3  9//1  10//13  11//2
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+s
+
+======Dealer's Hand======
+ ___  ___
+|7 ♦||2 ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 9
+
+
+Dealer hits.
+
+======Dealer's Hand======
+ ___  ___  ___
+|7 ♦||2 ♠||9 ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 18
+
+
+========Hand 1:=======
+ ___  ___
+|A ♦||9 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+Hand 1 is a winner!
+10000 was won.
+
+========Hand 2:=======
+ ___  ___
+|10♦||6 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+Hand 2 is a loser.
+10000 was lost.
+
+========Hand 3:=======
+ ___  ___
+|9 ♥||J ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+Hand 3 is a winner!
+10000 was won.
+
+========Hand 4:=======
+ ___  ___  ___
+|9 ♠||2 ♦||J ♦|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+Hand 4 is a winner!
+20000 was won.
+
+========Hand 5:=======
+ ___  ___
+|8 ♠||7 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+Hand 5 is a loser.
+10000 was lost.
+
+========Hand 6:=======
+ ___  ___  ___
+|A ♣||4 ♦||4 ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+Hand 6 is a winner!
+10000 was won.
+
+You currently have 1499200. How much would you like to bet this round (0 to quit)? 10000
+
+
+======Dealer's Hand======
+ ___  ___
+|###||3 ♦|
+ ‾‾‾  ‾‾‾
+
+
+
+========Hand 1:=======
+ ___  ___
+|A ♠||10♣|
+ ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+========Hand 2:=======
+ ___  ___
+|5 ♣||K ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+========Hand 3:=======
+ ___  ___
+|2 ♥||4 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 6
+
+
+========Hand 4:=======
+ ___  ___
+|10♠||6 ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+========Hand 5:=======
+ ___  ___
+|Q ♦||5 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+========Hand 1:=======
+ ___  ___
+|A ♠||10♣|
+ ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+========Hand 2:=======
+ ___  ___
+|5 ♣||K ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+2//1  3//3  4//1  5//2  6//1  7//2  8//3  9//0  10//9  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 3:=======
+ ___  ___
+|2 ♥||4 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 6
+
+
+2//1  3//3  4//1  5//2  6//1  7//2  8//3  9//0  10//9  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+h
+
+========Hand 3:=======
+ ___  ___  ___
+|2 ♥||4 ♥||Q ♠|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+2//1  3//3  4//1  5//2  6//1  7//2  8//3  9//0  10//8  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+s
+
+========Hand 4:=======
+ ___  ___
+|10♠||6 ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+2//1  3//3  4//1  5//2  6//1  7//2  8//3  9//0  10//8  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 5:=======
+ ___  ___
+|Q ♦||5 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+2//1  3//3  4//1  5//2  6//1  7//2  8//3  9//0  10//8  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+======Dealer's Hand======
+ ___  ___
+|6 ♣||3 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 9
+
+
+Dealer hits.
+
+======Dealer's Hand======
+ ___  ___  ___
+|6 ♣||3 ♦||K ♥|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+========Hand 1:=======
+ ___  ___
+|A ♠||10♣|
+ ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+Hand 1 is a winner!
+15000 was won.
+
+========Hand 2:=======
+ ___  ___
+|5 ♣||K ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+Hand 2 is a loser.
+10000 was lost.
+
+========Hand 3:=======
+ ___  ___  ___
+|2 ♥||4 ♥||Q ♠|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+Hand 3 is a loser.
+10000 was lost.
+
+========Hand 4:=======
+ ___  ___
+|10♠||6 ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 16
+
+
+Hand 4 is a loser.
+10000 was lost.
+
+========Hand 5:=======
+ ___  ___
+|Q ♦||5 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+Hand 5 is a loser.
+10000 was lost.
+
+You currently have 1474200. How much would you like to bet this round (0 to quit)? 100000
+
+
+======Dealer's Hand======
+ ___  ___
+|###||2 ♣|
+ ‾‾‾  ‾‾‾
+
+
+
+========Hand 1:=======
+ ___  ___
+|K ♣||Q ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+========Hand 2:=======
+ ___  ___
+|K ♦||5 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+========Hand 3:=======
+ ___  ___
+|J ♣||J ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+========Hand 4:=======
+ ___  ___
+|3 ♥||3 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 6
+
+
+========Hand 5:=======
+ ___  ___
+|5 ♠||10♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+========Hand 1:=======
+ ___  ___
+|K ♣||Q ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+2//0  3//0  4//1  5//0  6//1  7//2  8//3  9//0  10//1  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+P - Split
+s
+
+========Hand 2:=======
+ ___  ___
+|K ♦||5 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+2//0  3//0  4//1  5//0  6//1  7//2  8//3  9//0  10//1  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 3:=======
+ ___  ___
+|J ♣||J ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+2//0  3//0  4//1  5//0  6//1  7//2  8//3  9//0  10//1  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+P - Split
+s
+
+========Hand 4:=======
+ ___  ___
+|3 ♥||3 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 6
+
+
+2//0  3//0  4//1  5//0  6//1  7//2  8//3  9//0  10//1  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+P - Split
+p
+
+========Hand 4:=======
+ ___  ___
+|3 ♥||8 ♦|
+ ‾‾‾  ‾‾‾
+Total Value: 11
+
+
+2//0  3//0  4//1  5//0  6//1  7//1  8//2  9//0  10//1  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+d
+
+========Hand 4:=======
+ ___  ___  ___
+|3 ♥||8 ♦||8 ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+========Hand 5:=======
+ ___  ___
+|5 ♠||10♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+2//0  3//0  4//1  5//0  6//1  7//1  8//1  9//0  10//1  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+s
+
+========Hand 6:=======
+ ___  ___
+|3 ♣||7 ♠|
+ ‾‾‾  ‾‾‾
+Total Value: 10
+
+
+2//0  3//0  4//1  5//0  6//1  7//1  8//1  9//0  10//1  11//1
+Choose an action:
+H - Hit
+S - Stay
+D - Double
+U - Surrender
+d
+
+========Hand 6:=======
+ ___  ___  ___
+|3 ♣||7 ♠||A ♥|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+======Dealer's Hand======
+ ___  ___
+|3 ♠||2 ♣|
+ ‾‾‾  ‾‾‾
+Total Value: 5
+
+
+Dealer hits.
+
+======Dealer's Hand======
+ ___  ___  ___
+|3 ♠||2 ♣||7 ♥|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 12
+
+
+Dealer hits.
+
+======Dealer's Hand======
+ ___  ___  ___  ___
+|3 ♠||2 ♣||7 ♥||Q ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 22
+
+
+========Hand 1:=======
+ ___  ___
+|K ♣||Q ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+Dealer busts, Hand 1 is a winner.
+100000 was won.
+
+========Hand 2:=======
+ ___  ___
+|K ♦||5 ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+Dealer busts, Hand 2 is a winner.
+100000 was won.
+
+========Hand 3:=======
+ ___  ___
+|J ♣||J ♥|
+ ‾‾‾  ‾‾‾
+Total Value: 20
+
+
+Dealer busts, Hand 3 is a winner.
+100000 was won.
+
+========Hand 4:=======
+ ___  ___  ___
+|3 ♥||8 ♦||8 ♣|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 19
+
+
+Dealer busts, Hand 4 is a winner.
+200000 was won.
+
+========Hand 5:=======
+ ___  ___
+|5 ♠||10♥|
+ ‾‾‾  ‾‾‾
+Total Value: 15
+
+
+Dealer busts, Hand 5 is a winner.
+100000 was won.
+
+========Hand 6:=======
+ ___  ___  ___
+|3 ♣||7 ♠||A ♥|
+ ‾‾‾  ‾‾‾  ‾‾‾
+Total Value: 21
+
+
+Dealer busts, Hand 6 is a winner.
+200000 was won.
+
+You currently have 2274200. How much would you like to bet this round (0 to quit)?

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Storage Submit</title>
+		<meta charset="UTF-8" />
+		<script type="text/javascript">
+		var urlParts = window.location.search.substring(1).split('&'); // Get everything after first ? and split by &
+		var urlPartsParsed = {};
+		urlParts.forEach(function (urlPart) {
+		  urlPartsParsed[urlPart.split('=')[0]] = decodeURIComponent(urlPart.split('=')[1]).replace(/\+/g, ' ');
+		});
+		window.onload = function() {
+			document.getElementsByName('first')[0].setAttribute('value', urlPartsParsed['first']);
+			document.getElementsByName('last')[0].setAttribute('value', urlPartsParsed['last']);
+		};
+		</script>
+	</head>
+	<body">
+		<form action="result.html">
+			<input type="text" name="first" readonly  />
+			<input type="text" name="last" readonly />
+		</form>
+	</body>
+</html>
