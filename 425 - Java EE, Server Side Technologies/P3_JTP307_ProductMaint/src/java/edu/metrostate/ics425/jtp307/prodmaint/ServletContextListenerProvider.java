@@ -8,10 +8,6 @@ import javax.servlet.ServletContextListener;
 /**
  * A basic servlet context listener, which ensures that the catalogue singleton is
  * initialized once the Java EE server starts.
- * 
- * For the record, I have no real understanding of how this works. But I do believe it
- * ensures that the singleton will be available to all Servlets for the duration
- * of this package's existence.
  *
  * @author Joseph T. Parsons
  */

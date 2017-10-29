@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.metrostate.ics425.jtp307.prodmaint.servlets;
 
 import edu.metrostate.ics425.jtp307.prodmaint.model.ProductBean;
@@ -23,6 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  * This servlet does two things:
  * - First, it forwards a product's information to a JSP if the JSP sent a product code.
  * - Second, it updates, creates, or deletes a product on form submission.
+ * 
+ * You could argue this is a bit large, but I think this is best, since we only have
+ * to validate information once.
  * 
  * @author Joseph T. Parsons
  */
@@ -88,9 +86,6 @@ public class ChangeProductServlet extends HttpServlet {
         /* Make sure a valid action was specified. */
         if (!(action.equals("edit") || action.equals("add") || action.equals("delete"))) {
             errMsgs.add("An unsupported action '" + action + "' was encountered.");
-            
-            // Tell the JSP to disable the form button.
-            request.setAttribute("disableForm", true);
         }
         
         
@@ -99,9 +94,6 @@ public class ChangeProductServlet extends HttpServlet {
                 || action.equals("delete")
             ) && !catalogue.exists(codeStr)) { // should exist when editing, deleting
             errMsgs.add("No product with that code exists to be edited/deleted.");
-                
-            // Tell the JSP to disable the form button.
-            request.setAttribute("disableForm", true);
         }
         else if (action.equals("add")
             && catalogue.exists(codeStr)) { // should not exist when adding
@@ -159,6 +151,9 @@ public class ChangeProductServlet extends HttpServlet {
                 if (releaseDateStr.length() > 0) {
                     product.setReleaseDate(LocalDate.parse(releaseDateStr));
                 }
+                else {
+                    product.setReleaseDate(null);
+                }
             }
             
             
@@ -166,18 +161,17 @@ public class ChangeProductServlet extends HttpServlet {
             switch (action) {
                 case "add":
                     ProductCatalog.getInstance().insertProduct(product);
+                    request.getSession().setAttribute("catalogueNotification", "You have successfully added product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
                     break;
 
                 case "edit":
-                    // Sending errors like this both causes less user confusion (as it doesn't cause the entire page to look different) and is easier/simpler than a dedicated "under construction" page.
-                    errMsgs.add("Editing products is still under construction, and cannot be completed at this time.");
-                    //catalogue.updateProduct(product);
+                    catalogue.updateProduct(product);
+                    request.getSession().setAttribute("catalogueNotification", "You have successfully editted product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
                     break;
 
                 case "delete":
-                    // Sending errors like this both causes less user confusion (as it doesn't cause the entire page to look different) and is easier/simpler than a dedicated "under construction" page.
-                    errMsgs.add("Deleting products is still under construction, and cannot be completed at this time.");
-                    //catalogue.deleteProduct(product);
+                    catalogue.deleteProduct(product);
+                    request.getSession().setAttribute("catalogueNotification", "You have successfully deleted product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
                     break;
 
                 default:
@@ -207,7 +201,7 @@ public class ChangeProductServlet extends HttpServlet {
         /* If a form was submitted and no errors were encountered processing it,
          * redirect to the main catalog, instead of the product page. */
         if (formSubmitted && errMsgs.size() == 0) {
-            response.sendRedirect("./catalog");
+            response.sendRedirect("./catalog?previousAction=" + action);
         }
         else {
             request.getRequestDispatcher("/ChangeProduct.jsp").forward(request, response);

@@ -9,15 +9,6 @@ body {
     zoom: 1.5;
 }
 
-table {
-    border-collapse: collapse;
-}
-
-table th {
-    background-color: #bfbfff;
-    font-weight: bold;
-}
-
 input[readonly] {
     background-color: #cfcfcf;
 }
