@@ -47,5 +47,29 @@
                 </c:forEach>
             </div>
         </c:if>
+            
+        <!--
+        <c:choose>
+            <c:when test="${param.n.matches('[0-9]+')}">
+                <c:if test="${param.n > 0}">
+                    <hr />
+
+                    Fizz Buzz: n = <c:out value="${param.n}" />
+                    <div class="fizBuzzResultContainer">
+                        <c:forEach var="i" begin="1" end="${param.n}" >
+                            <div class="fizzBuzzResult">
+                                <c:if test="${i % 3 == 0}">Fizz</c:if>
+                                <c:if test="${i % 5 == 0}">Buzz</c:if>
+                                <c:if test="${i % 3 != 0 && i % 5 != 0}">${i}</c:if>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </c:if>
+            </c:when>
+            <c:otherwise>
+                Make sure to enter an integer.
+            </c:otherwise>
+        </c:choose>
+        -->
     </body>
 </html>

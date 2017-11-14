@@ -1,14 +1,12 @@
 package edu.metrostate.ics425.jtp307.prodmaint.servlets;
 
+import edu.metrostate.ics425.jtp307.prodmaint.db.ProductCatalog;
+import edu.metrostate.ics425.jtp307.prodmaint.model.Product;
 import edu.metrostate.ics425.jtp307.prodmaint.model.ProductBean;
-import edu.metrostate.ics425.prodmaint.data.ProductCatalog;
-import edu.metrostate.ics425.prodmaint.model.Product;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.LinkedList;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -130,7 +128,7 @@ public class ChangeProductServlet extends HttpServlet {
 
         /* If the servlet is supposed to alter the catalogue...
          * (because it has an action and a form was submitted) */
-        if (formSubmitted && errMsgs.size() == 0) {
+        if (formSubmitted && errMsgs.isEmpty()) {
             
             /* Get the Product Bean */
             Product product = null;
@@ -152,14 +150,6 @@ public class ChangeProductServlet extends HttpServlet {
                     product.setReleaseDate(LocalDate.parse(releaseDateStr));
                 }
                 else {
-                    /*
-                     * In testing, this causes problems with the default, instructor-created
-                     * products, but none others. I believe that this is a bug in the
-                     * ProdMaint library.
-                    
-                     * (Specially, a null pointer exception occurs when trying to enumerate
-                     * the catalogue after setting one of those's release date's to null.)
-                     */
                     product.setReleaseDate(null);
                 }
             }
@@ -168,18 +158,30 @@ public class ChangeProductServlet extends HttpServlet {
             /* Manipulate the Catalog */
             switch (action) {
                 case "add":
-                    ProductCatalog.getInstance().insertProduct(product);
-                    request.getSession().setAttribute("catalogueNotification", "You have successfully added product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
+                    if (ProductCatalog.getInstance().insertProduct(product)) {
+                        request.getSession().setAttribute("catalogueNotification", "You have successfully added product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
+                    }
+                    else {
+                        errMsgs.add("An unknown error occured trying to add your product.");
+                    }
                     break;
 
                 case "edit":
-                    catalogue.updateProduct(product);
-                    request.getSession().setAttribute("catalogueNotification", "You have successfully editted product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
+                    if (catalogue.updateProduct(product)) {
+                        request.getSession().setAttribute("catalogueNotification", "You have successfully editted product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
+                    }
+                    else {
+                        errMsgs.add("An unknown error occured trying to edit your product.");
+                    }
                     break;
 
                 case "delete":
-                    catalogue.deleteProduct(product);
-                    request.getSession().setAttribute("catalogueNotification", "You have successfully deleted product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
+                    if (catalogue.deleteProduct(product)) {
+                        request.getSession().setAttribute("catalogueNotification", "You have successfully deleted product #" + product.getCode() + ", \"" + product.getDescription() + "\"");
+                    }
+                    else {
+                        errMsgs.add("An unknown error occured trying to add your product.");
+                    }
                     break;
 
                 default:
