@@ -1,16 +1,13 @@
-package edu.metrostate.ics425.jtp307.prodmaint;
+package edu.metrostate.ics425.jtp307.reversi;
 
-import edu.metrostate.ics425.jtp307.prodmaint.model.Reversi;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import edu.metrostate.ics425.jtp307.reversi.model.Reversi;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 /**
- * A basic servlet context listener, which ensures that the catalogue singleton is
- * initialized once the Java EE server starts.
+ * A basic session context listener, which ensures that a reversi instance is
+ * always in the session.
  *
  * @author Joseph T. Parsons
  */

@@ -1,19 +1,19 @@
-package edu.metrostate.ics425.jtp307.prodmaint.servlets;
+package edu.metrostate.ics425.jtp307.reversi.servlets;
 
-import edu.metrostate.ics425.jtp307.prodmaint.model.Reversi;
+import edu.metrostate.ics425.jtp307.reversi.model.Reversi;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * A servlet that fetches the entire catalogue and returns it to the JSP for display.
+ * Processes "give up" requests, which end the game early by invoking {@link Reversi#giveUp()}.
+ * Because of the simplicity of all Reversi actions, this uses sessions and redirects instead of responses and control forwarding. (As such, there is only one view; the different servlets operate on the model, and then redirect back to that one view.)
  * 
  * @author Joseph T. Parsons
  */
-public class ReversiServlet extends HttpServlet {
+public class GiveUpServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,10 +27,16 @@ public class ReversiServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //**** SEND RESPONSE TO JSP ****//
-        /* Send our response to the JSP. */
-        request.getRequestDispatcher("/Reversi.jsp").forward(request, response);
+        //**** DEFINE RESOURCES ****//
+        Reversi reversiInstance = (Reversi) request.getSession().getAttribute("reversiInstance");        
+
         
+        //**** Invoke the give up method to end the game. ****//
+        reversiInstance.giveUp();
+        
+        
+        //**** REDIRECT BACK TO BOARD ****//
+        response.sendRedirect("../Reversi");
 
     }
 
@@ -70,7 +76,7 @@ public class ReversiServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "This gets the list of current Products in the catalogue, and returns that list to the catalog JSP.";
+        return "Short description";
     }// </editor-fold>
 
 }

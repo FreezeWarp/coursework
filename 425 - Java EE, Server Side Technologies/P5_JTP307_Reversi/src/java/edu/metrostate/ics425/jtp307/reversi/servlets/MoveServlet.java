@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.metrostate.ics425.jtp307.prodmaint.servlets;
+package edu.metrostate.ics425.jtp307.reversi.servlets;
 
-import edu.metrostate.ics425.jtp307.prodmaint.model.Reversi;
+import edu.metrostate.ics425.jtp307.reversi.model.Reversi;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.LinkedList;
 import javax.servlet.ServletException;
@@ -16,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Processes a request to place a {@link Piece} on the {@link Reversi} board by the current player.
+ * Because of the simplicity of all Reversi actions, this uses sessions and redirects instead of responses and control forwarding. (As such, there is only one view; the different servlets operate on the model, and then redirect back to that one view.)
+ * 
  * @author joseph
  */
 public class MoveServlet extends HttpServlet {
@@ -34,8 +30,12 @@ public class MoveServlet extends HttpServlet {
             throws ServletException, IOException {
         
         
+        //**** DEFINE RESOURCES ****//
+        
         Reversi reversiInstance = (Reversi) request.getSession().getAttribute("reversiInstance");
         Collection<String> errMsgs = new LinkedList<>();
+        
+        
         
         //**** RETRIEVE FORM DATA ****//
         
@@ -49,14 +49,17 @@ public class MoveServlet extends HttpServlet {
                 ? request.getParameter("yPos").trim()
                 : "";
         
+
         
-        //**** PARSE FORM DATA ****/
+        //**** PARSE FORM DATA ****//
+
         int xPos = 0;
         try {
             xPos = Integer.parseInt(xPosString);
         } catch (NumberFormatException ex) {
             errMsgs.add("Invalid x position.");
         }
+        
         
         int yPos = 0;
         try {
@@ -65,14 +68,23 @@ public class MoveServlet extends HttpServlet {
             errMsgs.add("Invalid y position.");
         }
         
+        
+        
+        //**** SET PIECE ****//
+    
         if (errMsgs.isEmpty()) {
             if (!reversiInstance.setPiece(xPos, yPos)) {
                 errMsgs.add("That move is not legal.");
             }
         }
         
-        request.setAttribute("errMsgs", errMsgs);
-        request.getRequestDispatcher("/Reversi.jsp").forward(request, response);
+
+        
+        //**** REDIRECT BACK TO BOARD ****//
+        System.out.println(reversiInstance);
+        request.getSession().setAttribute("errMsgs", errMsgs);
+        response.sendRedirect("../Reversi");
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

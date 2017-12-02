@@ -1,19 +1,13 @@
-/*
- Copyright © 2015 Ralph A. Foy. All Rights Reserved.
- No part of this document may be reproduced without 
-    written consent from the author.
-*/
-
-body {
-    background-color: white;
-    zoom: 1.5;
+.reversiBoard .pieces td {
+    padding: 0;
 }
 
 .blankPiece, .whitePiece, .blackPiece {
     width: 2em;
     height: 2em;
+    margin: 2em;
     border-radius: 2em;
-    margin: 0 auto;
+    margin: .5em;
 }
 
 .whitePiece {
@@ -24,4 +18,12 @@ body {
 .blackPiece {
     border: 3px solid white;
     background-color: black;
+}
+
+.hint {
+    opacity: 0;
+}
+
+.hintDisplay {
+    opacity: .5;
 }
