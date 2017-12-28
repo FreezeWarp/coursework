@@ -1,7 +1,7 @@
 C Blackjack
 ===========
 
-This is a fairly simple, albeit still substantial, C programme that simulates basic blackjack in the console, but does so with a bang: timing events are used to make the game feel more natural (one hand will appear, a delay of a few seconds, and the next hand will appear), and unicode is used to the greatest extent possible to try and make the game seem slightly more believable. You can play multiple hands, your earnings will persist overtime if you use the -r flag, and if you feel like training a bit, you can use -c to count cards. Notably, this game uses one or more fixed decks: when a card is dealt, it is removed from the deck, and when a deck runs out of cards, the whole deck is reshuffled. This means that you could easily use this program as a card-counting trainer, as it simulates a real deck (or decks!) as completely.
+This is a fairly simple, albeit still substantial, C programme that simulates basic blackjack in the console, but does so with a bang: timing events are used to make the game feel more natural (one hand will appear, a delay of a few seconds, and the next hand will appear), and unicode is used to the greatest extent possible to try and make the game seem slightly more believable. You can play multiple hands, your earnings will persist overtime if you use the `-r` flag, and if you feel like training a bit, you can use `-c` to count cards. Notably, this game uses one or more fixed decks: when a card is dealt, it is removed from the deck, and when a deck runs out of cards, the whole deck is reshuffled. This means that you could easily use this program as a card-counting trainer, as it simulates a real deck (or decks!) as completely.
 
 Command Flags
 -------------
