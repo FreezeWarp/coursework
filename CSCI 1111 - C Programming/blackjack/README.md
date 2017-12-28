@@ -14,6 +14,6 @@ Command Flags
 
 Other Options -- Modify Assignment10.h and Recompile
 ----------------------------------------------------
-`CARDS_TOTAL` is the number of total cards simulated. By default, only one deck (52) is used, but you can go as high as you want.
-`DEALER_LIMIT` defines where the dealer stops. Consider changing from 17 to 16.
-`MULT_*` defines the bonuses from doubling, blackjack, and surrendering.
+-  `CARDS_TOTAL` is the number of total cards simulated. By default, only one deck (52) is used, but you can go as high as you want.
+-  `DEALER_LIMIT` defines where the dealer stops. Consider changing from 17 to 16.
+-  `MULT_*` defines the bonuses from doubling, blackjack, and surrendering.
